@@ -4,10 +4,16 @@ body
     width: 80%;
     margin: auto;
     text-align: center;
-    font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    /*Optima, Gill Sans*/
+    font-family: "Noto Sans";
     background-color: rgb(13, 13, 13);
     color: rgb(240, 240, 240);
+}
+
+h1 {
+    font-family: "Zain";
+    font-size: 60px;
+    margin-bottom: -20px;
+    margin-top: 10px;
 }
 
 
@@ -54,6 +60,12 @@ body
     gap: 100px 50px;
     padding: 180px 30px 30px;
 }
+
+.image-item-bg {
+    margin-top: 15px;
+    background-color: rgb(30, 30, 30);
+    padding-bottom: 20px;
+}
   
 .image-item img {
     width: 100%;
@@ -66,7 +78,8 @@ body
     text-align: center;
     font-weight: bold;
     margin-top: 10px;
-    font-size: 24px;
+    margin-bottom: -5px;
+    font-size: 36px;
     color: #d0d0d0;
 }
 
@@ -75,8 +88,8 @@ body
     margin: 5px 0 0;
     font-size: 18px;
     margin-top: 5px;
-    font-style: italic;
     color: #bfbfbf;
+    padding: 0px 10px;
 }
 
 
@@ -84,9 +97,14 @@ body
 
 .game-page
 {
-    padding: 130px 0px 0px;
+    padding: 150px 0px 0px;
     text-align: left;
     font-size: 20px;
+}
+
+.game-page h1 {
+    white-space: nowrap;
+    overflow: visible;
 }
 
 .cover-gif
@@ -98,12 +116,12 @@ body
 }
 
 #text-content {
-    overflow: hidden;
     padding-left: 15px;
 }
 
 .project-info
 {
+    overflow: hidden;
     background-color: rgb(30, 30, 30);
     margin-bottom: 30px;
     padding: 10px 15px 20px;
@@ -118,10 +136,15 @@ body
     clear: both;
 }
 
-.secondary-images img
-{
+.secondary-images img {
     width: 400px;
     height: 250px;
+}
+
+hr {
+    height: 5px;
+    border: none;
+    background-color: white;
 }
 
 
