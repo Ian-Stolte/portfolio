@@ -47,9 +47,18 @@
 
             <div class="desc">
                 <h2>Networked multiplayer</h2>
-                <p>Stranded was a semester-long project for an advanced computer science class, with the help of 2 classmates.
-                    I developed the original idea & pitched it, wrote most of the code (including networked multiplayer), and scored the game (see video below).
-                    The class was structured to simulate an industry environment, allowing me to gain invaluable experience with planning, presenting progress, and iterating on a project over a longer period of time.</p>
+                <p>Stranded was a semester-long project for an advanced computer science class, which gave us the time to shoot for a few <b>ambitious features</b>. I designed and pitched the original idea,
+                    and two of the reasons I believe it was selected were the cohesive vision and the innovative use of <b>multiplayer collaboration</b>. In the game, players simultaneously control different stations on the <b>same
+                    spaceship</b>, and rapdily swap between them to keep all the systems running. For example, one player might detemine how fast the spaceship's engines thrust while the other player controls its steering, then that same player
+                    might swap to the shield station to block an incoming asteroid. Implementing this multiplayer functionality, however, proved to be a much more intensive task than simply describing it.
+                </p>
+                <p>I used Unity's Netcode framework to designate one player as the server and enable <b>client connection</b> from other players on the same network. In order to synchronize the game state, I wrote a number of functions to <b>track
+                    the state of the ship</b> and pass it across the network, including the dynamic physics of the Steering and Thrusters stations. However, this was made more complex by the fact that, unlike a traditional multiplayer game, both <b>players share
+                    the same character</b>. To solve this problem, I wrote custom logic to shift control of position and rotation reporting between the host and client as players moved between different stations, efficiently allowing the game to stay in sync
+                    after any configuration of player actions.
+                </p>
+                <!--p>In addition to the technical expertise I gained from this project, especially with networked multiplayer systems, I also practiced </p-->
+                <!--p>The class was structured to simulate an industry environment, allowing me to gain invaluable experience with planning, presenting progress, and iterating on a project over a longer period of time.</p-->
                 <br>
                 <br>
             </div>
