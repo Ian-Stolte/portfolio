@@ -28,7 +28,7 @@
             <a href="./" style="text-decoration: none;">< Go Back</a>
             <div style="clear: both;"></div>
 
-            <img src="/static/images/Stranded.gif" alt="Stranded" class="cover-gif">
+            <img src="/static/images/Pulsefire.gif" alt="Stranded" class="cover-gif">
             <div id="text-content">
                 <h1>Fishing Game (2025)</h1>
                 <p>A combination visual novel, farming sim, and resource-management strategy game. Fish, trade, cook,
@@ -45,10 +45,25 @@
 
             <br>
             <div class="desc">
-                <h2>"Walking and talking"</h2>
-                <p>Stranded was a semester-long project for an advanced computer science class, with the help of 2 classmates.
-                    I developed the original idea & pitched it, wrote most of the code (including networked multiplayer), and scored the game (see video below).
-                    The class was structured to simulate an industry environment, allowing me to gain invaluable experience with planning, presenting progress, and iterating on a project over a longer period of time.</p>
+                <h2>Downloading dialogue</h2>
+                <p>Because this game is <b>narrative centric</b>, I made it a priority to create a high-quality system for storing and processing the various events, skill checks,
+                    and branching paths that you can experience. I drew upon my experience on Mantle, where we developed a pipeline to download text from <b>Google Sheets</b>,
+                    process it into <b>JSON files</b>, and convert those files into <b>narrative objects</b> on runtime. This system was perfect for <i>Fishing Game</i>, as it allows for a clear
+                    visual layout and easy editing of the narrative files across multiple devices, while removing any latency or reliance on network connection by downloading these
+                    files ahead of time. For this project, I wrote a <b>new version</b> of the pipeline we used for <i>Mantle</i> and <b>expanded</b> on the original system to include the large number of
+                    effects that are embedded in the game's narrative: branching choices, skill checks, changes to your stats, and dynamically enabled characters and locations.
+                </p>
+                <div style="display: flex; gap: 30px;">
+                    <img src="/static/images/Fishing Sheets.png" alt="Google Sheets Layout">
+                    <video autoplay loop muted playsinline style="width: 30%;">
+                        <source src="/static/images/Fishing Dialogue Tool.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <p>
+                    By creating this system, I learned how to develop <b>custom in-editor tools</b> for Unity, work with Google App Scripts to download from Google Sheets, and process JSON files with Newtonsoft.
+                    I also created a custom class to store the downloaded events and an algorithm to decide which event to show to the player, depending on location, time of day, priority, and the prerequisites they've obtained.
+                    These systems have allowed me to seamlessly edit my events whether I'm <b>at home</b> on my laptop or <b>using my phone</b> on the go, and have made <b>introducing new features</b> extremely easy, creating a deeply complex narrative system with a solid technical underpinning.
+                </p>
                 <br>
                 <br>
             </div>
