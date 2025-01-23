@@ -149,6 +149,15 @@ h1 {
     margin-bottom: 10px;
 }
 
+.itch-button {
+    width: 200px;
+    margin: 60px auto;
+    text-align: center;
+    background-color: rgb(40, 40, 40);
+    padding: 20px;
+    border-radius: 10px;
+}
+
 
 
 /*MISC*/
