@@ -34,7 +34,9 @@
             <a href="./" style="text-decoration: none;">< Go Back</a>
             <div style="clear: both;"></div>
 
-            <img src="/static/images/Pulsefire.gif" alt="Pulsefire" class="cover-gif" style="margin-top: 10px;">
+            <video autoplay loop muted playsinline class="cover-gif">
+                <source src="/static/images/Pulsefire.mp4" type="video/mp4">
+            </video>
             <div id="text-content">
                 <h1>Pulsefire (2024)</h1>
                 <p>A top-down shooter where you not only need to dodge enemies and aim your weapons
@@ -51,14 +53,19 @@
 
             <br>
             <div class="desc">
-                <h2>Storing beat maps</h2>
-                <p>An ongoing project to combine the rhythm game genre with a top-down shooter. I spent a lot of time managing data structures
-                    to store and access the many different beat patterns & enemy spawns, as well as usability testing to balance the complexity
-                    that comes with combining two input-heavy genres.
-
-                    <i>[add more here]</i>
+                <h2>Syncing audio with gameplay</h2>
+                <p>An especially complex part of this project was accurately recording the beat of a song and synchronizing it to the note UI, player input, and audio. Unlike a traditional rhythm game,
+                    <i>Pulsefire</i> requires the player to <b>split their attention</b> between their character and the notemap at the bottom of the screen, forcing them to rely on the sound of the song alone
+                    to time their actions. This created a <b>very high bar</b> for the responsiveness required — if the audio was off by just <b>half a second</b>, for example,
+                    the game quickly became unplayable (trust me, I tried). To tackle this unique challenge, I had to keep a frame-accurate timer in relation to the song's tempo, factor in the time signature
+                    to obtain the current beat, and compute the exact amount of time it takes for a note to travel across the screen.
                 </p>
-                
+                <p>
+                    However, due to Unity's imperfect audio timing, there was still a delay between the player input and the sound of the note, which I resolved with a <b>design solution</b> instead of a technical one:
+                    I pivoted from responsive audio to a system where the note sound would play regardless of whether the player correctly timed their keypress. After carefully calibrating my system for the different tempos
+                    and notemaps of all the different songs, the result was an <b>extremely responsive</b> and <b>synchronized</b> gameplay loop, allowing players to correctly track even complex patterns by the
+                    sound of the song alone.
+                </p>
                 <p class="itch-button"> <a href="https://ember44.itch.io/rhythm-shooter"><b>Play it on Itch!</b></a> </p>
                 <br>
                 <br>
