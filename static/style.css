@@ -51,10 +51,34 @@ h1 {
     margin-left: 25px;
 }
 
-.header-icon
-{
+#right-header {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.header-icon {
     width: 70px;
     margin-right: 40px;
+}
+
+.header-link {
+    width: 80px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+    background-color: rgb(40, 40, 40);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+.header-link a {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
 }
 
 
