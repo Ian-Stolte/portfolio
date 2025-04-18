@@ -131,8 +131,11 @@ h1 {
     position: absolute;
     top: 0;
     right: 0;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.7);
     z-index: 1;
+    padding: 4px;
+    color: white;
+    border-bottom-left-radius: 4px;
 }
 
 .image-item h1 {
