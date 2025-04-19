@@ -61,8 +61,8 @@
                     might swap to the shield station to block an incoming asteroid. Given the timeframe, this type of multiplayer functionality was very <b>ambitious</b> but we were ultimately successful.
                 </p>
                 <p>I used Unity's <b>Netcode</b> framework to setup a basic <b>server-client</b> network between the two players, and wrote a number of functions to <b>track the state of the ship</b>
-                    and pass it across the network, including the dynamic physics of the Steering and Thrusters stations. However, unlike a traditional multiplayer game, both <b>players share the same character</b>, 
-                    which made things more complex. To solve this problem, I wrote <b>custom logic</b> to shift control of reporting between the host and client as players moved between different stations, 
+                    and pass it across the network. However, unlike a traditional multiplayer game, both <b>players share the same character</b>, which made things more complex. 
+                    To solve this problem, I wrote <b>custom logic</b> to shift control of reporting between the host and client as players moved between different stations, 
                     allowing the game to stay in sync after any configuration of player actions.
                 </p>
                 <br>
