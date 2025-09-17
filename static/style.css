@@ -37,7 +37,7 @@ h1 {
 }
 
 #header-title {
-    padding-left: 40px;
+    padding-left: 10px;
     margin: auto 0px;
     color: rgb(255, 255, 255);
     font-size: 36px;
@@ -47,8 +47,8 @@ h1 {
 
 #header-subtitle {
     font-size: 18px;
-    margin-top: -5px;
-    margin-left: 25px;
+    margin-top: -3px;
+    margin-left: 30px;
 }
 
 #right-header {
@@ -99,6 +99,7 @@ h1 {
     border-width: 3px;
     border-color: white;
 }
+
 
 /*IMAGE GRID*/
 
@@ -203,6 +204,10 @@ h1 {
     line-height: 1.6;
 }
 
+.desc ul {
+    margin-bottom: 30px;
+}
+
 .desc h2 {
     margin-bottom: -10px;
 }
@@ -220,9 +225,20 @@ h1 {
     width: 200px;
     margin: 60px auto;
     text-align: center;
-    background-color: rgb(40, 40, 40);
+    background-color: rgb(70, 66, 85);
     padding: 20px;
     border-radius: 10px;
+}
+
+.itch-button:hover {
+    background-color: rgb(42, 40, 49);;
+}
+
+.itch-button a
+{
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 24px;
 }
 
 
@@ -233,7 +249,7 @@ a:hover { opacity: 0.7; }
 
 a
 {
-    color:rgb(231, 154, 154);
+    color: rgb(157, 163, 231);
     font-size: 24px;
 }
 
