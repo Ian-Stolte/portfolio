@@ -1,7 +1,7 @@
 
 body
 {
-    width: 80%;
+    width: 85%;
     margin: auto;
     text-align: center;
     font-family: "Noto Sans";
@@ -58,8 +58,9 @@ h1 {
 }
 
 .header-icon {
-    width: 70px;
-    margin-right: 40px;
+    display: block;
+    width: clamp(45px, 5vw, 70px);
+    margin-right: clamp(5px, 3vw, 40px);
 }
 
 .header-link {
@@ -68,7 +69,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 40px;
+    margin-right: clamp(5px, 3vw, 40px);
     background-color: rgb(40, 40, 40);
     padding: 20px;
     border-radius: 10px;
@@ -100,6 +101,19 @@ h1 {
     border-color: white;
 }
 
+@media (max-width: 1000px) {
+    #intro {
+        flex-direction: column;
+        width: 90%;
+        margin-bottom: -40px;
+    }
+
+    #intro img {
+        margin: auto;
+        margin-bottom: -40px;
+    }
+}
+
 
 /*IMAGE GRID*/
 
@@ -113,7 +127,7 @@ h1 {
 .image-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 100px 50px;
+    gap: 60px 60px;
     padding: 30px 30px 30px;
 }
 
