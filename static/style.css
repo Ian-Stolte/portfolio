@@ -238,6 +238,7 @@ h1 {
 }
 
 .game-page h1 {
+    font-size: clamp(40px, 5vw, 60px);
     white-space: nowrap;
     overflow: visible;
 }
@@ -250,6 +251,7 @@ h1 {
 
 #text-content {
     flex: 1;
+    font-size: clamp(12px, 3.5vw, 20px);
     padding-left: 15px;
 }
 
