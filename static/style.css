@@ -36,6 +36,7 @@ h1 {
     background-color: rgb(30, 30, 30);
     color: rgb(220, 220, 220);
     z-index: 3;
+    box-shadow: 0px 5px 10px rgba(108, 75, 127, 0.4);
 }
 
 #title-wrapper {
@@ -139,12 +140,17 @@ h1 {
 .image-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 60px 60px;
+    gap: 70px 60px;
     padding: 30px 30px 30px;
 }
 
+.image-item {
+    box-shadow: 8px 8px 15px rgba(108, 75, 127, 0.4);
+}
+
 .image-item-bg {
-    margin-top: 15px;
+    margin-top: -5px;
+    border-top: 3px solid white;
     background-color: rgb(30, 30, 30);
     padding-bottom: 20px;
 }
@@ -154,10 +160,6 @@ h1 {
         grid-template-columns: 1fr;
         gap: 60px 0px;
         padding: 10px;
-    }
-
-    .image-item-bg {
-        margin-top: 0px;
     }
 }
   
@@ -354,7 +356,7 @@ a:hover { opacity: 0.7; }
 
 a
 {
-    color: rgb(157, 163, 231);
+    color: rgb(186, 158, 218);
     font-size: 24px;
 }
 
