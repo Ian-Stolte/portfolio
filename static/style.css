@@ -233,7 +233,7 @@ h1 {
 .game-page-top {
     display: flex;
     align-items: flex-start;
-    gap: 0px;
+    gap: 15px;
     margin-bottom: 40px; 
 }
 
@@ -243,16 +243,15 @@ h1 {
     overflow: visible;
 }
 
+.game-summary {
+    flex: 1;
+    font-size: clamp(16px, 4vw, 20px);
+}
+
 .cover-gif
 {
     width: 60%;
     margin: 15px 30px 0px 0px;
-}
-
-#text-content {
-    flex: 1;
-    font-size: clamp(12px, 3.5vw, 20px);
-    padding-left: 15px;
 }
 
 .project-info {
@@ -280,8 +279,13 @@ h1 {
     }
 
     .project-info {
-        margin-left: 5px;
-        margin-right: 5px;
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-bottom: -30px;
+    }
+
+    .game-summary {
+        margin-bottom: -30px;
     }
 }
 
