@@ -103,9 +103,6 @@ h1 {
     border-color: white;
 }
 
-
-/*MOBILE LAYOUT*/
-
 @media (max-width: 1000px) {
     #right-header {
         display: none;
@@ -119,12 +116,6 @@ h1 {
 
     #intro img {
         margin-bottom: -40px;
-    }
-
-    .image-grid {
-        grid-template-columns: 1fr;
-        gap: 20px 0px;
-        padding: 10px;
     }
 }
 
@@ -149,6 +140,14 @@ h1 {
     margin-top: 15px;
     background-color: rgb(30, 30, 30);
     padding-bottom: 20px;
+}
+
+@media (max-width: 1000px) {   
+    .image-grid {
+        grid-template-columns: 1fr;
+        gap: 70px 0px;
+        padding: 10px;
+    }
 }
   
 .image-item img {
