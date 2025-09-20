@@ -120,6 +120,10 @@ h1 {
     #intro img {
         margin-bottom: -40px;
     }
+
+    .image-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
 }
 
 
