@@ -118,7 +118,7 @@ h1 {
     #intro {
         flex-direction: column;
         width: 90%;
-        margin-bottom: -40px;
+        margin-bottom: -20px;
     }
 
     #intro img {
@@ -152,7 +152,7 @@ h1 {
 @media (max-width: 1000px) {   
     .image-grid {
         grid-template-columns: 1fr;
-        gap: 70px 0px;
+        gap: 60px 0px;
         padding: 10px;
     }
 
