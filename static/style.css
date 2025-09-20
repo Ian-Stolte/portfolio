@@ -155,6 +155,10 @@ h1 {
         gap: 70px 0px;
         padding: 10px;
     }
+
+    .image-item-bg {
+        margin-top: 0px;
+    }
 }
   
 .image-item img {
@@ -261,7 +265,7 @@ h1 {
 
 @media (max-width: 1000px) {
     .game-page video {
-        margin-top: -10px;
+        margin-top: -20px;
         margin-bottom: 5px;
     }
     
@@ -271,13 +275,17 @@ h1 {
         text-align: left;
     }
 
+    .game-page h1 {
+        padding: 0px 10px;
+    }
+
+    .game-summary {
+        padding: 0px 10px;
+    }
+
     .cover-gif {
         width: 100%;
         margin: 0 0 20px 0;
-    }
-
-    #text-content {
-        padding-left: 0;
     }
 
     .project-info {
@@ -286,7 +294,7 @@ h1 {
     }
 
     .game-summary {
-        margin-bottom: -30px;
+        margin-bottom: 5px;
     }
 }
 
