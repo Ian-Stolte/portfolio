@@ -9,6 +9,13 @@ body
     color: rgb(240, 240, 240);
 }
 
+@media (max-width: 600px)
+{
+    body {
+        width: 95%;
+    }
+}
+
 h1 {
     font-family: "Zain";
     font-size: 60px;
@@ -86,7 +93,7 @@ h1 {
 /*INTRO*/
 
 #intro {
-    width: 65%;
+    width: 60%;
     margin: auto;
     padding: 150px 30px 50px;
     font-size: 24px;
@@ -204,13 +211,30 @@ h1 {
 }
 
 
-/*GAME PAGE*/
+/*GAME PAGE TOP*/
 
-.game-page
+.go-back {
+    text-decoration: none;
+}
+
+@media (max-width: 600px)
 {
+    .go-back {
+        display: none;
+    }
+}
+
+.game-page {
     padding: 150px 0px 0px;
     text-align: left;
     font-size: 20px;
+}
+
+.game-page-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 0px;
+    margin-bottom: 40px; 
 }
 
 .game-page h1 {
@@ -221,11 +245,11 @@ h1 {
 .cover-gif
 {
     width: 60%;
-    float: left;
-    margin: 25px 30px 0px 0px;
+    margin: 15px 30px 0px 0px;
 }
 
 #text-content {
+    flex: 1;
     padding-left: 15px;
 }
 
@@ -237,9 +261,34 @@ h1 {
     margin-left: -15px;
 }
 
+@media (max-width: 1000px) {
+    .game-page-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+    }
+
+    .cover-gif {
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    #text-content {
+        padding-left: 0;
+    }
+
+    .project-info {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+
+/*GAME PAGE DESCRIPTION*/
+
 .desc {
     width: 90%;
-    padding-top: 10px;
+    padding-top: 25px;
     margin: auto;
     line-height: 1.6;
 }
