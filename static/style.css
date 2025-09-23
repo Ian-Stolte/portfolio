@@ -94,7 +94,7 @@ h1 {
 /*DROPDOWN*/
 
 #dropdown {
-    display: none;
+    display: flex;
     margin-left: auto;
     padding-right: 20px;
     align-items: center;
