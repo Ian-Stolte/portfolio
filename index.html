@@ -197,12 +197,13 @@
 
     <script>
         const dd = document.getElementById('dropdown');
-        const top = document.getElementById('dropdown-top');
+        const ddTop = document.getElementById('dropdown-top');
 
         // Toggle menu open/close when the trigger is clicked
-        top.addEventListener('click', e => {
+        ddTop.addEventListener('click', e => {
             e.stopPropagation();
-            dd.classList.toggle('open');
+            console.log('Dropdown top clicked');
+            dd.classList.add('open');
         });
 
         // Close the menu when clicking outside
