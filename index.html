@@ -27,9 +27,7 @@
             </div>
         </div>
         <div id="dropdown">
-            <button id="dropdown-top-button">
-                <img src="static/images/Hamburger.png" alt="Dropdown Icon" id="dropdown-top">
-            </button>
+            <img src="static/images/Hamburger.png" alt="Dropdown Icon" id="dropdown-top">
             <div id="dropdown-menu">
                 <a href="https://ember44.itch.io">Itch.io</a>
                 <a href="https://github.com/Ian-Stolte">GitHub</a>
@@ -196,6 +194,23 @@
         </div>
         <div style="margin-bottom: 50px"></div>
     </div>
+
+    <script>
+        const dd = document.getElementById('dropdown');
+        const top = document.getElementById('dropdown-top');
+
+        // Toggle menu open/close when the trigger is clicked
+        top.addEventListener('click', e => {
+            e.stopPropagation();
+            dd.classList.toggle('open');
+        });
+
+        // Close the menu when clicking outside
+        document.addEventListener('click', e => {
+            if (!dd.contains(e.target)) 
+                dd.classList.remove('open');
+        });
+    </script>
 </body>
 
 </html>

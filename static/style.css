@@ -101,21 +101,17 @@ h1 {
     position: relative;
 }
 
-#dropdown-top-button {
-  all: unset;
-  cursor: pointer;
-  display: inline-block;
-}
-
 #dropdown-top {
     width: 40px;
     right: 0;
+    cursor: pointer;
 }
 
-#dropdown:hover #dropdown-menu,
-#dropdown:focus-within #dropdown-menu {
-    display: block;
+#dropdown.open #dropdown-menu,
+#dropdown:hover #dropdown-menu {
+  display: block;
 }
+
 
 #dropdown-menu {
   display: none;
