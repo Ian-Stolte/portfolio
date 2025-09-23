@@ -94,7 +94,7 @@ h1 {
 /*DROPDOWN*/
 
 #dropdown {
-    display: flex;
+    display: none;
     margin-left: auto;
     padding-right: 20px;
     align-items: center;
@@ -131,12 +131,12 @@ h1 {
 
 #dropdown-menu a:hover { background: rgb(18, 18, 18); }
 
-@media (max-width: 1000px) {
+@media (max-width: 1000px)
+{
     #dropdown {
         display: flex;
     }
 }
-
 
 
 /*INTRO*/
