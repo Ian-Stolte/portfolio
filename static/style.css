@@ -101,12 +101,19 @@ h1 {
     position: relative;
 }
 
+#dropdown-top-button {
+  all: unset;
+  cursor: pointer;
+  display: inline-block;
+}
+
 #dropdown-top {
     width: 40px;
     right: 0;
 }
 
-#dropdown:hover #dropdown-menu {
+#dropdown:hover #dropdown-menu,
+#dropdown:focus-within #dropdown-menu {
     display: block;
 }
 
@@ -115,7 +122,7 @@ h1 {
   position: absolute;
   right: 0;
   top: 100%;
-  font-size: 17px;
+  font-size: 16px;
   background: rgb(30, 30, 30);
   min-width: 130px;
   box-shadow: 0px 4px 6px rgba(108, 75, 127, 0.4);
