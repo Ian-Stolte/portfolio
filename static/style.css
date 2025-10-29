@@ -45,7 +45,7 @@ h1 {
     flex-direction: column;
 }
 
-#header-title {
+#header-title a {
     padding-left: 10px;
     margin: auto 0px;
     color: rgb(255, 255, 255);
@@ -62,6 +62,13 @@ h1 {
 
 #right-header {
     margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+#left-header {
+    margin-right: auto;
+    margin-left: 30px;
     display: flex;
     align-items: center;
 }
@@ -85,10 +92,31 @@ h1 {
     border: 2px solid white;
 }
 
-.header-link a {
-    color: white;
-    font-size: 24px;
-    text-decoration: none;
+.section-link {
+    width: 80px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: clamp(5px, 3vw, 20px);
+    background-color: rgb(40, 40, 40);
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid rgb(130, 130, 130);
+}
+
+.section-link-filled {
+    width: 80px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: clamp(5px, 3vw, 20px);
+    background-color: rgb(210, 210, 210);
+    padding: 15px;
+    border-radius: 10px;
+    color: black;
+    border: 2px solid rgb(0, 0, 0);
 }
 
 
@@ -139,6 +167,10 @@ h1 {
 {
     #dropdown {
         display: flex;
+    }
+
+    #left-header, #right-header {
+        display: none;
     }
 }
 
@@ -271,10 +303,38 @@ h1 {
 }
 
 
+/*ART PAGE*/
+
+#art-gallery {
+    column-count: 3;
+    column-gap: 50px;
+}
+
+.art-image {
+    position: relative;
+    display: inline-block;
+    margin-top: 40px;
+}
+
+.art-image img, video {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.art-image p {
+    margin-top: 5px;
+    padding-left: 5px;
+    font-style: italic;
+    text-align: left;
+}
+
+
 /*GAME PAGE TOP*/
 
 .go-back {
     text-decoration: none;
+    display: none;
 }
 
 .game-page video {
@@ -445,8 +505,9 @@ a:hover { opacity: 0.7; }
 
 a
 {
-    color: rgb(186, 158, 218);
+    color: rgb(255, 255, 255);
     font-size: 24px;
+    text-decoration: none;
 }
 
 #contact-info

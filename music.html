@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cantora+One&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+
+    <title>Ian Stolte | Gameplay Programmer</title>
+</head>
+
+<body>
+
+    <div id="header">
+        <div id="title-wrapper">
+            <span id="header-title"><a href="./index.html">Ian Stolte</a></span>
+            <span id="header-subtitle">Gameplay Programmer</span>
+        </div>
+        <div id="left-header">
+            <!--a href="./index.html" class="section-link">Games</a>-->
+            <a href="./art.html" class="section-link">Art</a>
+            <a href="./music.html" class="section-link-filled">Music</a>
+        </div>
+        <div id="right-header">
+            <a href="https://ember44.itch.io"><img src="static/images/Itch.png" alt="Itch.io Icon" class="header-icon"></a>
+            <a href="https://github.com/Ian-Stolte"><img src="static/images/GitHub.png" alt="GitHub Icon" class="header-icon"></a>
+            <a href="https://www.linkedin.com/in/ianstolte/"><img src="static/images/Linkedin.png" alt="Linkedin Icon" class="header-icon"></a>
+            <div class="header-link">
+                <a href="./resumé.pdf">Resumé</a>
+            </div>
+        </div>
+        <div id="dropdown">
+            <img src="static/images/Hamburger.png" alt="Dropdown Icon" id="dropdown-top">
+            <div id="dropdown-menu">
+                <a href="https://ember44.itch.io">Itch.io</a>
+                <a href="https://github.com/Ian-Stolte">GitHub</a>
+                <a href="https://www.linkedin.com/in/ianstolte/">LinkedIn</a>
+                <a href="./resumé.pdf">Resumé</a>
+                <a href="./art.html">Art</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="content">
+        <div id="intro">
+            <p>In addition to programming and design, I do some art on the side, both <b>2D and 3D</b>! Here's a sampling of various pieces
+                I've finished recently.</p>
+        </div>
+
+        <div class="image-grid" style="margin-top: -50px;">
+
+            <div class="image-item">
+                <a href="./flower-defense.html">
+                    <img src="/static/images/art/FDef_Models.png" alt="Flower Defense 3D Models">
+                    <div class="image-label">3D Modeling</div>
+                </a>
+            </div>
+
+            <div class="image-item">
+                <a href="./flower-defense.html">
+                    <img src="/static/images/art/Landscape_final.png" alt="Landscape 2D Art">
+                    <div class="image-label">Painterly 2D</div>
+                </a>
+            </div>
+
+            <div class="image-item">
+                <a href="./flower-defense.html">
+                    <img src="/static/images/art/SheRa_Adora.png" alt="Landscape 2D Art">
+                    <div class="image-label">Lineless 2D</div>
+                </a>
+            </div>
+        </div>
+        <div style="margin-bottom: 50px"></div>
+    </div>
+
+    <script>
+        const dd = document.getElementById('dropdown');
+        const ddTop = document.getElementById('dropdown-top');
+
+        // Toggle menu open/close when the trigger is clicked
+        ddTop.addEventListener('click', e => {
+            e.stopPropagation();
+            console.log('Dropdown top clicked');
+            dd.classList.add('open');
+        });
+
+        // Close the menu when clicking outside
+        document.addEventListener('click', e => {
+            if (!dd.contains(e.target)) 
+                dd.classList.remove('open');
+        });
+    </script>
+</body>
+
+</html>
