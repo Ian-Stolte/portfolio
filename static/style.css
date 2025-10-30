@@ -307,7 +307,7 @@ h1 {
 
 #art-gallery {
     column-count: 3;
-    column-gap: 50px;
+    column-gap: clamp(20px, 3vw, 50px);
 }
 
 .art-image {
@@ -327,6 +327,19 @@ h1 {
     padding-left: 5px;
     font-style: italic;
     text-align: left;
+}
+
+@media (max-width: 1200px) {   
+    #art-gallery {
+        column-count: 2;
+        column-gap: 25px;
+    }
+}
+
+@media (max-width: 600px) {   
+    #art-gallery {
+        column-count: 1;
+    }
 }
 
 
