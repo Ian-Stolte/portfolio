@@ -21,7 +21,7 @@
         <div id="left-header">
             <!--a href="./index.html" class="section-link">Games</a>-->
             <a href="./art.html" class="section-link-filled">Art</a>
-            <a href="./music.html" class="section-link">Music</a>
+            <!--a href="./music.html" class="section-link">Music</a>-->
         </div>
         <div id="right-header">
             <a href="https://ember44.itch.io"><img src="static/images/Itch.png" alt="Itch.io Icon" class="header-icon"></a>
@@ -53,84 +53,58 @@
         <div id="art-gallery" style="margin-top: -50px;">
 
             <div class="art-image">
-                <a href="./flower-defense.html">
-                    <video autoplay loop muted playsinline>
-                        <source src="/static/images/art/Reya_3DWalk.mp4" type="video/mp4">
-                    </video>
-                    <div class="image-label">3D Animation</div>
-                </a>
+                <video autoplay loop muted playsinline>
+                    <source src="/static/images/art/Reya_3DWalk.mp4" type="video/mp4">
+                </video>
+                <div class="image-label">3D Animation</div>
             </div>
 
             <div class="art-image">
-                <a href="./flower-defense.html">
-                    <img src="/static/images/art/SheRa_Entrapta.png" alt="Entrapta Character Art">
-                    <div class="image-label">Lineless 2D</div>
-                </a>
+                <img src="/static/images/art/SheRa_Entrapta.png" alt="Entrapta Character Art">
+                <div class="image-label">Lineless 2D</div>
             </div>
 
             <div class="art-image">
-                <a href="./flower-defense.html">
-                    <img src="/static/images/art/Landscape_final.png" alt="Landscape 2D Art">
-                    <div class="image-label">Painterly 2D</div>
-                </a>
+                <img src="/static/images/art/Landscape_final.png" alt="Landscape 2D Art">
+                <div class="image-label">Painterly 2D</div>
             </div>
 
             <!--div class="art-image">
-                <a href="./flower-defense.html">
-                    <img src="/static/images/art/Cpt_DuoFinal.png" alt="Counterpoint Character Design">
-                    <div class="image-label">Character Design</div>
-                </a>
+                <img src="/static/images/art/Cpt_DuoFinal.png" alt="Counterpoint Character Design">
+                <div class="image-label">Character Design</div>
             </div>-->
 
             <div class="art-image">
-                <a href="./flower-defense.html">
-                    <img src="/static/images/art/SheRa_Catra.png" alt="Catra Character Art">
-                    <div class="image-label">Lighting Practice</div>
-                </a>
+                <img src="/static/images/art/SheRa_Catra.png" alt="Catra Character Art">
+                <div class="image-label">Lighting Practice</div>
             </div>
 
             <div class="art-image">
-                <a href="./flower-defense.html">
-                    <img src="/static/images/art/CoralIsland_Aliya.png" alt="Coral Island Character Art">
-                    <div class="image-label">2D of Existing 3D Character</div>
-                </a>
+                <img src="/static/images/art/CoralIsland_Aliya.png" alt="Coral Island Character Art">
+                <div class="image-label">2D of Existing 3D Character</div>
             </div>
 
             <div class="art-image">
-                <a href="./flower-defense.html">
-                    <img src="/static/images/art/FDef_Models.png" alt="Flower Defense 3D Models">
-                    <div class="image-label">3D Modeling</div>
-                </a>
+                <img src="/static/images/art/FDef_Models.png" alt="Flower Defense 3D Models">
+                <div class="image-label">3D Modeling</div>
                 <!--p>3D models for my game Flower Defense</p>-->
             </div>
 
             <div class="art-image">
-                <a href="./flower-defense.html">
-                    <img src="/static/images/art/SheRa_Adora.png" alt="Adora Character Art">
-                    <div class="image-label">Lineless 2D</div>
-                </a>
+                <img src="/static/images/art/SheRa_Adora.png" alt="Adora Character Art">
+                <div class="image-label">Lineless 2D</div>
             </div>
         </div>
+
+        <div id="lightbox">
+            <img src="" alt="Focused image" id="lightbox-image">
+        </div>
+
         <div style="margin-bottom: 50px"></div>
     </div>
 
-    <script>
-        const dd = document.getElementById('dropdown');
-        const ddTop = document.getElementById('dropdown-top');
-
-        // Toggle menu open/close when the trigger is clicked
-        ddTop.addEventListener('click', e => {
-            e.stopPropagation();
-            console.log('Dropdown top clicked');
-            dd.classList.add('open');
-        });
-
-        // Close the menu when clicking outside
-        document.addEventListener('click', e => {
-            if (!dd.contains(e.target)) 
-                dd.classList.remove('open');
-        });
-    </script>
+    <script src="scripts/dropdown.js"></script>
+    <script src="scripts/art-gallery.js"></script>
 </body>
 
 </html>

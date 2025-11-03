@@ -20,8 +20,8 @@
         </div>
         <div id="left-header">
             <!--a href="./index.html" class="section-link-filled">Games</a>-->
-            <!--a href="./art.html" class="section-link">Art</a>
-            <a href="./music.html" class="section-link">Music</a>-->
+            <a href="./art.html" class="section-link">Art</a>
+            <!--a href="./music.html" class="section-link">Music</a>-->
         </div>
         <div id="right-header">
             <a href="https://ember44.itch.io"><img src="static/images/Itch.png" alt="Itch.io Icon" class="header-icon"></a>
@@ -202,23 +202,7 @@
         <div style="margin-bottom: 50px"></div>
     </div>
 
-    <script>
-        const dd = document.getElementById('dropdown');
-        const ddTop = document.getElementById('dropdown-top');
-
-        // Toggle menu open/close when the trigger is clicked
-        ddTop.addEventListener('click', e => {
-            e.stopPropagation();
-            console.log('Dropdown top clicked');
-            dd.classList.add('open');
-        });
-
-        // Close the menu when clicking outside
-        document.addEventListener('click', e => {
-            if (!dd.contains(e.target)) 
-                dd.classList.remove('open');
-        });
-    </script>
+    <script src="scripts/dropdown.js"></script>
 </body>
 
 </html>
