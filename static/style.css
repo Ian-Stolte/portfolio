@@ -322,7 +322,7 @@ h1 {
     object-fit: cover;
 }
 
-.art-image img:hover, video:hover {
+.art-image img:hover, .art-image video:hover {
     opacity: 0.7;
 }
 
@@ -363,9 +363,16 @@ h1 {
     display: flex;
 }
 
-#lightbox-image {
+#lightbox img {
     max-width: 80%;
     max-height: 85%;
+    border: 5px solid white;
+}
+
+#lightbox video {
+    height: 85%;
+    width: auto;
+    max-width: 80%;
     border: 5px solid white;
 }
 
