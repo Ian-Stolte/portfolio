@@ -404,7 +404,7 @@ h1 {
         height: auto;
     }
 
-    #lightbox .nav { top: 88%; }
+    #lightbox .nav { top: 85%; }
     #lightbox .prev { left: 5%; }
     #lightbox .next { right: 5%; }
 }
