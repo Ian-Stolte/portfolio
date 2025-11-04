@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cantora+One&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" href="static/images/favicon.ico" type="image/x-icon">
 
     <title>Ian Stolte | Gameplay Programmer</title>
 </head>
@@ -51,28 +52,17 @@
         </div>
 
         <div id="art-gallery" style="margin-top: -50px;">
-
+            
             <div class="art-image">
-                <video autoplay loop muted playsinline>
-                    <source src="/static/images/art/Reya_3DWalk.mp4" type="video/mp4">
-                </video>
+                <video autoplay loop muted playsinline src="/static/images/art/Reya_3DWalk.mp4" type="video/mp4" data-group="reya"></video>
                 <div class="image-label">3D Animation</div>
             </div>
 
+            
             <div class="art-image">
-                <img src="/static/images/art/SheRa_Entrapta.png" alt="Entrapta Character Art">
+                <img src="/static/images/art/SheRa_Adora.png" alt="Adora Character Art">
                 <div class="image-label">Lineless 2D</div>
             </div>
-
-            <div class="art-image">
-                <img src="/static/images/art/Landscape_final.png" alt="Landscape 2D Art">
-                <div class="image-label">Painterly 2D</div>
-            </div>
-
-            <!--div class="art-image">
-                <img src="/static/images/art/Cpt_DuoFinal.png" alt="Counterpoint Character Design">
-                <div class="image-label">Character Design</div>
-            </div>-->
 
             <div class="art-image">
                 <img src="/static/images/art/SheRa_Catra.png" alt="Catra Character Art">
@@ -80,8 +70,18 @@
             </div>
 
             <div class="art-image">
+                <img src="/static/images/art/Landscape_final.png" alt="Landscape 2D Art" data-group="landscape">
+                <div class="image-label">Painterly 2D</div>
+            </div>
+
+            <div class="art-image">
                 <img src="/static/images/art/CoralIsland_Aliya.png" alt="Coral Island Character Art">
                 <div class="image-label">2D of Existing 3D Character</div>
+            </div>
+
+            <div class="art-image">
+                <img src="/static/images/art/Villain_finalFull.png" alt="Villain Character Design" data-group="villain">
+                <div class="image-label">Character Design</div>
             </div>
 
             <div class="art-image">
@@ -91,12 +91,25 @@
             </div>
 
             <div class="art-image">
-                <img src="/static/images/art/SheRa_Adora.png" alt="Adora Character Art">
+                <img src="/static/images/art/SheRa_Entrapta.png" alt="Entrapta Character Art">
                 <div class="image-label">Lineless 2D</div>
             </div>
         </div>
 
         <div id="lightbox"></div>
+
+        <div hidden>
+            <img src="/static/images/art/Reya_2DConcepts.png" data-group="reya">
+            <img src="/static/images/art/Reya_2DTurnaround.png" data-group="reya">
+            <img src="/static/images/art/Reya_3DWalk.png" data-group="reya">
+
+
+            <img src="/static/images/art/Landscape_thumbnails.png" data-group="landscape">
+
+            <img src="/static/images/art/Villain_1.png" data-group="villain">
+            <img src="/static/images/art/Villain_2.png" data-group="villain">
+            <img src="/static/images/art/Villain_3.png" data-group="villain">
+        </div>
 
         <div style="margin-bottom: 50px"></div>
     </div>

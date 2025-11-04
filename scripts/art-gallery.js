@@ -1,27 +1,17 @@
 
 const images = document.querySelectorAll('.art-image img, .art-image video');
 const lightbox = document.getElementById('lightbox');
-const lightboxContent = document.getElementById('lightbox-content');
+/*const lightboxContent = document.getElementById('lightbox-content');*/
 
-images.forEach(el => {
+let currentGroup = [];
+let currentIndex = 0;
+
+images.forEach((el, idx) => {
   el.addEventListener('click', () => {
-    lightbox.classList.add('visible');
-    lightbox.innerHTML = '';
-
-    // Check the tag type
-    if (el.tagName.toLowerCase() === 'img') {
-      const img = document.createElement('img');
-      img.src = el.src;
-      lightbox.appendChild(img);
-    } else if (el.tagName.toLowerCase() === 'video') {
-      const video = document.createElement('video');
-      video.src = el.querySelector('source')?.src || el.src;
-      console.log(video.src);
-      video.autoplay = true;
-      video.loop = true;
-      video.controls = true;
-      lightbox.appendChild(video);
-    }
+    const groupName = el.dataset.group;
+    currentGroup = groupName ? Array.from(document.querySelectorAll(`[data-group="${groupName}"]`)) : [el];
+    currentIndex = currentGroup.indexOf(el);
+    showMedia(currentGroup[currentIndex], currentGroup.length > 1);
   });
 });
 
@@ -36,3 +26,51 @@ document.addEventListener('keydown', (e) => {
     lightbox.classList.remove('visible');
   }
 });
+
+
+function showMedia(el, showButtons=false) {
+  lightbox.classList.add('visible');
+  lightbox.innerHTML = '';
+
+  // Check the media type
+  if (el.tagName.toLowerCase() === 'img') {
+    const img = document.createElement('img');
+    img.src = el.src;
+    lightbox.appendChild(img);
+  } else if (el.tagName.toLowerCase() === 'video') {
+    const video = document.createElement('video');
+    video.src = el.querySelector('source')?.src || el.src;
+    console.log(video.src);
+    video.autoplay = true;
+    video.loop = true;
+    video.controls = true;
+    lightbox.appendChild(video);
+  }
+
+  //Add navigation buttons
+  if (showButtons)
+  {
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'nav prev';
+    prevBtn.textContent = '‹';
+
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'nav next';
+    nextBtn.textContent = '›';
+
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + currentGroup.length) % currentGroup.length;
+      showMedia(currentGroup[currentIndex], true);
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % currentGroup.length;
+      showMedia(currentGroup[currentIndex], true);
+    });
+
+    lightbox.appendChild(prevBtn);
+    lightbox.appendChild(nextBtn);
+  }
+}
