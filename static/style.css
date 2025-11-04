@@ -394,6 +394,21 @@ h1 {
 #lightbox .next { right: 10%; }
 #lightbox .nav:hover { opacity: 0.7; }
 
+@media (max-width: 600px) {   
+    #lightbox img {
+        max-width: 95%;
+        max-height: 95%;
+    }
+    #lightbox video {
+        width: 95%;
+        height: auto;
+    }
+
+    #lightbox .nav { top: 88%; }
+    #lightbox .prev { left: 5%; }
+    #lightbox .next { right: 5%; }
+}
+
 
 
 /*GAME PAGE TOP*/
