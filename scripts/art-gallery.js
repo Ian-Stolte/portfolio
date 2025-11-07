@@ -73,4 +73,13 @@ function showMedia(el, showButtons=false) {
     lightbox.appendChild(prevBtn);
     lightbox.appendChild(nextBtn);
   }
+
+  //Add caption
+  const captionText = el.dataset.caption;
+  if (captionText) {
+    const caption = document.createElement('p');
+    caption.id = 'lightbox-caption';
+    caption.textContent = captionText;
+    lightbox.appendChild(caption);
+  }
 }
