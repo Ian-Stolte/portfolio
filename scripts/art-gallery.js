@@ -9,7 +9,9 @@ let currentIndex = 0;
 images.forEach((el, idx) => {
   el.addEventListener('click', () => {
     const groupName = el.dataset.group;
-    currentGroup = groupName ? Array.from(document.querySelectorAll(`[data-group="${groupName}"]`)) : [el];
+    const hiddenImages = document.getElementById('hidden-images');
+    currentGroup = groupName ? Array.from(hiddenImages.querySelectorAll(`[data-group="${groupName}"]`)) : [];
+    currentGroup.unshift(el);
     currentIndex = currentGroup.indexOf(el);
     showMedia(currentGroup[currentIndex], currentGroup.length > 1);
   });
