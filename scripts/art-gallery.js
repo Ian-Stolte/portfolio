@@ -46,17 +46,18 @@ function showMedia(el, showButtons=false) {
     video.autoplay = true;
     video.loop = true;
     video.controls = true;
+    video.muted = true;
     lightbox.appendChild(video);
   }
 
   //Add navigation buttons
   if (showButtons)
   {
-    const prevBtn = document.createElement('button');
+    const prevBtn = document.createElement('span');
     prevBtn.className = 'nav prev';
     prevBtn.textContent = '‹';
 
-    const nextBtn = document.createElement('button');
+    const nextBtn = document.createElement('span');
     nextBtn.className = 'nav next';
     nextBtn.textContent = '›';
 
