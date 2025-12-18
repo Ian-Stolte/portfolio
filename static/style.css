@@ -344,7 +344,7 @@ h1 {
 }
 
 
-@media (min-width: 1200px) {   
+@media (min-width: 600px) {   
     #art-gallery-3col { display: block; }
     #art-gallery-1col { display: none; }
 }
