@@ -20,17 +20,16 @@
             <span id="header-subtitle">Gameplay Programmer</span>
         </div>
         <div id="left-header">
-            <!--a href="./index.html" class="section-link">Games</a>-->
-            <a href="./art.html" class="section-link-filled">Art</a>
-            <!--a href="./music.html" class="section-link">Music</a>-->
+            <div id="horiz-divider"></div>
+            <a href="./art.html" style="margin-left: -5px;"><img src="static/images/Paintbrush.png" alt="Itch.io Icon" class="header-icon"><span class="header-icon-desc">Art</span></a>
         </div>
         <div id="right-header">
-            <a href="https://ember44.itch.io"><img src="static/images/Itch.png" alt="Itch.io Icon" class="header-icon"></a>
-            <a href="https://github.com/Ian-Stolte"><img src="static/images/GitHub.png" alt="GitHub Icon" class="header-icon"></a>
-            <a href="https://www.linkedin.com/in/ianstolte/"><img src="static/images/Linkedin.png" alt="Linkedin Icon" class="header-icon"></a>
-            <div class="header-link">
-                <a href="./resumé.pdf">Resumé</a>
-            </div>
+            <!--a href="./art.html"><img src="static/images/Paintbrush.png" alt="Itch.io Icon" class="header-icon"><span class="header-icon-desc">Art</span></a>
+            <div id="horiz-divider"></div>-->
+            <a href="https://ember44.itch.io"><img src="static/images/Itch.png" alt="Itch.io Icon" class="header-icon" style="margin-bottom: -8px;"><span class="header-icon-desc">Itch.io</span></a>
+            <a href="https://github.com/Ian-Stolte"><img src="static/images/GitHub.png" alt="GitHub Icon" style="margin-bottom: -7px;" class="header-icon"><span class="header-icon-desc">GitHub</span></a>
+            <a href="https://www.linkedin.com/in/ianstolte/"><img src="static/images/Linkedin.png" alt="Linkedin Icon" class="header-icon" style="margin-bottom: -7px;"><span class="header-icon-desc">Linkedin</span></a>
+            <a href="./resumé.pdf"><img src="static/images/Resume.png" alt="Resumé Icon" class="header-icon" style="width: clamp(35px, 5vw, 50px);"><span class="header-icon-desc" style="margin-bottom: -14px;">Resumé</span></a>
         </div>
         <div id="dropdown">
             <img src="static/images/Hamburger.png" alt="Dropdown Icon" id="dropdown-top">
@@ -46,30 +45,28 @@
 
 
     <div id="content">
-        <!--div id="intro-content" style="padding: 125px 0px 40px; font-size: 22px;">
-            <p>In addition to programming and design, I also enjoy making art, both <b>2D and 3D</b>! Here's a sampling of various pieces
-                I've finished recently.</p>
-        </div>-->
+        <div style="padding: 120px 0px 0px;"></div>
 
-        <div style="padding: 160px 0px 0px;"></div>
-
+        <p class="section-header">2D ART</p>
+        <hr class="section-line" style="margin-bottom: 30px;">
+        
         <!-- DESKTOP LAYOUT -->
         <div class="art-gallery" id="art-gallery-3col" style="margin-top: -50px;">
             
             <!-- COLUMN 1 -->
-            <div class="art-image"> <!-- Reya Walk -->
-                <video autoplay loop muted playsinline src="/static/images/art/Reya_3DWalk.mp4" type="video/mp4" data-group="reya" data-caption="Walk cycle for the player character of Version: Zero, my sci-fi roguelike"></video>
-                <div class="image-label">3D Animation</div>
+            <div class="art-image" style="margin-top: 50px;"> <!-- Mara -->
+                <img src="/static/images/art/SheRa_Mara.png" alt="Mara Character Art" data-caption="Fanart of the character Mara from the animated series She-Ra">
+                <div class="image-label">Character</div>
             </div>
 
-            <div class="art-image"> <!-- VZero Environment -->
-                <img src="/static/images/art/VZeroEnv.png" alt="Glitch Environment 3D Model" data-group="vzero-env" data-caption="3D environment for a level in Version: Zero, my sci-fi roguelike">
-                <div class="image-label">3D Environment</div>
-            </div>
-
-            <div class="art-image"> <!-- Villain Design -->
+            <!--div class="art-image"> !-- Villain Design --
                 <img src="/static/images/art/Villain_Front.png" alt="Villain Character Design" data-group="villain" data-caption="Villain design-- a good character turned evil via possesion by a demon">
                 <div class="image-label">Character Design</div>
+            </div>-->
+      
+            <div class="art-image"> <!-- VZero UI -->
+                <img src="/static/images/art/VZeroUI.png" alt="Version Zero Startup UI" data-group="vzero-ui" data-caption="Startup UI screen for Version: Zero, my sci-fi roguelike">
+                <div class="image-label">UI Design</div>
             </div>
 
             <div class="art-image"> <!-- Kinkajou -->
@@ -81,45 +78,25 @@
             <!-- COLUMN 2 -->
             <div class="art-image"> <!-- Little Mermaid -->
                 <img src="/static/images/art/TLM_KeyArt.png" alt="The Little Mermaid Key Art" data-group="little-mermaid" data-caption="Key art from a reimagining of The Little Mermaid">
-                <div class="image-label">Painterly 2D</div>
+                <div class="image-label">Environment</div>
             </div>
 
             <div class="art-image"> <!-- Entrapta -->
                 <img src="/static/images/art/SheRa_Entrapta.png" alt="Entrapta Character Art" data-caption="Fanart of the character Entrapta from the animated series She-Ra">
-                <div class="image-label">2D Character</div>
-            </div>  
-            
-            <div class="art-image"> <!-- VZero UI -->
-                <img src="/static/images/art/VZeroUI.png" alt="Version Zero Startup UI" data-group="vzero-ui" data-caption="Startup UI screen for Version: Zero, my sci-fi roguelike">
-                <div class="image-label">UI Design</div>
+                <div class="image-label">Character</div>
             </div>
-
-            <!--div class="art-image"> !-- Adora --
-                <img src="/static/images/art/SheRa_Adora.png" alt="Adora Character Art" data-caption="Fanart of the character Adora from the animated series She-Ra">
-                <div class="image-label">Lineless 2D</div>
-            </div>-->       
 
 
             <!-- COLUMN 3 -->
-            <div class="art-image"> <!-- Japan Landscape -->
+            <div class="art-image" style="margin-top: 50px;"> <!-- Japan Landscape -->
                 <img src="/static/images/art/Landscape_final.png" alt="Landscape 2D Art" data-group="landscape" data-caption="Digital painting based on a photo taken in Japan">
-                <div class="image-label">Painterly 2D</div>
-            </div>
-
-            <div class="art-image"> <!-- Flower Defense -->
-                <img src="/static/images/art/FDef_Models.png" alt="Flower Defense 3D Models" data-caption="Low-poly 3D models for my tower defense game, Flower Defense">
-                <div class="image-label">3D Modeling</div>
+                <div class="image-label">Painterly</div>
             </div>
 
             <div class="art-image"> <!-- Coral Island -->
                 <img src="/static/images/art/CoralIsland_Aliya.png" alt="Coral Island Character Art" data-group="coral-island" data-caption="My 3D character from Coral Island, drawn in the 2D style of the game">
                 <div class="image-label">2D of Existing 3D Character</div>
-            </div>   
-            
-            <!--div class="art-image"> !-- VZero VFX --
-                <video autoplay loop muted playsinline src="/static/images/art/VZeroVFX.mp4" type="video/mp4" data-group="vfx" data-caption="Basic VFX for player abilities in Version: Zero, my sci-fi roguelike"></video>
-                <div class="image-label">3D VFX</div>
-            </div>-->
+            </div>
         </div>
 
 
@@ -128,43 +105,33 @@
             
            <div class="art-image"> <!-- Little Mermaid -->
                 <img src="/static/images/art/TLM_KeyArt.png" alt="The Little Mermaid Key Art" data-group="little-mermaid" data-caption="Key art from a reimagining of The Little Mermaid">
-                <div class="image-label">Painterly 2D</div>
-            </div>
-
-            <div class="art-image"> <!-- Reya Walk -->
-                <video src="/static/images/art/Reya_3DWalk.mp4" type="video/mp4" data-group="reya" data-caption="Walk cycle for the player character of Version: Zero, my sci-fi roguelike"></video>
-                <div class="image-label">3D Animation</div>
+                <div class="image-label">Painterly</div>
             </div>
 
             <div class="art-image"> <!-- Japan Landscape -->
                 <img src="/static/images/art/Landscape_final.png" alt="Landscape 2D Art" data-group="landscape" data-caption="Digital painting based on a photo taken in Japan">
-                <div class="image-label">Painterly 2D</div>
+                <div class="image-label">Painterly</div>
             </div>
 
             <div class="art-image"> <!-- Entrapta -->
                 <img src="/static/images/art/SheRa_Entrapta.png" alt="Entrapta Character Art" data-caption="Fanart of the character Entrapta from the animated series She-Ra">
-                <div class="image-label">Lineless 2D</div>
+                <div class="image-label">Character</div>
             </div>
 
-            <div class="art-image"> <!-- VZero Environment -->
-                <img src="/static/images/art/VZeroEnv.png" alt="Glitch Environment 3D Model" data-group="vzero-env" data-caption="3D environment for a level in Version: Zero, my sci-fi roguelike">
-                <div class="image-label">3D Environment</div>
+            <div class="art-image"> <!-- Mara -->
+                <img src="/static/images/art/SheRa_Mara.png" alt="Mara Character Art" data-caption="Fanart of the character Mara from the animated series She-Ra">
+                <div class="image-label">Character</div>
             </div>
 
             <div class="art-image"> <!-- Coral Island -->
                 <img src="/static/images/art/CoralIsland_Aliya.png" alt="Coral Island Character Art" data-group="coral-island" data-caption="My 3D character from Coral Island, drawn in the 2D style of the game">
                 <div class="image-label">2D of Existing 3D Character</div>
             </div>
-            
-            <div class="art-image"> <!-- Flower Defense -->
-                <img src="/static/images/art/FDef_Models.png" alt="Flower Defense 3D Models" data-caption="Low-poly 3D models for my tower defense game, Flower Defense">
-                <div class="image-label">3D Modeling</div>
-            </div>
 
-            <div class="art-image"> <!-- Villain Design -->
+            <!--div class="art-image"> !-- Villain Design --
                 <img src="/static/images/art/Villain_Front.png" alt="Villain Character Design" data-group="villain" data-caption="Villain design-- a good character turned evil via possesion by a demon">
                 <div class="image-label">Character Design</div>
-            </div>
+            </div>-->
             
             <div class="art-image"> <!-- VZero UI -->
                 <img src="/static/images/art/VZeroUI.png" alt="Version Zero Startup UI" data-group="vzero-ui" data-caption="Startup UI screen for Version: Zero, my sci-fi roguelike">
@@ -175,16 +142,65 @@
                 <img src="/static/images/art/Kinkajou.png" alt="Kinkajou Cartoon Style" data-caption="Practice with a simplified cartoon style, reimagining the character Kinkajou from Wings of Fire">
                 <div class="image-label">Cartoon Style</div>
             </div>
+        </div>
 
-            <!--div class="art-image"> !-- VZero VFX --
+
+
+        <br><br>
+        <p class="section-header">3D ART</p>
+        <hr class="section-line">
+
+           <!-- DESKTOP LAYOUT -->
+        <div class="art-gallery" id="art-gallery-3col" style="margin-top: -50px;">
+            
+            <!-- COLUMN 1 -->
+            <div class="art-image"> <!-- Reya Walk -->
+                <video autoplay loop muted playsinline src="/static/images/art/Reya_3DWalk.mp4" type="video/mp4" data-group="reya" data-caption="Walk cycle for the player character of Version: Zero, my sci-fi roguelike"></video>
+                <div class="image-label">Animation</div>
+            </div>
+            <br><br><br>
+
+            <!-- COLUMN 2 -->
+            <div class="art-image"> <!-- VZero Environment -->
+                <img src="/static/images/art/VZeroEnv.png" alt="Glitch Environment 3D Model" data-group="vzero-env" data-caption="3D environment for a level in Version: Zero, my sci-fi roguelike">
+                <div class="image-label">Environment</div>
+            </div>
+
+            <div class="art-image"> <!-- VZero VFX -->
+                <video autoplay loop muted playsinline src="/static/images/art/VZeroVFX.mp4" type="video/mp4" data-group="vfx" data-caption="Basic VFX for player abilities in Version: Zero, my sci-fi roguelike"></video>
+                <div class="image-label">VFX</div>
+            </div>
+
+            <!-- COLUMN 3 -->
+            <div class="art-image"> <!-- Flower Defense -->
+                <img src="/static/images/art/FDef_Models.png" alt="Flower Defense 3D Models" data-caption="Low-poly 3D models for my tower defense game, Flower Defense">
+                <div class="image-label">Modeling</div>
+            </div>
+        </div>
+
+
+        <!-- MOBILE LAYOUT -->
+        <div class="art-gallery" id="art-gallery-1col" style="margin-top: -50px;">
+
+            <div class="art-image"> <!-- Reya Walk -->
+                <video src="/static/images/art/Reya_3DWalk.mp4" type="video/mp4" data-group="reya" data-caption="Walk cycle for the player character of Version: Zero, my sci-fi roguelike"></video>
+                <div class="image-label">3D Animation</div>
+            </div>
+
+            <div class="art-image"> <!-- VZero Environment -->
+                <img src="/static/images/art/VZeroEnv.png" alt="Glitch Environment 3D Model" data-group="vzero-env" data-caption="3D environment for a level in Version: Zero, my sci-fi roguelike">
+                <div class="image-label">3D Environment</div>
+            </div>
+            
+            <div class="art-image"> <!-- Flower Defense -->
+                <img src="/static/images/art/FDef_Models.png" alt="Flower Defense 3D Models" data-caption="Low-poly 3D models for my tower defense game, Flower Defense">
+                <div class="image-label">3D Modeling</div>
+            </div>
+
+            <div class="art-image"> <!-- VZero VFX -->
                 <video autoplay loop muted playsinline src="/static/images/art/VZeroVFX.mp4" type="video/mp4" data-group="vfx" data-caption="Basic VFX for player abilities in Version: Zero, my sci-fi roguelike"></video>
                 <div class="image-label">3D VFX</div>
-            </div>-->
-
-            <!--div class="art-image"> !-- Adora --
-                <img src="/static/images/art/SheRa_Adora.png" alt="Adora Character Art" data-caption="Fanart of the character Adora from the animated series She-Ra">
-                <div class="image-label">Lineless 2D</div>
-            </div>-->
+            </div>
         </div>
 
 
