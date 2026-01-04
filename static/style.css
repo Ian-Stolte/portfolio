@@ -231,7 +231,7 @@ h1 {
 
     #intro-content {
         flex-direction: column;
-        width: 90%;
+        width: 85%;
         margin-bottom: -20px;
     }
 
@@ -276,7 +276,9 @@ h1 {
     .image-grid {
         grid-template-columns: 1fr;
         gap: 60px 0px;
-        padding: 150px 10px 30px;
+        padding: 135px 10px 30px;
+        margin: auto;
+        width: 90%;
     }
 }
   
@@ -475,24 +477,17 @@ h1 {
 
 /*GAME PAGE TOP*/
 
-.go-back {
-    text-decoration: none;
-    display: none;
-}
-
-.game-page video {
+.cover-gif {
     border: 4px solid rgb(0, 0, 0);
-    margin-right: 45px;
+    width: 60%;
+    margin: 15px 45px 0px 0px;
 }
 
-@media (max-width: 600px)
+@media (max-width: 1000px)
 {
-    .go-back {
-        display: none;
-    }
-
-    .game-page video {
-        margin-top: -20px;
+    .cover-gif {
+        margin: -20px 0px 10px 0px;
+        width: 110%;
     }
 }
 
@@ -517,13 +512,7 @@ h1 {
 
 .game-summary {
     flex: 1;
-    font-size: clamp(16px, 4vw, 20px);
-}
-
-.cover-gif
-{
-    width: 60%;
-    margin: 15px 30px 0px 0px;
+    font-size: clamp(16px, 4.5vw, 20px);
 }
 
 .project-info {
@@ -552,12 +541,32 @@ h1 {
     border-radius: 10px;
 }
 
+.itch-button-small {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    margin: 0px;
+    width: 50px;
+    text-align: center;
+    background-color: rgb(70, 66, 85);
+    border: 2px solid rgb(34, 30, 49);
+    padding: 5px 5px 0px;
+    border-radius: 10px;
+}
+
+@media (min-width: 600px) {
+    .itch-button-small { display: none; }
+}
+
+@media (max-width: 600px) {
+    .itch-button { display: none; }
+}
+
 .itch-button:hover {
     background-color: rgb(42, 40, 49);;
 }
 
-.itch-button a
-{
+.itch-button a {
     color:rgb(255, 255, 255);
     text-decoration: none;
     font-style: italic;
@@ -565,10 +574,6 @@ h1 {
 }
 
 @media (max-width: 1000px) {
-    .game-page video {
-        margin-bottom: 5px;
-    }
-    
     .game-page-top {
         flex-direction: column;
         align-items: center;
@@ -583,13 +588,9 @@ h1 {
         padding: 0px 10px;
     }
 
-    .cover-gif {
-        width: 100%;
-        margin: 0 0 20px 0;
-    }
-
     .project-info {
         margin-top: 20px;
+        margin-left: 10px;
     }
 
     .game-summary {
@@ -663,7 +664,7 @@ ul li {
 }
 
 .game-image-small {
-    width: 400px;
+    width: clamp(0vw, 400px, 80vw);
     margin-bottom: -5px;
 }
 
@@ -680,21 +681,32 @@ hr {
     margin-bottom: 50px;
 }
 
+@media (max-width: 1000px) {
+    .accordion-header {
+        width: 100%;
+    }
+
+    .desc {
+        width: 100%;
+    }
+
+    hr {
+        width: 100%;
+    }
+
+    .game-image-large {
+        width: 110%;
+        margin-left: -5px;
+    }
+}
+
 
 
 /*MISC*/
 
 a:hover { opacity: 0.7; }
-
-a
-{
+a {
     color: rgb(255, 255, 255);
     font-size: 24px;
     text-decoration: none;
-}
-
-#contact-info
-{
-    margin-top: 200px;
-    margin-bottom: 40px;
 }
