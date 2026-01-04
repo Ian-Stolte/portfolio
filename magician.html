@@ -65,19 +65,30 @@
             <div style="clear: both; padding: 10px 0px;"></div>
 
             <div class="desc">
-                <h2>Key Contributions:</h2>
-                <ul>
-                    <li>Procedural <b>room generation</b></li>
-                    <li>Enemy behavior and <b>pathfinding</b></li>
-                    <li>Player movement and abilities</li>
-                    <li>Tileset art</li>
-                    <li>Music</li>
-                </ul>
+                <h2 style="margin-bottom: 10px;">Key Contributions:</h2>
+                <button class="accordion-header" aria-expanded="false">Procedural room generation<span class="accordion-indicator">+</span></button>
+                <div class="accordion-panel">
+                    <div>
+                        <p>Each level is generated at runtime, using a simple random algorithm and some cleanup code to prevent hanging blocks.</p>
+                    </div>
+                </div>
+                <button class="accordion-header" aria-expanded="false">Enemy behavior and pathfinding<span>+</span></button>
+                <div class="accordion-panel">
+                    <div>
+                        <p>Enemies use A* pathfinding, attempt to maintain a goal distance from the player.</p>
+                    </div>
+                </div>
+                <button class="accordion-header" aria-expanded="false">Player movement and abilities<span>+</span></button>
+                <div class="accordion-panel">
+                    <div>
+                        <p>Responsive bubble physics and bounce calculation.</p>
+                    </div>
+                </div>
                 
+                <br>
                 <hr>
-                <h2 style="font-size: 36px;">Development Process</h2>
-                <p style="font-size: 15px;"><i>(Section currently under construction)</i></p>
-
+                <h2>Additional Content</h2>
+                <br>
 
                 <video autoplay loop muted playsinline class="game-image-small">
                     <source src="/static/images/Magician Draft.mp4" type="video/mp4">
@@ -93,6 +104,7 @@
     </div>
 
     <script src="scripts/dropdown.js"></script>
+    <script src="scripts/accordion.js"></script>
 </body>
 
 </html>
