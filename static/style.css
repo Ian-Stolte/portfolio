@@ -6,6 +6,7 @@ body
     font-family: "Noto Sans";
     background-color: rgb(13, 13, 13);
     color: rgb(240, 240, 240);
+    overflow-x: hidden;
 }
 
 @media (max-width: 600px)
@@ -276,9 +277,9 @@ h1 {
     .image-grid {
         grid-template-columns: 1fr;
         gap: 60px 0px;
-        padding: 135px 10px 30px;
+        padding: 135px 0px 30px;
         margin: auto;
-        width: 90%;
+        width: 95%;
     }
 }
   
@@ -489,6 +490,7 @@ h1 {
         margin: -40px 0px 10px 0px;
         width: 100vw;
         border-radius: 0px;
+        border: none;
     }
 }
 
@@ -534,12 +536,15 @@ h1 {
     top: 15px;
     right: 15px;
     margin: 0px;
-    width: 150px;
+    /*width: 150px;*/
+    display: flex;
+    align-items: center;
     text-align: center;
     background-color: rgb(70, 66, 85);
     border: 2px solid rgb(34, 30, 49);
-    padding: 10px;
+    padding: 5px 10px;
     border-radius: 10px;
+    font-size: 20px;
 }
 
 .itch-button-small {
@@ -551,7 +556,7 @@ h1 {
     text-align: center;
     background-color: rgb(70, 66, 85);
     border: 2px solid rgb(34, 30, 49);
-    padding: 5px 5px 0px;
+    padding: 8px 5px 0px;
     border-radius: 10px;
 }
 
