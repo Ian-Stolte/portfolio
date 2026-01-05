@@ -486,8 +486,9 @@ h1 {
 @media (max-width: 1000px)
 {
     .cover-gif {
-        margin: -20px 0px 10px 0px;
-        width: 110%;
+        margin: -40px 0px 10px 0px;
+        width: 100vw;
+        border-radius: 0px;
     }
 }
 
@@ -574,6 +575,10 @@ h1 {
 }
 
 @media (max-width: 1000px) {
+    .game-page {
+        width: 95%;
+    }
+    
     .game-page-top {
         flex-direction: column;
         align-items: center;
@@ -581,16 +586,15 @@ h1 {
     }
 
     .game-page h1 {
-        padding: 0px 10px;
+        padding: 0px;
     }
 
     .game-summary {
-        padding: 0px 10px;
+        padding: 0px;
     }
 
     .project-info {
-        margin-top: 20px;
-        margin-left: 10px;
+        margin: 20px 0px 0px 0px;
     }
 
     .game-summary {
