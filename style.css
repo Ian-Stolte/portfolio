@@ -244,13 +244,6 @@ h1 {
 
 /*IMAGE GRID*/
 
-#click-to-learn {
-    text-align: left;
-    margin: 0px 0px -20px 20px;
-    color: rgb(157, 163, 231);
-    font-style: italic;
-}
-
 .image-grid {
     width: 85%;
     margin: auto;
@@ -669,7 +662,7 @@ h1 {
 }
 
 .accordion-panel div {
-    margin: 10px 0px 10px 20px;
+    margin: 15px 0px 10px 20px;
 }
 
 ul li {
