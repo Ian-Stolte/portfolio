@@ -85,8 +85,7 @@
                         <video autoplay loop muted playsinline class="game-image-small">
                             <source src="/images/videos/VZero_DialogueDownload.mp4" type="video/mp4">
                         </video>
-                        <br>
-                        <p style="margin-bottom: 15px;">This editor tool works by first sending a request to Google's <b>Apps Script</b>, where I wrote a simple program to export the sheet with the 1st row headers as keys.
+                        <p style="margin: 30px 0px 15px 0px;">This editor tool works by first sending a request to Google's <b>Apps Script</b>, where I wrote a simple program to export the sheet with the 1st row headers as keys.
                             It then clears the previous JSON files, creates a folder for each sheet in the Resources folder, and saves the JSON files there. On game start, I
                             load these JSON files using Resources.LoadAll() and parse them into C# dictionaries with <b>Newtonsoft.Json</b>.
                         </p>
@@ -112,7 +111,8 @@ public class JSONDownloader : EditorWindow
     {
         GUILayout.Label("Google Sheets Downloader Settings", EditorStyles.boldLabel);
 
-        var newConfig = (JSONConfig)EditorGUILayout.ObjectField("Config File", config, typeof(JSONConfig), false);
+        var newConfig = (JSONConfig)EditorGUILayout.ObjectField("Config File",
+        config, typeof(JSONConfig), false);
         if (newConfig != config)
         {
             config = newConfig;
@@ -182,7 +182,8 @@ public class JSONDownloader : EditorWindow
                 string filePath = Path.Combine(folderPath, sheet.Key + ".json");
                 File.WriteAllText(filePath, sheet.Value.ToString());
                 AssetDatabase.Refresh();
-                Debug.Log($"Dialogue for {sheet.Key} saved to {filePath} successfully.");
+                Debug.Log($"Dialogue for {sheet.Key} saved to {filePath}
+                successfully.");
             }
         }
         catch (System.Exception ex)
@@ -195,8 +196,9 @@ public class JSONDownloader : EditorWindow
                                 </pre>
                             </div>
                             <button class="accordion-header" id="small-accordion" aria-expanded="false">Code Snippet — JSON to Dictionary<span>+</span></button>
-                            <div class="accordion-panel">
-                                <pre>private void LoadFromJson()
+                            <div class="accordion-panel" style="margin-bottom: 40px;">
+                                <pre>
+private void LoadFromJson()
 {
     TextAsset[] files = Resources.LoadAll<TextAsset>("Dialogue");
     foreach (TextAsset file in files)
@@ -240,7 +242,6 @@ private Dictionary<string, Dictionary<string, string>> ParseJsonToDictionary(str
 }
                                 </pre>
                             </div>
-                            <br>
                     </div>
                 </div>
 

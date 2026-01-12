@@ -668,7 +668,7 @@ h1 {
     background-color: rgb(40, 40, 40);;
     font-size: 17px;
     box-shadow: none;
-    width: 50%;
+    width: clamp(0vw, 800px, 70vw);
     margin-bottom: -15px;
 }
 
@@ -705,7 +705,7 @@ ul li {
 
 .game-image-small {
     width: clamp(0vw, 400px, 80vw);
-    margin-top: 5px;
+    margin-top: 10px;
     margin-bottom: -5px;
     border-radius: 0px;
 }
@@ -739,6 +739,13 @@ hr {
     .game-image-large {
         width: 110%;
         margin-left: -5px;
+    }
+}
+
+@media (max-width: 800px)
+{
+    #small-accordion {
+        display: none;
     }
 }
 
