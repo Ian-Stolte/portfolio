@@ -71,16 +71,183 @@
                 <h2 style="margin-bottom: 10px;">Key Contributions:</h2>
 
                 <p style="margin: 20px 0px -5px 0px;"><i>Programming:</i></p>
+                <button class="accordion-header" aria-expanded="false">Dialogue system with Google Sheets/JSON<span>+</span></button>
+                <div class="accordion-panel">
+                    <div>
+                        <p>I created a custom <b>Google Sheets to JSON</b> pipeline to load the script for this game, allowing me to display the narrative in an easily readable format, edit
+                            from any device, and easily collaborate with Sheets' multi-user editing.</p>
+                        <video autoplay loop muted playsinline class="game-image-large">
+                            <source src="/images/videos/VZero_Dialogue.mp4" type="video/mp4">
+                        </video>
+                        <p style="margin-top: 25px;">To make this pipeline quicker, I also wrote a basic editor tool, which allows me to specifiy which sheets I want to pull from, then
+                            fetches the latest version of each sheet, converts to JSON, and places this result in the correct folder in the Unity project. In the end, it takes 5 clicks
+                            to download, convert and organize the entire script!</p>
+                        <video autoplay loop muted playsinline class="game-image-small">
+                            <source src="/images/videos/VZero_DialogueDownload.mp4" type="video/mp4">
+                        </video>
+                        <br>
+                        <p style="margin-bottom: 15px;">This editor tool works by first sending a request to Google's <b>Apps Script</b>, where I wrote a simple program to export the sheet with the 1st row headers as keys.
+                            It then clears the previous JSON files, creates a folder for each sheet in the Resources folder, and saves the JSON files there. On game start, I
+                            load these JSON files using Resources.LoadAll() and parse them into C# dictionaries with <b>Newtonsoft.Json</b>.
+                        </p>
+                            <button class="accordion-header" id="small-accordion" aria-expanded="false">Code Snippet — Editor Tool<span>+</span></button>
+                            <div class="accordion-panel">
+                                <pre>
+#if UNITY_EDITOR
+public class JSONDownloader : EditorWindow
+{
+    private JSONConfig config;
+    [MenuItem("Tools/Download Dialogue")]
+    public static void ShowWindow()
+    {
+        GetWindow<JSONDownloader>("JSON Downloader");
+    }
+
+    private void OnEnable()
+    {
+        minSize = new Vector2(400, 300);
+    }
+
+    private void OnGUI()
+    {
+        GUILayout.Label("Google Sheets Downloader Settings", EditorStyles.boldLabel);
+
+        var newConfig = (JSONConfig)EditorGUILayout.ObjectField("Config File", config, typeof(JSONConfig), false);
+        if (newConfig != config)
+        {
+            config = newConfig;
+        }
+        if (GUILayout.Button("Download JSON Files"))
+        {
+            if (config != null)
+            {
+                DownloadJSONFiles();
+            }
+            else
+            {
+                Debug.LogError("Please assign a JSONConfig file.");
+            }
+        }
+    }
+
+
+    private void DownloadJSONFiles()
+    {
+        string urlTemplate = "https://script.google.com/macros/s/{0}/exec";
+        foreach (var configEntry in config.dialogueConfigs)
+        {
+            string url = string.Format(urlTemplate, configEntry.sheetID, name);
+            string jsonContent = DownloadFile(url);
+
+            if (!string.IsNullOrEmpty(jsonContent))
+            {
+                string folderPath = "Assets/Resources/Dialogue";
+                if (Directory.Exists(folderPath))
+                    Directory.Delete(folderPath, true);
+                
+                Directory.CreateDirectory(folderPath);
+
+                SaveSheetJSON(jsonContent, folderPath); 
+            }
+            else
+            {
+                Debug.LogError($"Failed to download the dialog file for {name}.");
+            }
+        }
+    }
+
+    private string DownloadFile(string url)
+    {
+        try
+        {
+            using (System.Net.WebClient client = new System.Net.WebClient())
+            {
+                return client.DownloadString(url);
+            }
+        }
+        catch (System.Net.WebException ex)
+        {
+            Debug.LogError("Error downloading dialogue file: " + ex.Message);
+            return null;
+        }
+    }
+
+    private void SaveSheetJSON(string JSON, string folderPath)
+    {
+        try
+        {
+            JObject allSheets = JObject.Parse(JSON);
+            foreach (var sheet in allSheets)
+            {
+                string filePath = Path.Combine(folderPath, sheet.Key + ".json");
+                File.WriteAllText(filePath, sheet.Value.ToString());
+                AssetDatabase.Refresh();
+                Debug.Log($"Dialogue for {sheet.Key} saved to {filePath} successfully.");
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("Error saving sheet JSON: " + ex.Message);
+        }
+    }
+}
+#endif
+                                </pre>
+                            </div>
+                            <button class="accordion-header" id="small-accordion" aria-expanded="false">Code Snippet — JSON to Dictionary<span>+</span></button>
+                            <div class="accordion-panel">
+                                <pre>private void LoadFromJson()
+{
+    TextAsset[] files = Resources.LoadAll<TextAsset>("Dialogue");
+    foreach (TextAsset file in files)
+    {
+        var dict = ParseJsonToDictionary(file.text);
+        foreach (var outerKey in dict.Keys)
+        {
+            var innerDict = dict[outerKey];
+            var keysToUpdate = new List<string>(innerDict.Keys);
+            foreach (var innerKey in keysToUpdate)
+            {
+                if (innerDict[innerKey] != null && innerDict[innerKey].Contains("--"))
+                {
+                    innerDict[innerKey] = innerDict[innerKey].Replace("--", "—");
+                }
+            }
+        }
+        dialogueBank.Add(dict);
+
+        var counts = new Dictionary<string, int>();
+        foreach (var key in dict.Keys)
+        {
+            counts[key] = 0;
+        }
+        SequenceManager.Instance.timesPlayed.Add(counts);
+    }
+}
+
+private Dictionary<string, Dictionary<string, string>> ParseJsonToDictionary(string jsonString)
+{
+    try
+    {
+        var parsedData = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(jsonString);
+        return parsedData;
+    }
+    catch (JsonException ex)
+    {
+        Debug.LogError("Error parsing JSON: " + ex.Message);
+        return null;
+    }
+}
+                                </pre>
+                            </div>
+                            <br>
+                    </div>
+                </div>
+
                 <button class="accordion-header" aria-expanded="false">Modular ability creation system<span>+</span></button>
                 <div class="accordion-panel">
                     <div>
                         <p>One of the core mechanics of the game is an ability system where players create custom abilities using ~20 different ability components.</p>
-                    </div>
-                </div>
-                <button class="accordion-header" aria-expanded="false">Dialogue system with Google Sheets/JSON<span>+</span></button>
-                <div class="accordion-panel">
-                    <div>
-                        <p>Interactive narrative that develops based on player progress, using a <b>Google Sheets to JSON</b> pipeline to load the script.</p>
                     </div>
                 </div>
 
@@ -93,7 +260,7 @@
                             <li>3D models and a custom static shader for the <b>environment</b></li>
                             <li><b>VFX & shaders</b> for abilities and enemy attacks, using Unity's VFX Graph and Shader Graph</li>
                         </ul>
-                        <i>(see the Art section on the homepage header for some examples)</i>
+                        <i>(see the Art section on the homepage header for some examples!)</i>
                     </div>
                 </div>
                 
