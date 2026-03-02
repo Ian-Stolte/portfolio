@@ -9,6 +9,14 @@ body
     overflow-x: hidden;
 }
 
+body.has-bg {
+    background-image: url("images/BG Texture.jpg");
+    background-size: cover;        /* fill entire screen */
+    background-position: center;   /* center image */
+    background-repeat: no-repeat;
+    background-attachment: fixed;  /* stays in place on scroll */
+}
+
 @media (max-width: 600px)
 {
     body {
@@ -32,7 +40,7 @@ h1 {
     display: flex;
     left: 0;
     width: 100%;
-    padding: 10px 0px;
+    padding: 8px 0px;
     background-color: rgb(30, 30, 30);
     color: rgb(220, 220, 220);
     z-index: 3;
@@ -43,12 +51,10 @@ h1 {
 #title-wrapper {
     display: flex;
     flex-direction: column;
-    margin-top: 5px;
 }
 
 #header-title a {
     padding-left: 10px;
-    margin: auto 0px;
     color: rgb(255, 255, 255);
     font-size: 36px;
     font-weight: bold;
@@ -57,7 +63,7 @@ h1 {
 
 #header-subtitle {
     font-size: 18px;
-    margin-top: -3px;
+    margin-top: -5px;
     margin-left: 30px;
 }
 
@@ -83,7 +89,7 @@ h1 {
 
 .header-icon {
     display: block;
-    width: clamp(35px, 5vw, 55px);
+    width: clamp(30px, 5vw, 50px);
     margin-right: clamp(5px, 3vw, 40px);
     margin-bottom: -10px;
 }
@@ -97,7 +103,7 @@ h1 {
 
 .header-icon-desc {
     padding-right: 50px;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .header-link {
@@ -245,18 +251,17 @@ h1 {
 /*IMAGE GRID*/
 
 .image-grid {
-    width: 85%;
+    width: 87%;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 70px 60px;
-    padding: 150px 30px 30px;
+    gap: 70px 70px;
+    padding: 150px 30px 40px;
 }
 
 .image-item {
-    /*box-shadow: 0px 0px 15px rgba(108, 75, 127, 0.5);*/
     box-shadow: 5px 5px 16px rgba(108, 75, 127, 0.4);
-    border: 2px solid rgb(0, 0, 0);
+    border: 3px solid rgb(0, 0, 0);
 }
 
 .image-item-bg {
@@ -495,7 +500,7 @@ h1 {
     width: 60%;
     margin: 15px 45px 0px 0px;*/
     width: 110%;
-    margin: -40px 0px 10px 0px;
+    margin: -50px 0px 10px 0px;
     border-radius: 0px;
     border: none;
 }
@@ -588,7 +593,6 @@ h1 {
 
 @media (max-width: 1000px) {
     .cover-gif {
-        margin: -40px 0px 10px 0px;
         width: 100vw;
         border-radius: 0px;
         border: none;
@@ -697,6 +701,12 @@ h1 {
 
 .accordion-panel div {
     margin: 15px 0px 10px 20px;
+}
+
+.github-link {
+    text-decoration: underline;
+    font-size: 20px;
+    color: rgb(185, 142, 210)
 }
 
 ul li {
