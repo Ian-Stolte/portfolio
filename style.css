@@ -11,7 +11,7 @@ body
 
 body.has-bg {
     background-image: url("images/BG Texture.jpg");
-    background-size: cover;        /* fill entire screen */
+    /*background-size: cover;*/        /* fill entire screen */
     background-position: center;   /* center image */
     background-repeat: no-repeat;
     background-attachment: fixed;  /* stays in place on scroll */
