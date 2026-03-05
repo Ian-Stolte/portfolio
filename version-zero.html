@@ -251,7 +251,19 @@ catch (JsonException ex)
                 <button class="accordion-header" aria-expanded="false">Modular ability creation system<span>+</span></button>
                 <div class="accordion-panel">
                     <div>
-                        <p>One of the core mechanics of the game is an ability system where players create custom abilities using ~20 different ability components.</p>
+                        <p>
+                            One of the core mechanics of the game is an ability creation system, where players design custom hacks using ~20 different ability components.
+                        </p><br>
+                        <p>
+                            To facilitate such a large number of possible combinations, I divided components into 3 categories: bases, which determine the hitbox & core behvaior,
+                            effects, which determine what happens to each enemy hit, and mods, which change how the ability is cast in the first place, such as an autocast or an
+                            aura around the player. This allowed me to elegantly implement any ability in terms of its base, which would then determine
+                            which enemies are hit and call a single ApplyEffects() function on them, passing in the list of attached effects.
+                        </p><br>
+                        <p>
+                            With this framework, whether the player wants to create a slowing damage circle, a dash that attaches a bomb to enemies, or an auto-firing projectile that
+                            baits enemies into walking closer, all I need to do is run a simple collision check and call 1 function!
+                        </p>
                     </div>
                 </div>
 
@@ -262,7 +274,7 @@ catch (JsonException ex)
                         <ul style="margin-top: 10px; margin-bottom: 10px;">
                             <li>A 3D model, rig, and walk animation for the player character</li>
                             <li>3D models and a custom static shader for the environment</li>
-                            <li>    VFX & shaders for abilities and enemy attacks, using Unity's VFX Graph and Shader Graph</li>
+                            <li>VFX & shaders for abilities and enemy attacks, using Unity's VFX Graph and Shader Graph</li>
                         </ul>
                         <i>(see the Art section on the homepage header for some examples!)</i>
                     </div>
