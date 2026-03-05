@@ -74,22 +74,33 @@
                 <div class="accordion-panel">
                     <div>
                         <p>Each level is generated at runtime, using a simple random algorithm and some cleanup code to prevent hanging blocks.</p>
+                        <a href="https://github.com/Ian-Stolte/unity-resources/tree/main/2D%20Level%20Generation" class="github-link">Code Snippets and Documentation</a>
                     </div>
                 </div>
+
+                <button class="accordion-header" aria-expanded="false">Mobile input and UI<span>+</span></button>
+                <div class="accordion-panel">
+                    <div>
+                        <p>This was originally a PC-only game, but I rebuilt the input and UI systems to work smoothly with mobile too. A particular highlight was the
+                            input system, where I faced the challenge of representing 4 different input actions + mouse movement with mobile touch only. In the end, I
+                            think I came up with a pretty elegant solution: 
+                        </p>
+                        <ul>
+                            <li>WASD → A virtual joystick for movement</li>
+                            <li>Space to dash → Button on screen</li>
+                            <li>Left click + mouse to aim → Short tap, aim direction determined by where on the screen you tap</li>
+                            <li>Right click held down + mouse to aim → Long tap, aim direction determined the same way</li>
+                        </ul>
+                    </div>
+                </div>
+                
                 <button class="accordion-header" aria-expanded="false">Enemy behavior and pathfinding<span>+</span></button>
                 <div class="accordion-panel">
                     <div>
                         <p>Enemies use A* pathfinding, attempt to maintain a goal distance from the player.</p>
                     </div>
                 </div>
-                <button class="accordion-header" aria-expanded="false">Porting to mobile<span>+</span></button>
-                <div class="accordion-panel">
-                    <div>
-                        <p>I rebuild the input and UI systems to work with mobile, designing an elegant 'virtual joystick & tap vs hold' system to represent the input
-                            from WASD and left and right clicks on PC.</p>
-                    </div>
-                </div>
-                
+
                 <!-- Additional Content -->
                 <!--br>
                 <hr>

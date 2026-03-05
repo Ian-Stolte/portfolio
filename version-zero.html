@@ -74,8 +74,8 @@
                 <button class="accordion-header" aria-expanded="false">Dialogue system with Google Sheets/JSON<span>+</span></button>
                 <div class="accordion-panel">
                     <div>
-                        <p>I created a custom <b>Google Sheets to JSON</b> pipeline to load the script for this game, allowing me to display the narrative in an easily readable format, edit
-                            from any device, and easily collaborate with Sheets' multi-user editing.</p>
+                        <p>I created a custom Google Sheets to JSON pipeline to load the script for this game, allowing me to display the narrative in an easily readable format, edit
+                            from any device, and easily collaborate with Sheets' built-in multi-user editing.</p>
                         <video autoplay loop muted playsinline class="game-image-large">
                             <source src="/images/videos/VZero_Dialogue.mp4" type="video/mp4">
                         </video>
@@ -85,165 +85,166 @@
                         <video autoplay loop muted playsinline class="game-image-small">
                             <source src="/images/videos/VZero_DialogueDownload.mp4" type="video/mp4">
                         </video>
-                        <p style="margin: 30px 0px 15px 0px;">This editor tool works by first sending a request to Google's <b>Apps Script</b>, where I wrote a simple program to export the sheet with the 1st row headers as keys.
+                        <p style="margin: 30px 0px 15px 0px;">This editor tool works by first sending a request to Google's Apps Script, where I wrote a simple program to export the sheet with the 1st row headers as keys.
                             It then clears the previous JSON files, creates a folder for each sheet in the Resources folder, and saves the JSON files there. On game start, I
-                            load these JSON files using Resources.LoadAll() and parse them into C# dictionaries with <b>Newtonsoft.Json</b>.
+                            load these JSON files and parse them into C# dictionaries with Newtonsoft.Json!
                         </p>
-                            <a href="https://github.com/Ian-Stolte/unity-resources/tree/main/Sheets-JSON%20Dialogue%20System" class="github-link">Code Snippets and Documentation</a>
-                            <!--button class="accordion-header" id="small-accordion" aria-expanded="false">Code Snippet — Editor Tool<span>+</span></button>
-                            <div class="accordion-panel">
-                                <pre>
+                        <a href="https://github.com/Ian-Stolte/unity-resources/tree/main/Sheets-JSON%20Dialogue%20System" class="github-link">Code Snippets and Documentation</a>
+                        <br><br>
+                        <!--button class="accordion-header" id="small-accordion" aria-expanded="false">Code Snippet — Editor Tool<span>+</span></button>
+                        <div class="accordion-panel">
+                            <pre>
 #if UNITY_EDITOR
 public class JSONDownloader : EditorWindow
 {
-    private JSONConfig config;
-    [MenuItem("Tools/Download Dialogue")]
-    public static void ShowWindow()
+private JSONConfig config;
+[MenuItem("Tools/Download Dialogue")]
+public static void ShowWindow()
+{
+    GetWindow<JSONDownloader>("JSON Downloader");
+}
+
+private void OnEnable()
+{
+    minSize = new Vector2(400, 300);
+}
+
+private void OnGUI()
+{
+    GUILayout.Label("Google Sheets Downloader Settings", EditorStyles.boldLabel);
+
+    var newConfig = (JSONConfig)EditorGUILayout.ObjectField("Config File",
+    config, typeof(JSONConfig), false);
+    if (newConfig != config)
     {
-        GetWindow<JSONDownloader>("JSON Downloader");
+        config = newConfig;
     }
-
-    private void OnEnable()
+    if (GUILayout.Button("Download JSON Files"))
     {
-        minSize = new Vector2(400, 300);
-    }
-
-    private void OnGUI()
-    {
-        GUILayout.Label("Google Sheets Downloader Settings", EditorStyles.boldLabel);
-
-        var newConfig = (JSONConfig)EditorGUILayout.ObjectField("Config File",
-        config, typeof(JSONConfig), false);
-        if (newConfig != config)
+        if (config != null)
         {
-            config = newConfig;
+            DownloadJSONFiles();
         }
-        if (GUILayout.Button("Download JSON Files"))
+        else
         {
-            if (config != null)
-            {
-                DownloadJSONFiles();
-            }
-            else
-            {
-                Debug.LogError("Please assign a JSONConfig file.");
-            }
-        }
-    }
-
-
-    private void DownloadJSONFiles()
-    {
-        string urlTemplate = "https://script.google.com/macros/s/{0}/exec";
-        foreach (var configEntry in config.dialogueConfigs)
-        {
-            string url = string.Format(urlTemplate, configEntry.sheetID, name);
-            string jsonContent = DownloadFile(url);
-
-            if (!string.IsNullOrEmpty(jsonContent))
-            {
-                string folderPath = "Assets/Resources/Dialogue";
-                if (Directory.Exists(folderPath))
-                    Directory.Delete(folderPath, true);
-                
-                Directory.CreateDirectory(folderPath);
-
-                SaveSheetJSON(jsonContent, folderPath); 
-            }
-            else
-            {
-                Debug.LogError($"Failed to download the dialog file for {name}.");
-            }
-        }
-    }
-
-    private string DownloadFile(string url)
-    {
-        try
-        {
-            using (System.Net.WebClient client = new System.Net.WebClient())
-            {
-                return client.DownloadString(url);
-            }
-        }
-        catch (System.Net.WebException ex)
-        {
-            Debug.LogError("Error downloading dialogue file: " + ex.Message);
-            return null;
-        }
-    }
-
-    private void SaveSheetJSON(string JSON, string folderPath)
-    {
-        try
-        {
-            JObject allSheets = JObject.Parse(JSON);
-            foreach (var sheet in allSheets)
-            {
-                string filePath = Path.Combine(folderPath, sheet.Key + ".json");
-                File.WriteAllText(filePath, sheet.Value.ToString());
-                AssetDatabase.Refresh();
-                Debug.Log($"Dialogue for {sheet.Key} saved to {filePath}
-                successfully.");
-            }
-        }
-        catch (System.Exception ex)
-        {
-            Debug.LogError("Error saving sheet JSON: " + ex.Message);
+            Debug.LogError("Please assign a JSONConfig file.");
         }
     }
 }
+
+
+private void DownloadJSONFiles()
+{
+    string urlTemplate = "https://script.google.com/macros/s/{0}/exec";
+    foreach (var configEntry in config.dialogueConfigs)
+    {
+        string url = string.Format(urlTemplate, configEntry.sheetID, name);
+        string jsonContent = DownloadFile(url);
+
+        if (!string.IsNullOrEmpty(jsonContent))
+        {
+            string folderPath = "Assets/Resources/Dialogue";
+            if (Directory.Exists(folderPath))
+                Directory.Delete(folderPath, true);
+            
+            Directory.CreateDirectory(folderPath);
+
+            SaveSheetJSON(jsonContent, folderPath); 
+        }
+        else
+        {
+            Debug.LogError($"Failed to download the dialog file for {name}.");
+        }
+    }
+}
+
+private string DownloadFile(string url)
+{
+    try
+    {
+        using (System.Net.WebClient client = new System.Net.WebClient())
+        {
+            return client.DownloadString(url);
+        }
+    }
+    catch (System.Net.WebException ex)
+    {
+        Debug.LogError("Error downloading dialogue file: " + ex.Message);
+        return null;
+    }
+}
+
+private void SaveSheetJSON(string JSON, string folderPath)
+{
+    try
+    {
+        JObject allSheets = JObject.Parse(JSON);
+        foreach (var sheet in allSheets)
+        {
+            string filePath = Path.Combine(folderPath, sheet.Key + ".json");
+            File.WriteAllText(filePath, sheet.Value.ToString());
+            AssetDatabase.Refresh();
+            Debug.Log($"Dialogue for {sheet.Key} saved to {filePath}
+            successfully.");
+        }
+    }
+    catch (System.Exception ex)
+    {
+        Debug.LogError("Error saving sheet JSON: " + ex.Message);
+    }
+}
+}
 #endif
-                                </pre>
-                            </div>
-                            <button class="accordion-header" id="small-accordion" aria-expanded="false">Code Snippet — JSON to Dictionary<span>+</span></button>
-                            <div class="accordion-panel">
-                                <pre>
+                            </pre>
+                        </div>
+                        <button class="accordion-header" id="small-accordion" aria-expanded="false">Code Snippet — JSON to Dictionary<span>+</span></button>
+                        <div class="accordion-panel">
+                            <pre>
 private void LoadFromJson()
 {
-    TextAsset[] files = Resources.LoadAll<TextAsset>("Dialogue");
-    foreach (TextAsset file in files)
+TextAsset[] files = Resources.LoadAll<TextAsset>("Dialogue");
+foreach (TextAsset file in files)
+{
+    var dict = ParseJsonToDictionary(file.text);
+    foreach (var outerKey in dict.Keys)
     {
-        var dict = ParseJsonToDictionary(file.text);
-        foreach (var outerKey in dict.Keys)
+        var innerDict = dict[outerKey];
+        var keysToUpdate = new List<string>(innerDict.Keys);
+        foreach (var innerKey in keysToUpdate)
         {
-            var innerDict = dict[outerKey];
-            var keysToUpdate = new List<string>(innerDict.Keys);
-            foreach (var innerKey in keysToUpdate)
+            if (innerDict[innerKey] != null && innerDict[innerKey].Contains("--"))
             {
-                if (innerDict[innerKey] != null && innerDict[innerKey].Contains("--"))
-                {
-                    innerDict[innerKey] = innerDict[innerKey].Replace("--", "—");
-                }
+                innerDict[innerKey] = innerDict[innerKey].Replace("--", "—");
             }
         }
-        dialogueBank.Add(dict);
-
-        var counts = new Dictionary<string, int>();
-        foreach (var key in dict.Keys)
-        {
-            counts[key] = 0;
-        }
-        SequenceManager.Instance.timesPlayed.Add(counts);
     }
+    dialogueBank.Add(dict);
+
+    var counts = new Dictionary<string, int>();
+    foreach (var key in dict.Keys)
+    {
+        counts[key] = 0;
+    }
+    SequenceManager.Instance.timesPlayed.Add(counts);
+}
 }
 
 private Dictionary<string, Dictionary<string, string>> ParseJsonToDictionary(string jsonString)
 {
-    try
-    {
-        var parsedData = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(jsonString);
-        return parsedData;
-    }
-    catch (JsonException ex)
-    {
-        Debug.LogError("Error parsing JSON: " + ex.Message);
-        return null;
-    }
+try
+{
+    var parsedData = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(jsonString);
+    return parsedData;
 }
-                                </pre>
-                            </div>
-                            <br id="small-accordion">-->
+catch (JsonException ex)
+{
+    Debug.LogError("Error parsing JSON: " + ex.Message);
+    return null;
+}
+}
+                            </pre>
+                        </div>
+                        <br id="small-accordion">-->
                     </div>
                 </div>
 
@@ -259,9 +260,9 @@ private Dictionary<string, Dictionary<string, string>> ParseJsonToDictionary(str
                 <div class="accordion-panel">
                     <div>
                         <ul style="margin-top: 10px; margin-bottom: 10px;">
-                            <li>A 3D model, rig, and walk animation for the <b>player character</b></li>
-                            <li>3D models and a custom static shader for the <b>environment</b></li>
-                            <li><b>VFX & shaders</b> for abilities and enemy attacks, using Unity's VFX Graph and Shader Graph</li>
+                            <li>A 3D model, rig, and walk animation for the player character</li>
+                            <li>3D models and a custom static shader for the environment</li>
+                            <li>    VFX & shaders for abilities and enemy attacks, using Unity's VFX Graph and Shader Graph</li>
                         </ul>
                         <i>(see the Art section on the homepage header for some examples!)</i>
                     </div>
