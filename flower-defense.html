@@ -48,7 +48,7 @@
                     <h1 style="font-size: clamp(35px, 5vw, 60px);">Flower Defense (2025)</h1>
                     <p class="game-summary">Grow plants instead of weapons in a 3D tower defense where the environment
                         directly affects your success. Find the perfect spot for each type of plant,
-                        balancing elevation, water, unique abilities, and distance from the invading robot army.</p>
+                        balancing elevation, water, unique abilities, and distance from the invading robot army!</p>
                     
                     <div class="project-info">
                         <h2>Project Info</h2>
@@ -68,37 +68,77 @@
 
                 <!-- Key Contributions -->
                 <h2>Key Contributions:</h2>
-                <p style="margin: 20px 0px -5px 0px;"><i>Programming:</i></p>
+                <p style="margin: 20px 0px -5px 0px;"><i>Programming & Design:</i></p>
+            
                 <button class="accordion-header" aria-expanded="false">Tower abilities & game balance<span class="accordion-indicator">+</span></button>
                 <div class="accordion-panel">
                     <div>
-                        <p>Designed and balanced <b>5 unique tower abilities</b> and their scaling based on the environment.</p>
+                        <p>I designed and balanced 5 unique tower abilities and their scaling based on the environment, focusing on making each option viable
+                            while providing a sense of progression throughout the game. This was actually somewhat challenging, as each plant needed to have a
+                            different type of enemy it was good against, while also preferring a different environment (distance from water + elevation).
+                        </p><br>
+                        <p>
+                            For example, the spike-shooting cactus was initially the strongest plant in the game, to the point that you could place only cacti
+                            and beat every wave. We tried raising the price, but this felt like a bandaid over the core problem— it either removed options from
+                            players when they didn't have enough money, or didn't do enough to stop them once they hit lategame and had plenty of coins. We instead
+                            decided on a multi-part solution that kept cacti strong, but required a mix of other plants to support them:
+                        </p>
+                        <ol>
+                            <li><b>Water.</b> Cacti are weak next to water, so we added more! This leaves a couple good spots but prevents you from placing cacti everywhere.</li>
+                            <li><b>Raised Terrain.</b> Cacti only shoot horizontally, so we raised & lowered more of the terrain.</li>
+                            <li><b>High-Health Enemies.</b> The biggest strength of a cactus was its AOE damage, so we added a few single enemies with really high health, which
+                                cacti struggle against on their own.
+                            </li>
+                        </ol>
                     </div>
                 </div>
+
+                <button class="accordion-header" aria-expanded="false">UI programming<span>+</span></button>
+                <div class="accordion-panel">
+                    <div>
+                        <p>I was responsible for all UI layout and implementation with UMG. This included:</p>
+                        <ul>
+                            <li>Buttons for placing towers, dynamically enabled when purchaseable</li>
+                            <li>Additional info on button hover</li>
+                            <li>A fast-forward/slo-mo widget for adjusting playback speed</li>
+                            <li>Animation transitions for start and end of round</li>
+                            <li>World-space UI for each plant's current stats</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <button class="accordion-header" aria-expanded="false">Core systems<span class="accordion-indicator">+</span></button>
                 <div class="accordion-panel">
                     <div>
-                        <p>Backend code to translate information between <b>C++ and Blueprints.</b></p>
-                    </div>
-                </div>
-                <button class="accordion-header" aria-expanded="false">UI implementation<span>+</span></button>
-                <div class="accordion-panel">
-                    <div>
-                        <p>I was responsible for all UI layout and implementation with UMG.</p>
+                        <p>Given this was a team of two, I either directly wrote or collaborated on most of the codebase. In particular, I gained a lot of experience with
+                            translating information between C++ and Blueprints, since we started prototyping the project with blueprints and later migrated to a
+                            mostly-C++ approach.<p>
                     </div>
                 </div>
 
                 <p style="margin: 20px 0px -5px 0px;"><i>Art:</i></p>
-                <button class="accordion-header" aria-expanded="false">3D models and textures<span>+</span></button>
-                <div class="accordion-panel">
-                    <div>
-                        <p>3D models and textures for 5 different plant types.</p>
-                    </div>
-                </div>
+
                 <button class="accordion-header" aria-expanded="false">Interactive audio<span>+</span></button>
                 <div class="accordion-panel">
                     <div>
-                        <p>Interactive music that smoothly transitions between different weather conditions.</p>
+                        <p>This game features a weather system that affects the layout of the map, so I composed interactive music to smoothly
+                            transition between each type of weather. I wrote a simple base track, and then built a vertical layer for the two weather extremes—
+                            sun and heavy rain. To create the in-between state, light rain, I drew elements from each extreme, allowing me to transition across the
+                            full spectrum without a single noticeable break. To finish, I also added a layer of percussion that plays while you're in combat,
+                            and fades out when you're between rounds.
+                        </p><br>
+                        <p>
+                            As a programmer, I also did the implementation for this dynamic audio system, connecting each change in weather or game state to its
+                            associated musical cue.
+                        </p>
+                    </div>
+                </div>
+
+                <button class="accordion-header" aria-expanded="false">3D models and textures<span>+</span></button>
+                <div class="accordion-panel">
+                    <div>
+                        <p>I created 3D models and textures for 5 different plant types, aiming for a vibrant, low-poly style:</p>
+                        <img src="/images/art/FDef_Models.png" alt="Flower Defense 3D Models" class="game-image-large" style="width: 100%">
                     </div>
                 </div>
 
