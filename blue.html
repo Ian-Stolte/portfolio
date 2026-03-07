@@ -21,18 +21,18 @@
             <span id="header-subtitle">Gameplay Programmer</span>
         </div>
         <div id="right-header">
-            <a href="https://ember44.itch.io"><img src="images/icons/Itch.png" alt="Itch.io Icon" class="header-icon-big" style="margin-bottom: -8px;"></a>
-            <a href="https://github.com/Ian-Stolte"><img src="images/icons/GitHub.png" alt="GitHub Icon" style="margin-bottom: -7px;" class="header-icon-big"></a>
             <a href="https://www.linkedin.com/in/ianstolte/"><img src="images/icons/Linkedin.png" alt="Linkedin Icon" class="header-icon-big" style="margin-bottom: -7px;"></a>
+            <a href="https://github.com/Ian-Stolte"><img src="images/icons/GitHub.png" alt="GitHub Icon" style="margin-bottom: -7px;" class="header-icon-big"></a>
+            <a href="https://ember44.itch.io"><img src="images/icons/Itch.png" alt="Itch.io Icon" class="header-icon-big" style="margin-bottom: -8px;"></a>
             <a href="./resumé.pdf"><img src="images/icons/Resume.png" alt="Resumé Icon" class="header-icon-big"></a>
         </div>
         <div id="dropdown">
             <img src="images/icons/Hamburger.png" alt="Dropdown Icon" id="dropdown-top">
             <div id="dropdown-menu">
                 <a href="./art.html">Art</a>
-                <a href="https://ember44.itch.io">Itch.io</a>
-                <a href="https://github.com/Ian-Stolte">GitHub</a>
                 <a href="https://www.linkedin.com/in/ianstolte/">LinkedIn</a>
+                <a href="https://github.com/Ian-Stolte">GitHub</a>
+                <a href="https://ember44.itch.io">Itch.io</a>
                 <a href="./resumé.pdf">Resumé</a>
             </div>
         </div>
@@ -68,6 +68,20 @@
 
                 <!-- Key Contributions -->
                 <h2>Key Contributions:</h2>
+                
+                <button class="accordion-header" aria-expanded="false">Materials and energy systems<span>+</span></button>
+                <div class="accordion-panel">
+                    <div>
+                        <p>The game involves a robust ship-building system, where each part you place is affected by every other part of the ship. To support this, I built a backend framework
+                            to track materials for the building system and energy for part usage, including multiplayer synchronization and propagation across the ship graph.
+                        </p><br>
+                        <p>
+                            A core feature of the energy system was making it fully modular, so that every part communicates with a central EnergyManager using a standardized EnergyUser component. This
+                            allows designers to quickly add new parts or change which parts use energy, and guarantee that their changes will fit with the established system!
+                        </p>
+                    </div>
+                </div>
+                
                 <button class="accordion-header" aria-expanded="false">Weapons design + implementation<span>+</span></button>
                 <div class="accordion-panel">
                     <div>
@@ -76,22 +90,22 @@
                     </div>
                 </div>
 
-                <button class="accordion-header" aria-expanded="false">Materials and energy systems<span>+</span></button>
-                <div class="accordion-panel">
-                    <div>
-                        <p>I built a backend framework to track materials for the building system and energy for part usage, including multiplayer synchronization and
-                            communication across the ship graph.<!-- For example, the energy system is built like this: </p>
-                            <ul>
-                                <li>A central EnergyManager, which...</li>
-                                <li>Each energy-using part</li>
-                            </ul>-->
-                    </div>
-                </div>
-
                 <button class="accordion-header" aria-expanded="false">Improving team communication<span>+</span></button>
                 <div class="accordion-panel">
                     <div>
-                        <p>Solved communication issues by bridging the gap between designers and engineers!</p>
+                        <p>
+                            I was initially brought on as a designer, but shifted toward the engineering team as the project went on. This meant that I had a strong
+                            understanding of both the design goals and the engineering framework, which let me bridge communication between the two teams!
+                        </p><br>
+                        <p> 
+                            This project unfortunately suffered from a lot of gaps in communication, but I was able to spearhead efforts to improve this. Specifically, I
+                            attended both the Design and Engineering team meetings, and briefed each team on what the other was focusing on that week. I also worked with
+                            designers to create documentation for the weapons system that was easily readable by engineers, and talked to engineering to help compile a list
+                            of technical constraints on possible weapons. This allowed us to enter production with a clear sense of what kinds of weapons we wanted to build,
+                            and ultimately prevented any major pivots or confusion between teams.
+                        </p><br>
+                        <i>A sample of my weapon documentation:</i>
+                        <img src="images/BLUE_WeaponSpecs.png" alt="Weapon Documentation" class="game-image-large">
                     </div>
                 </div>
 

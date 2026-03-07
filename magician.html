@@ -21,18 +21,18 @@
             <span id="header-subtitle">Gameplay Programmer</span>
         </div>
         <div id="right-header">
-            <a href="https://ember44.itch.io"><img src="images/icons/Itch.png" alt="Itch.io Icon" class="header-icon-big" style="margin-bottom: -8px;"></a>
-            <a href="https://github.com/Ian-Stolte"><img src="images/icons/GitHub.png" alt="GitHub Icon" style="margin-bottom: -7px;" class="header-icon-big"></a>
             <a href="https://www.linkedin.com/in/ianstolte/"><img src="images/icons/Linkedin.png" alt="Linkedin Icon" class="header-icon-big" style="margin-bottom: -7px;"></a>
+            <a href="https://github.com/Ian-Stolte"><img src="images/icons/GitHub.png" alt="GitHub Icon" style="margin-bottom: -7px;" class="header-icon-big"></a>
+            <a href="https://ember44.itch.io"><img src="images/icons/Itch.png" alt="Itch.io Icon" class="header-icon-big" style="margin-bottom: -8px;"></a>
             <a href="./resumé.pdf"><img src="images/icons/Resume.png" alt="Resumé Icon" class="header-icon-big"></a>
         </div>
         <div id="dropdown">
             <img src="images/icons/Hamburger.png" alt="Dropdown Icon" id="dropdown-top">
             <div id="dropdown-menu">
                 <a href="./art.html">Art</a>
-                <a href="https://ember44.itch.io">Itch.io</a>
-                <a href="https://github.com/Ian-Stolte">GitHub</a>
                 <a href="https://www.linkedin.com/in/ianstolte/">LinkedIn</a>
+                <a href="https://github.com/Ian-Stolte">GitHub</a>
+                <a href="https://ember44.itch.io">Itch.io</a>
                 <a href="./resumé.pdf">Resumé</a>
             </div>
         </div>
@@ -73,8 +73,25 @@
                 <button class="accordion-header" aria-expanded="false">Procedural room generation<span class="accordion-indicator">+</span></button>
                 <div class="accordion-panel">
                     <div>
-                        <p>Each level is generated at runtime, using a simple random algorithm and some cleanup code to prevent hanging blocks.</p>
+                        <p>
+                            Each level is generated at runtime, using a randomized algorithm to block out the overall layout and then running cleanup code to prevent hanging blocks.
+                            Each part of the generation is parameterized so that it can be tweaked by designers to architect different types of levels.
+                        </p><br>
+                        <!--ol>
+                            <li>Start by filling the whole grid with tiles.</li>
+                            <li>Pick a random starting point and direction.</li>
+                            <li>Erase a square based on our 'brush size', and then move in the current direction and repeat.</li>
+                            <li>At each step, there's a random chance we switch direction. If we hit the edge of the map, we reverse direction.</li>
+                            <li>After a set number of steps, look for any blocks with only 1 neighbor—i.e hanging blocks—and erase them.</li>
+                            <li>Then place spikes, finding all runs of 3+ adjacent blocks and spawning spikes on a set percent of them.</li>
+                            <li>Finally, look for open spaces (blocks with 0 neighbors) and spawn enemies and the player in these spots.</li>
+                        </ol>-->
+                        <p>
+                            Here's what the levels look like!
+                        </p>
+                        <img src="images/Magician_Tilemap.png" alt="Tilemap Samples" class="game-image-large" style="width: 100%"><br>
                         <a href="https://github.com/Ian-Stolte/unity-resources/tree/main/2D%20Level%20Generation" class="github-link">Code Snippets and Documentation</a>
+                        <br><br>
                     </div>
                 </div>
 
@@ -85,6 +102,7 @@
                             input system, where I faced the challenge of representing 4 different input actions + mouse movement with mobile touch only. In the end, I
                             think I came up with a pretty elegant solution!
                         </p>
+                        <img src="images/Magician_Mobile.png" alt="Mobile UI Layout" class="game-image-large" style="width: 100%; margin-bottom: -25px; margin-top: -5px;"><br>
                         <ul>
                             <li>WASD → A virtual joystick for movement</li>
                             <li>Space to dash → Button on screen</li>
