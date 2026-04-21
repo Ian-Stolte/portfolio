@@ -49,12 +49,12 @@
                 <div>
                     <h1>Venture (2026)</h1>
                     <p class="game-summary">Play as two crash-landed astronauts on an alien world, using its strange lifeforms to survive
-                        as you climb through a massive ravine in the planet's center. Open-world survival meets co-op rock-climbing in a beautiful-but-deadly environment.</p>
+                        as you climb through a massive ravine in the planet's center. Open-world survival meets co-op climbing in a beautiful-but-deadly environment.</p>
                     
                     <div class="project-info">
                         <h2>Project Info</h2>
                         <p><b>Role</b>: Lead Engineer, Co-Director</p>
-                        <p><b>Team Size</b>: 9</p>
+                        <p><b>Team Size</b>: 9 <span style="font-size: 18px; margin-left: 3px;">(2 Core + 7 Audio)</span></p>
                         <p><b>Project Length</b>: 3 months</p>
                         <p><b>Engine</b>: Unity</p>
                     </div>
@@ -73,7 +73,7 @@
                 <div class="accordion-panel">
                     <div>
                         <p>
-                            The rope climbing system is our core mechanic, and getting its movement to feel snappy and responsive was one of the biggest challenges (and successes!) of the project. We needed climbing to be easy to learn
+                            The rope climbing system is our core mechanic, and getting its movement to feel snappy and responsive was one of the biggest challenges (and successes!) of the project. We wanted climbing to be easy to learn
                             but with enough skill to challenge repeat players— and to top it off, it needed to work with any surface in the game.
                         </p>
                         <video autoplay loop muted playsinline class="game-image-large">
@@ -81,23 +81,15 @@
                         </video>
                         <p>
                             I did this by focusing on a clean, simple UX first, then modifying the game feel to support the fantasy we wanted. All a player has to think about is clicking to throw two anchors,
-                            pressing E to attach to the created rope, and then moving forward to climb. Behind the scenes, though, there's a bunch of situational movement code to make this feel great:
+                            pressing E to attach to the created rope, and then moving forward to climb. Behind the scenes, though, there's a bunch of situational movement code to make this feel great. For example:
                         </p>
                         <ul>
-                            <li>When a player attaches, I snap their position to the rope, using a quadratic ease to prevent it from feeling jarring</li>
-                            <li>Jumping off a rope propels you in the direction you're looking, while also pushing you away from walls so you don't slam into them</li>
+                            <li>When a player attaches, I snap their position to the rope, using a quadratic ease to prevent it from feeling jarring.</li>
+                            <li>Jumping off a rope propels you in the direction you're looking, while also pushing you away from walls so you don't slam into them.</li>
                             <li>There are actually 2 kinds of ropes— horizontal ziplines, with physics-based acceleration, and vertical ropes with slower, constant speed movement. I calculate both movement deltas and then
                                 lerp between them based on angle and direction of movement so players experience a seamless transition.</li>
                             <li>You can both throw anchors and place them directly, depending on how close you are to a wall. A situational indicator appears to show you which one will happen, and where it will place.</li>
-                        </p>
-                        <!--p>
-                            For example, we wanted to transition between 2 different kinds of ropes: horizontal ropes should behave like ziplines, with physics-based acceleration, while vertical ropes should have slower,
-                            constant speed movement, to represent the increased difficulty of climbing straight up, but we didn't want players to experience a hard transition between the two.
-                        </p><br>
-                        <p>
-                            My solution was to have every rope calculate <i>both</i> a zipline acceleration and a constant climbing speed and then lerp between them based on the angle and direction of movement.
-                            I also added a number of UX/game feel improvements like snapping player position to the rope when they attach, adding a directional jump to detach 
-                        </p>-->
+                        </ul>
                     </div>
                 </div>
 
@@ -118,8 +110,19 @@
                 <div class="accordion-panel">
                     <div>
                         <p>
-                            [Description TBA]
+                            I did both the UI design and programming, with a focus on minimal, situational UI; the goal was to let the 3D world shine and have relevant keybinds appear only when you need them.
+                            One of my favorite UI-adjacent tasks was the scanner + journal system, which is how players learn more about the lifeforms they encounter:
                         </p>
+                        <video autoplay loop muted playsinline class="game-image-large">
+                            <source src="/images/videos/Venture_Scanner.mp4" type="video/mp4">
+                        </video>
+                        <br><p>
+                            This system is super modular, using a Scriptable Object for each lifeform and constructing the journal and scan results with whatever the current state of those objects is. This makes
+                            it easy to add new lifeforms or edit their journal entries, since all you have to do is make a new Scriptable Object or edit some text!
+
+                        </p>
+                        <img src="images/Venture_ScannerObject1.png" alt="Journal Scriptable Objects" class="game-image-small">
+                        <img src="images/Venture_ScannerObject2.png" alt="Journal Scriptable Objects" class="game-image-small" style="margin-left: 20px;">
                     </div>
                 </div>
                 
