@@ -69,60 +69,59 @@
                 <h2 style="margin-bottom: 10px;">Key Contributions:</h2>
 
                 <p style="margin: 20px 0px -5px 0px;"><i>Programming:</i></p>
-                <!--<button class="accordion-header" aria-expanded="false">Dialogue system with Google Sheets/JSON<span>+</span></button>
+                <button class="accordion-header" aria-expanded="false">Climbing + Movement System<span>+</span></button>
                 <div class="accordion-panel">
                     <div>
-                        <p>I created a custom Google Sheets to JSON pipeline to load the script for this game, allowing me to display the narrative in an easily readable format, edit
-                            from any device, and easily collaborate with Sheets' built-in multi-user editing.</p>
+                        <p>
+                            The rope climbing system is our core mechanic, and getting its movement to feel snappy and responsive was one of the biggest challenges (and successes!) of the project. We needed climbing to be easy to learn
+                            but with enough skill to challenge repeat players— and to top it off, it needed to work with any surface in the game.
+                        </p>
                         <video autoplay loop muted playsinline class="game-image-large">
-                            <source src="/images/videos/VZero_Dialogue.mp4" type="video/mp4">
+                            <source src="/images/videos/Venture_Climbing.mp4" type="video/mp4">
                         </video>
-                        <p style="margin-top: 25px;">To make this pipeline quicker, I also wrote a basic editor tool, which allows me to specifiy which sheets I want to pull from, then
-                            fetches the latest version of each sheet, converts to JSON, and places this result in the correct folder in the Unity project. In the end, it takes 5 clicks
-                            to download, convert and organize the entire script!</p>
-                        <video autoplay loop muted playsinline class="game-image-small">
-                            <source src="/images/videos/VZero_DialogueDownload.mp4" type="video/mp4">
-                        </video>
-                        <p style="margin: 30px 0px 15px 0px;">This editor tool works by first sending a request to Google's Apps Script, where I wrote a simple program to export the sheet with the 1st row headers as keys.
-                            It then clears the previous JSON files, creates a folder for each sheet in the Resources folder, and saves the JSON files there. On game start, I
-                            load these JSON files and parse them into C# dictionaries with Newtonsoft.Json!
+                        <p>
+                            I did this by focusing on a clean, simple UX first, then modifying the game feel to support the fantasy we wanted. All a player has to think about is clicking to throw two anchors,
+                            pressing E to attach to the created rope, and then moving forward to climb. Behind the scenes, though, there's a bunch of situational movement code to make this feel great:
                         </p>
-                        <a href="https://github.com/Ian-Stolte/unity-resources/tree/main/Sheets-JSON%20Dialogue%20System" class="github-link">Code Snippets and Documentation</a>
-                        <br><br>
+                        <ul>
+                            <li>When a player attaches, I snap their position to the rope, using a quadratic ease to prevent it from feeling jarring</li>
+                            <li>Jumping off a rope propels you in the direction you're looking, while also pushing you away from walls so you don't slam into them</li>
+                            <li>There are actually 2 kinds of ropes— horizontal ziplines, with physics-based acceleration, and vertical ropes with slower, constant speed movement. I calculate both movement deltas and then
+                                lerp between them based on angle and direction of movement so players experience a seamless transition.</li>
+                            <li>You can both throw anchors and place them directly, depending on how close you are to a wall. A situational indicator appears to show you which one will happen, and where it will place.</li>
+                        </p>
+                        <!--p>
+                            For example, we wanted to transition between 2 different kinds of ropes: horizontal ropes should behave like ziplines, with physics-based acceleration, while vertical ropes should have slower,
+                            constant speed movement, to represent the increased difficulty of climbing straight up, but we didn't want players to experience a hard transition between the two.
+                        </p><br>
+                        <p>
+                            My solution was to have every rope calculate <i>both</i> a zipline acceleration and a constant climbing speed and then lerp between them based on the angle and direction of movement.
+                            I also added a number of UX/game feel improvements like snapping player position to the rope when they attach, adding a directional jump to detach 
+                        </p>-->
                     </div>
                 </div>
 
-                <button class="accordion-header" aria-expanded="false">Modular ability creation system<span>+</span></button>
+                <button class="accordion-header" aria-expanded="false">Networked Multiplayer<span>+</span></button>
                 <div class="accordion-panel">
                     <div>
                         <p>
-                            One of the core mechanics of the game is an ability creation system, where players design custom hacks using ~20 different ability components.
-                        </p><br>
+                            The game is inherently co-op, so I had to build every feature in the game with multiplayer in mind. I used Unity's Netcode for GameObjects (NGO) for all of the multiplayer logic, 
+                            and implemented a Steamworks transport so players can connect across any online network, not just over LAN.
+                        </p><!--br>
                         <p>
-                            To facilitate such a large number of possible combinations, I divided components into 3 categories: bases, which determine the hitbox & core behvaior,
-                            effects, which determine what happens to each enemy hit, and mods, which change how the ability is cast in the first place, such as an autocast or an
-                            aura around the player. This allowed me to elegantly implement any ability in terms of its base, which would then determine
-                            which enemies are hit and call a single ApplyEffects() function on them, passing in the list of attached effects.
-                        </p><br>
-                        <p>
-                            With this framework, whether the player wants to create a slowing damage circle, a dash that attaches a bomb to enemies, or an auto-firing projectile that
-                            baits enemies into walking closer, all I need to do is run a simple collision check and call 1 function!
-                        </p>
+                            Some of the features that were the most difficult/I'm proudest of:
+                        </p>-->
                     </div>
                 </div>
 
-                <p style="margin: 20px 0px -5px 0px;"><i>Art:</i></p>
-                <button class="accordion-header" aria-expanded="false">3D models, VFX, and shaders<span>+</span></button>
+                <button class="accordion-header" aria-expanded="false">UI Programming and Scanner/Journal<span>+</span></button>
                 <div class="accordion-panel">
                     <div>
-                        <ul style="margin-top: 10px; margin-bottom: 10px;">
-                            <li>A 3D model, rig, and walk animation for the player character</li>
-                            <li>3D models and a custom static shader for the environment</li>
-                            <li>VFX & shaders for abilities and enemy attacks, using Unity's VFX Graph and Shader Graph</li>
-                        </ul>
-                        <i>(see the Art section on the homepage header for some examples!)</i>
+                        <p>
+                            [Description TBA]
+                        </p>
                     </div>
-                </div>-->
+                </div>
                 
                 <br><br>
             </div>
