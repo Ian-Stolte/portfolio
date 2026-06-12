@@ -31,7 +31,7 @@ body.has-bg {
 h1 {
     font-family: "Zain";
     font-size: 60px;
-    margin-bottom: -20px;
+    margin-bottom: -30px;
     margin-top: 10px;
 }
 
@@ -654,14 +654,11 @@ h1 {
 
     .game-summary {
         padding: 0px;
+        margin-bottom: 30px;
     }
 
     .project-info {
         margin: 20px 0px 0px 0px;
-    }
-
-    .game-summary {
-        margin-bottom: 5px;
     }
 }
 
@@ -670,7 +667,7 @@ h1 {
 
 .desc {
     width: 90%;
-    padding-top: 30px;
+    padding-top: 35px;
     margin: auto;
     line-height: 1.6;
 }
