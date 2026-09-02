@@ -38,11 +38,11 @@ function showMedia(el, showButtons=false) {
   if (el.tagName.toLowerCase() === 'img') {
     const img = document.createElement('img');
     img.src = el.src;
+    img.alt = el.alt || el.dataset.caption || '';
     lightbox.appendChild(img);
   } else if (el.tagName.toLowerCase() === 'video') {
     const video = document.createElement('video');
     video.src = el.querySelector('source')?.src || el.src;
-    console.log(video.src);
     video.autoplay = true;
     video.loop = true;
     video.controls = true;

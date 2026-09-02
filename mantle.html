@@ -1,42 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cantora+One&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
-    <title>Ian Stolte | Gameplay Programmer</title>
-</head>
-
-<body class="has-bg">
-
-    <div id="header">
-        <div id="title-wrapper" style="padding-bottom: 5px;">
-            <span id="header-title"><a href="./index.html">Ian Stolte</a></span>
-            <span id="header-subtitle">Gameplay Programmer</span>
-        </div>
-        <div id="right-header">
-            <a href="https://www.linkedin.com/in/ianstolte/"><img src="images/icons/Linkedin.png" alt="Linkedin Icon" class="header-icon-big" style="margin-bottom: -7px;"></a>
-            <a href="https://github.com/Ian-Stolte"><img src="images/icons/GitHub.png" alt="GitHub Icon" style="margin-bottom: -7px;" class="header-icon-big"></a>
-            <a href="https://ember44.itch.io"><img src="images/icons/Itch.png" alt="Itch.io Icon" class="header-icon-big" style="margin-bottom: -8px;"></a>
-            <a href="./resumé.pdf"><img src="images/icons/Resume.png" alt="Resumé Icon" class="header-icon-big"></a>
-        </div>
-        <div id="dropdown">
-            <img src="images/icons/Hamburger.png" alt="Dropdown Icon" id="dropdown-top">
-            <div id="dropdown-menu">
-                <a href="https://www.linkedin.com/in/ianstolte/">LinkedIn</a>
-                <a href="./art.html">Art</a>
-                <a href="https://github.com/Ian-Stolte">GitHub</a>
-                <a href="https://ember44.itch.io">Itch.io</a>
-                <a href="./resumé.pdf">Resumé</a>
-            </div>
-        </div>
-    </div>
-
+---
+layout: base.njk
+title: Mantle | Ian Stolte
+description: >-
+  An MFA thesis game where you play a crime-fighting robot across dozens
+  of minigames. As one of three engineers I owned the dynamic desktop
+  interface and built a custom minigame for every enemy.
+header: compact
+bodyClass: has-bg
+scripts: [dropdown, accordion]
+ogImage: /images/covers/Mantle%20Cover.png
+---
     <div>
         <div class="game-page">
             <div style="clear: both;"></div>
@@ -49,7 +22,7 @@
                     <h1>Mantle (2025)</h1>
                     <p class="game-summary">An MFA thesis project where you play as the crime-fighting robot Mantle,
                         master dozens of minigames, and witness the origin story of an unexpected villain.</p>
-                    
+
                     <div class="project-info">
                         <h2>Project Info</h2>
                         <a href="https://store.steampowered.com/app/3714810/Mantle/"><p class="itch-button"><img src="images/icons/Steam.png" style="width: 40px; margin-right: 7px;">View on Steam</p></a>
@@ -65,7 +38,7 @@
             <div style="clear: both; padding: 10px 0px;"></div>
 
             <div class="desc">
-                
+
                 <!-- Key Contributions -->
                 <h2 style="margin-bottom: 10px;">Key Contributions:</h2>
                 <button class="accordion-header" aria-expanded="false">Dynamic desktop interface<span>+</span></button>
@@ -80,7 +53,7 @@
                         </p>
                     </div>
                 </div>
-                
+
                 <button class="accordion-header" aria-expanded="false">Cross-team collaboration<span>+</span></button>
                 <div class="accordion-panel">
                     <div>
@@ -102,9 +75,3 @@
             </div>
         </div>
     </div>
-
-    <script src="scripts/dropdown.js"></script>
-    <script src="scripts/accordion.js"></script>
-</body>
-
-</html>

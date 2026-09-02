@@ -1,47 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cantora+One&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
-    <title>Ian Stolte | Gameplay Programmer</title>
-</head>
-
-<body>
-
-    <div id="header">
-        <div id="title-wrapper">
-            <span id="header-title"><a href="./index.html">Ian Stolte</a></span>
-            <span id="header-subtitle">Gameplay Programmer</span>
-        </div>
-        <div id="left-header">
-            <div id="horiz-divider"></div>
-            <a href="./art.html" style="margin-left: -5px;"><img src="images/icons/Paintbrush.png" alt="Itch.io Icon" class="header-icon"><span class="header-icon-desc">Art</span></a>
-        </div>
-        <div id="right-header">
-            <a href="https://www.linkedin.com/in/ianstolte/"><img src="images/icons/Linkedin.png" alt="Linkedin Icon" style="margin-left: 5px" class="header-icon" style="margin-bottom: -7px;"><span class="header-icon-desc">Linkedin</span></a>
-            <a href="https://github.com/Ian-Stolte"><img src="images/icons/GitHub.png" alt="GitHub Icon" style="margin-bottom: -7px;" class="header-icon"><span class="header-icon-desc">GitHub</span></a>
-            <a href="https://ember44.itch.io"><img src="images/icons/Itch.png" alt="Itch.io Icon" class="header-icon" style="margin: 0px 0px -8px -5px;"><span class="header-icon-desc">Itch.io</span></a>
-            <a href="./resumé.pdf"><img src="images/icons/Resume.png" alt="Resumé Icon" class="header-icon" style="width: clamp(35px, 5vw, 50px);"><span class="header-icon-desc" style="margin-bottom: -14px;">Resumé</span></a>
-        </div>
-        <div id="dropdown">
-            <img src="images/icons/Hamburger.png" alt="Dropdown Icon" id="dropdown-top">
-            <div id="dropdown-menu">
-                <a href="https://www.linkedin.com/in/ianstolte/">LinkedIn</a>
-                <a href="./art.html">Art</a>
-                <a href="https://github.com/Ian-Stolte">GitHub</a>
-                <a href="https://ember44.itch.io">Itch.io</a>
-                <a href="./resumé.pdf">Resumé</a>
-            </div>
-        </div>
-    </div>
-
-
+---
+layout: base.njk
+title: Art | Ian Stolte
+description: >-
+  2D illustration and character design in Krita, plus 3D modeling and
+  animation in Blender — work by Ian Stolte.
+header: compact
+scripts: [dropdown, art-gallery]
+ogImage: /images/art/TLM_KeyArt.png
+---
     <div id="content">
         <div style="padding: 120px 0px 0px;"></div>
 
@@ -53,29 +19,19 @@
         </div>
 
         <hr class="section-line" style="margin-bottom: 30px;">
-        
+
         <!-- DESKTOP LAYOUT -->
         <div class="art-gallery" id="art-gallery-3col" style="margin-top: -50px;">
-            
+
             <!-- COLUMN 1 -->
-            <div class="art-image" style="margin-top: 50px;"> <!-- Rat Knight -->
+            <div class="art-image"> <!-- Rat Knight -->
                 <img src="/images/art/RatKnight_final.png" alt="Rat Knight Character Art" data-group="rat-knight" data-caption="One of my characters from a role-playing game— a rat-turned-human-knight with a love of symphonic music">
                 <div class="image-label">Illustration</div>
             </div>
 
-            <div class="art-image"> <!-- Jade Winglet -->
-                <img src="/images/art/WoF_JadeWinglet.png" alt="Wings of Fire Portraits" data-group="wof" data-caption="Quick portrait studies from the book series Wings of Fire. I kept my lines loose for a more energetic, gestural style.">
-                <div class="image-label">Character Practice</div>
-            </div>
-
-            <!--<div class="art-image"> < WoF Designs >
-                <img src="/images/art/WoF_Designs.png" alt="Wings of Fire Designs" data-group="wof-designs" data-caption="Dragon designs based on the book series Wings of Fire, reimagining the characters in a more stylized, graphic novel style.">
-                <div class="image-label">Concept Art</div>
-            </div>-->
-
             <div class="art-image"> <!-- Glimmer -->
-                <img src="/images/art/Glimmer.png" alt="Entrapta Character Art" data-caption="Fanart of the character Glimmer from the animated series She-Ra and the Princesses of Power">
-                <div class="image-label">Character Practice</div>
+                <img src="/images/art/Glimmer.png" alt="Glimmer Character Art" data-caption="Fanart of the character Glimmer from the animated series She-Ra and the Princesses of Power">
+                <div class="image-label">Illustration</div>
             </div>
 
             <div class="art-image"> <!-- Entrapta -->
@@ -85,8 +41,13 @@
 
 
             <!-- COLUMN 2 -->
-            <div class="art-image"> <!-- Little Mermaid -->
-                <img src="/images/art/TLM_KeyArt.png" alt="The Little Mermaid Key Art" data-group="little-mermaid" data-caption="Key art from a reimagining of The Little Mermaid">
+            <div class="art-image" style="margin-top: 50px;"> <!-- Bounty Hunter -->
+                <img src="/images/art/Bounty Hunter_framed.png" alt="Bounty Hunter Character Art" data-group="bounty" data-caption="One of my characters from a role-playing game— a rat-turned-human-knight with a love of symphonic music">
+                <div class="image-label">Character Design</div>
+            </div>
+
+            <div class="art-image" style="margin-top: 50px;"> <!-- Japan Landscape -->
+                <img src="/images/art/Landscape_final.png" alt="Landscape 2D Art" data-group="landscape" data-caption="Digital painting based on a photo taken in Japan">
                 <div class="image-label">Illustration</div>
             </div>
 
@@ -95,27 +56,27 @@
                 <div class="image-label">Illustration</div>
             </div>
 
-            <div class="art-image"> <!-- Squire -->
-                <img src="/images/art/Squire_final.png" alt="Knight's Squire Character Art" data-group="squire" data-caption="One of my characters from a role-playing game— a young stablehand ready for adventure, and her closest friend: an aging horse">
-                <div class="image-label">Illustration</div>
-            </div>
-
 
             <!-- COLUMN 3 -->
-            <div class="art-image" style="margin-top: 50px;"> <!-- Japan Landscape -->
-                <img src="/images/art/Landscape_final.png" alt="Landscape 2D Art" data-group="landscape" data-caption="Digital painting based on a photo taken in Japan">
+            <div class="art-image"> <!-- Little Mermaid -->
+                <img src="/images/art/TLM_KeyArt.png" alt="The Little Mermaid Key Art" data-group="little-mermaid" data-caption="Key art from a reimagining of The Little Mermaid">
                 <div class="image-label">Illustration</div>
-            </div>
-
-            <div class="art-image"> <!-- Rei ASDG -->
-                <img src="/images/art/Rei_axe.png" alt="Tokusatsu Character Design" data-group="rei" data-caption="Character design for a Tokusatsu-inspired boss rush game. I designed 3 distinct forms— this one is focused on defense and heavy attacks.">
-                <div class="image-label">Concept Art</div>
             </div>
 
             <div class="art-image"> <!-- Bot -->
                 <img src="/images/art/Bot.png" alt="Rusty Bot Painterly" data-group="rusty-bot" data-caption="Practice with a painterly art style, depicting a rusted robot inspired by the animated series She-Ra">
                 <div class="image-label">Illustration</div>
             </div>
+
+            <!--div class="art-image"> < WoF Designs >
+                <img src="/images/art/WoF_Designs.png" alt="Wings of Fire Designs" data-group="wof-designs" data-caption="Dragon designs based on the book series Wings of Fire, reimagining the characters in a more stylized, graphic novel style.">
+                <div class="image-label">Character Design</div>
+            </div>-->
+
+            <!--div class="art-image"> < Jade Winglet >
+                <img src="/images/art/WoF_JadeWinglet.png" alt="Wings of Fire Portraits" data-group="wof" data-caption="Quick portrait studies from the book series Wings of Fire. I kept my lines loose for a more energetic, gestural style.">
+                <div class="image-label">Character Practice</div>
+            </div>-->
 
             <div class="art-image" style="margin-top: 30px;"> <!-- Mara -->
                 <img src="/images/art/Mara.png" alt="Mara Character Art" data-caption="Fanart of the character Mara from the animated series She-Ra">
@@ -141,13 +102,8 @@
                 <div class="image-label">Illustration</div>
             </div>
 
-            <div class="art-image"> <!-- Rei ASDG -->
-                <img src="/images/art/Rei_axe.png" alt="Tokusatsu Character Design" data-group="rei" data-caption="Character design for a Tokusatsu-inspired boss rush game. I designed 3 distinct forms— this one is focused on defense and heavy attacks.">
-                <div class="image-label">Concept Art</div>
-            </div>
-
             <div class="art-image"> <!-- Glimmer -->
-                <img src="/images/art/Glimmer.png" alt="Entrapta Character Art" data-caption="Fanart of the character Glimmer from the animated series She-Ra and the Princesses of Power">
+                <img src="/images/art/Glimmer.png" alt="Glimmer Character Art" data-caption="Fanart of the character Glimmer from the animated series She-Ra and the Princesses of Power">
                 <div class="image-label">Character Practice</div>
             </div>
 
@@ -176,11 +132,6 @@
                 <div class="image-label">Concept Art</div>
             </div>-->
 
-            <div class="art-image"> <!-- Squire -->
-                <img src="/images/art/Squire_final.png" alt="Knight's Squire Character Art" data-group="squire" data-caption="One of my characters from a role-playing game— a young stablehand ready for adventure, and her closest friend: an aging horse">
-                <div class="image-label">Illustration</div>
-            </div>
-
             <div class="art-image"> <!-- Mara -->
                 <img src="/images/art/Mara.png" alt="Mara Character Art" data-caption="Fanart of the character Mara from the animated series She-Ra">
                 <div class="image-label">Illustration</div>
@@ -199,13 +150,12 @@
 
            <!-- DESKTOP LAYOUT -->
         <div class="art-gallery" id="art-gallery-3col" style="margin-top: -50px;">
-            
+
             <!-- COLUMN 1 -->
             <div class="art-image"> <!-- Reya Walk -->
-                <video autoplay loop muted playsinline poster="/images/art/Reya_3DWalk_poster.png" src="/images/art/Reya_3DWalk.mp4" type="video/mp4" data-group="reya" data-caption="Walk cycle for the player character of Version: Zero, my sci-fi roguelike"></video>
-                <div class="image-label">Animation</div>
+                <img src="/images/art/Twilight_winter_W.png" alt="Twilight Sparkle 3D Model" data-group="mlp" data-caption="3D model + render of Twilight Sparkle (My Little Pony), using a toon shader + black outline to evoke the style of the show.">
+                <div class="image-label">Modeling</div>
             </div>
-            <br><br><br>
 
             <!-- COLUMN 2 -->
             <div class="art-image"> <!-- VZero Environment -->
@@ -217,6 +167,11 @@
             <div class="art-image"> <!-- Flower Defense -->
                 <img src="/images/art/FDef_Models.png" alt="Flower Defense 3D Models" data-caption="Low-poly 3D models for my tower defense game, Flower Defense">
                 <div class="image-label">Modeling</div>
+            </div>
+
+            <div class="art-image"> <!-- Reya Walk -->
+                <video autoplay loop muted playsinline poster="/images/art/Reya_3DWalk_poster.png" src="/images/art/Reya_3DWalk.mp4" type="video/mp4" data-group="reya" data-caption="Walk cycle for the player character of Version: Zero, my sci-fi roguelike"></video>
+                <div class="image-label">Animation</div>
             </div>
         </div>
 
@@ -233,7 +188,7 @@
                 <img src="/images/art/VZeroEnv.png" alt="Glitch Environment 3D Model" data-group="vzero-env" data-caption="3D environment for a level in Version: Zero, my sci-fi roguelike">
                 <div class="image-label">Environment</div>
             </div>
-            
+
             <div class="art-image"> <!-- Flower Defense -->
                 <img src="/images/art/FDef_Models.png" alt="Flower Defense 3D Models" data-caption="Low-poly 3D models for my tower defense game, Flower Defense">
                 <div class="image-label">Modeling</div>
@@ -254,9 +209,6 @@
             <img src="/images/art/TLM_Color.png" data-group="little-mermaid" data-caption="Color pass to block out the palette I wanted to use">
             <img src="/images/art/TLM_InProgress.png" data-group="little-mermaid" data-caption="In-progress image— most elements drawn but not fully rendered">
 
-            <img src="images/art/Rei_spear.png" data-group="rei" data-caption="The second form, emphasizing mobility and rapid, light attacks.">
-            <img src="images/art/Rei_sword.png" data-group="rei" data-caption="The third form, based around a high risk, high reward playstyle that encourages constant offense.">
-
             <img src="images/art/Trixie_alt.png" data-group="trixie" data-caption="Alternate poster option, with less focus on the character and more emphasis on composition">
             <img src="images/art/Trixie_1.png" data-group="trixie" data-caption="Initial thumbnails, where I rapidly roughed out different composition options">
             <img src="images/art/Trixie_2.png" data-group="trixie" data-caption="Colored thumbnails, helping me ideate palette and values. I wanted to stay true to the original character's colors but exaggerate the yellows for more excitement">
@@ -266,18 +218,17 @@
 
             <img src="images/art/WoF_Refs.png" data-group="wof" data-caption="The graphic novel panels I referenced for my piece.">
 
+            <img src="images/art/Bounty Hunter_lineArt.png" data-group="bounty" data-caption="The line art design.">
+
             <img src="images/art/HiveWings_Analysis.png" data-group="wof-designs" data-caption="Source material breakdown and initial sketches for the HiveWing design.">
-            <img src="images/art/HiveWings_Color.png" data-group="wof-designs" data-caption="Some of the color palette variations explored.">
+            <img src="images/art/LeafWings_Refs.png" data-group="wof-designs" data-caption="Variations of the LeafWing design to match different characters.">
 
             <img src="images/art/RatKnight_1.png" data-group="rat-knight" data-caption="Initial thumbnail sketches, exploring a couple different compositions">
             <img src="images/art/RatKnight_2.png" data-group="rat-knight" data-caption="Different color palettes applied to the composition sketches. I aimed for something a little unearthly and unsettling">
             <img src="images/art/RatKnight_3.png" data-group="rat-knight" data-caption="Final composition sketch, cleaning up the robe and gambeson underneath, and adding details to the hands">
             <img src="images/art/RatKnight_4.png" data-group="rat-knight" data-caption="Flat color pass, locking in shapes and colors without doing shading or details yet">
 
-            <img src="images/art/Squire_alt.png" data-group="squire" data-caption="Alternate rendering style, adding black outlines to more clearly define the character">
-            <img src="images/art/Squire_1.png" data-group="squire" data-caption="Initial thumbnails, where I roughed out different color palettes">
-            <img src="images/art/Squire_2.png" data-group="squire" data-caption="Final composition sketch, adding in the title element and framing leaves">
-            <img src="images/art/Squire_3.png" data-group="squire" data-caption="Flat color pass, locking in shapes and colors without doing shading or details yet">
+            <img src="/images/art/Twilight_base.png" data-group="mlp" data-caption="The model before textures, materials, and lighting were added.">
 
             <img src="/images/art/Reya_2DConcepts.png" data-group="reya" data-caption="Initial character concepts">
             <img src="/images/art/Reya_2DTurnaround.png" data-group="reya" data-caption="Front & side views for reference when modeling">
@@ -290,9 +241,3 @@
 
         <div style="margin-bottom: 30px"></div>
     </div>
-
-    <script src="scripts/dropdown.js"></script>
-    <script src="scripts/art-gallery.js"></script>
-</body>
-
-</html>

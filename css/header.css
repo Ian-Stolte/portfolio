@@ -1,0 +1,124 @@
+/* ============================================================
+   HEADER  —  fixed top bar + mobile dropdown
+   ============================================================ */
+
+#header {
+    position: fixed;
+    display: flex;
+    left: 0;
+    width: 100%;
+    padding: 8px 0px;
+    background-color: var(--panel);
+    color: var(--text-muted);
+    z-index: 3;
+    border-bottom: 3px solid var(--line);
+}
+
+#title-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#header-title a {
+    padding-left: 10px;
+    color: var(--text-bright);
+    font-size: 36px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#header-subtitle {
+    font-size: 18px;
+    margin-top: -5px;
+    margin-left: 30px;
+}
+
+#right-header {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+#horiz-divider {
+    width: 2px;
+    height: 60px;
+    margin: 0px 45px 0px 0px;
+    background-color: var(--text-bright);
+}
+
+#left-header {
+    margin-right: auto;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.header-icon {
+    display: block;
+    width: var(--icon);
+    margin-right: var(--icon-gap);
+    margin-bottom: -10px;
+}
+
+.header-icon-big {
+    display: block;
+    width: var(--icon-lg);
+    margin-right: var(--icon-gap);
+    margin-bottom: -10px;
+}
+
+.header-icon-desc {
+    padding-right: 50px;
+    font-size: 15px;
+}
+
+
+/* ---- Dropdown (shown only once the bar collapses) ---- */
+
+#dropdown {
+    display: none;
+    margin-left: auto;
+    padding-right: 20px;
+    align-items: center;
+    position: relative;
+}
+
+#dropdown-top {
+    width: 40px;
+    right: 0;
+    cursor: pointer;
+}
+
+#dropdown.open #dropdown-menu,
+#dropdown:hover #dropdown-menu {
+    display: block;
+}
+
+#dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    font-size: 16px;
+    background: var(--panel);
+    min-width: 130px;
+    box-shadow: 0px 4px 6px var(--glow);
+    z-index: 1000;
+}
+
+#dropdown-menu a {
+    display: block;
+    padding: 10px 14px;
+    color: var(--text-bright);
+    text-decoration: none;
+}
+
+#dropdown-menu a:hover { background: var(--bg); }
+
+
+/* ---- Collapse to hamburger below --bp-mid ---- */
+@media (max-width: 1000px) {
+    #dropdown { display: flex; }
+    #left-header,
+    #right-header { display: none; }
+}

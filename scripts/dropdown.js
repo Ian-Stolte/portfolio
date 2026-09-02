@@ -5,7 +5,6 @@ const ddTop = document.getElementById('dropdown-top');
 // Toggle menu open/close when the trigger is clicked
 ddTop.addEventListener('click', e => {
     e.stopPropagation();
-    console.log('Dropdown top clicked');
     dd.classList.add('open');
 });
 
