@@ -1,0 +1,184 @@
+/* ============================================================
+   HOME  —  hero, project grid, "About Me" intro
+   ============================================================ */
+
+/* ---- Hero (featured project) ---- */
+
+.image-hero {
+    width: 60%;
+    padding-top: 150px;
+    margin: auto;
+    margin-bottom: -70px;
+}
+
+.image-hero img { width: 100%; }
+
+.image-hero-bg {
+    margin-top: -5px;
+    border-top: 3px solid var(--text-bright);
+    background-color: var(--panel);
+    padding-bottom: 20px;
+}
+
+.image-hero p { color: var(--text-muted); }
+
+.image-hero h1 {
+    font-weight: bold;
+    text-align: left;
+    margin: 5px 30px -10px 30px;
+    padding-top: 5px;
+    font-size: 48px;
+    color: var(--text-muted);
+}
+
+
+/* ---- Project grid ---- */
+
+.image-grid {
+    width: 87%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 70px 70px;
+    padding: 150px 30px 40px;
+}
+
+.image-item {
+    box-shadow: 5px 5px 16px var(--glow);
+    border: 3px solid var(--line);
+}
+
+.image-item-bg {
+    margin-top: -5px;
+    border-top: 3px solid var(--text-bright);
+    background-color: var(--panel);
+    padding-bottom: 20px;
+}
+
+.image-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.image-item a {
+    position: relative;
+    display: inline-block;
+}
+
+.image-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--scrim);
+    z-index: 1;
+    font-size: 19px;
+    font-weight: bold;
+    padding: 4px 6px;
+    color: var(--text-bright);
+    border: 1px solid var(--text-bright);
+}
+
+.image-item h1 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: -5px;
+    padding-top: 5px;
+    font-size: 36px;
+    color: var(--text-muted);
+}
+
+.image-item span { font-size: 24px; }
+
+.image-item p {
+    text-align: center;
+    margin: 5px 0 0;
+    font-size: 16px;
+    margin-top: 5px;
+    color: var(--text-muted);
+    padding: 0px 10px;
+}
+
+.image-item-details p {
+    text-align: left;
+    font-size: 17px;
+    margin: 5px 30px 0 30px;
+}
+
+
+/* ---- "About Me" ---- */
+
+#intro {
+    background-image: url("../images/About Me BG.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 40px;
+    border: 4px solid var(--panel);
+    text-align: left;
+}
+
+#intro-inner {
+    width: 75%;
+    margin: auto;
+}
+
+#intro-content {
+    padding: 0px 0px 50px 0px;
+    font-size: clamp(17px, 1.8vw, 20px);
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+#intro-content p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#intro h1 {
+    text-align: center;
+    font-size: 42px;
+    margin-top: 25px;
+}
+
+#intro hr { margin: 10px 0px; }
+
+#intro img {
+    margin: auto;
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+}
+
+
+/* ---- Compact / half-screen: single column, stacked intro ---- */
+@media (max-width: 1000px) {
+    .image-grid {
+        grid-template-columns: 1fr;
+        gap: 60px 0px;
+        padding: 135px 0px 30px;
+        margin: auto;
+        width: 95%;
+    }
+
+    #intro { margin-top: 35px; }
+
+    #intro-content {
+        flex-direction: column;
+        width: 95%;
+        margin-bottom: -20px;
+        gap: 60px;
+    }
+
+    #intro img {
+        margin-top: 15px;
+        margin-bottom: -40px;
+    }
+
+    #intro-content p {
+        margin-right: -20px;
+        font-size: 21px;
+    }
+}

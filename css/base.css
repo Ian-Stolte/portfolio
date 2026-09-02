@@ -1,0 +1,54 @@
+/* ============================================================
+   BASE  —  document defaults shared by every page
+   ============================================================ */
+
+body {
+    margin: auto;
+    text-align: center;
+    font-family: var(--font-body);
+    background-color: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+body.has-bg {
+    background-image: url("../images/BG Texture.jpg");
+    background-size: cover;          /* fill entire screen   */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;    /* stays put on scroll  */
+}
+
+h1 {
+    font-family: var(--font-display);
+    font-size: 60px;
+    margin-bottom: -30px;
+    margin-top: 10px;
+}
+
+hr {
+    height: 1px;
+    width: 100%;
+    background-color: var(--text-bright);
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+a {
+    color: var(--text-bright);
+    font-size: 24px;
+    text-decoration: none;
+}
+
+a:hover { opacity: 0.7; }
+
+
+/* ---- Phone ---- */
+@media (max-width: 600px) {
+    body { width: 95%; }
+    body.has-bg { background-size: auto; }
+}
