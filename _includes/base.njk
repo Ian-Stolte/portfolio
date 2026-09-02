@@ -38,7 +38,9 @@
 
 {% if header == "full" %}{% include "header-full.njk" %}{% else %}{% include "header-compact.njk" %}{% endif %}
 
+    <main>
 {{ content | safe }}
+    </main>
 {% for name in scripts %}
     <script src="/scripts/{{ name }}.js"></script>
 {%- endfor %}
