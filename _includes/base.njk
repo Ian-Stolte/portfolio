@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ title }}</title>
+    {%- if description %}
+    <meta name="description" content="{{ description }}">
+    {%- endif %}
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" href="/images/icons/favicon.ico" type="image/x-icon">
+
+    {%- set ogTitleFinal = ogTitle or title %}
+    {%- set ogDescFinal = ogDescription or description %}
+    {%- set ogImageFinal = site.url ~ (ogImage or site.ogImageDefault) %}
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site.name }}">
+    <meta property="og:title" content="{{ ogTitleFinal }}">
+    {%- if ogDescFinal %}
+    <meta property="og:description" content="{{ ogDescFinal }}">
+    {%- endif %}
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:image" content="{{ ogImageFinal }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ ogTitleFinal }}">
+    {%- if ogDescFinal %}
+    <meta name="twitter:description" content="{{ ogDescFinal }}">
+    {%- endif %}
+    <meta name="twitter:image" content="{{ ogImageFinal }}">
+</head>
+
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
+
+{% if header == "full" %}{% include "header-full.njk" %}{% else %}{% include "header-compact.njk" %}{% endif %}
+
+{{ content | safe }}
+{% for name in scripts %}
+    <script src="/scripts/{{ name }}.js"></script>
+{%- endfor %}
+</body>
+</html>
