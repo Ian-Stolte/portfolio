@@ -33,12 +33,31 @@
 }
 
 
-/* ---- Masonry gallery ---- */
+/* ---- Gallery ---- */
 
-.art-gallery {
-    column-count: 3;
-    column-gap: clamp(15px, 3vw, 45px);
-    margin: 0px 15px;
+/* Desktop (> --bp-mid): explicit columns, no auto-balancing. The
+   column count is however many arrays a section lists in _data/artwork.js
+   (2D = 3, 3D = 2); flex sizes them equally regardless. */
+.art-gallery-desktop {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(15px, 3vw, 45px);
+    margin: -50px 15px 0;
+}
+
+.art-column {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tablet + phone (<= --bp-mid): the single mobile list, flowed into
+   columns (2, then 1 on phones). Ordering here isn't controlled. */
+.art-gallery-mobile {
+    column-count: 2;
+    column-gap: 25px;
+    margin: -50px 15px 0;
 }
 
 .art-image {
@@ -65,29 +84,20 @@
     text-align: left;
 }
 
-/* ≥ --bp-mobile: use the 3-column layout markup, hide the 1-column copy */
-@media (min-width: 600px) {
-    #art-gallery-3col { display: block; }
-    #art-gallery-1col { display: none; }
+@media (min-width: 1001px) {
+    .art-gallery-mobile { display: none; }
 }
 
-/* compact / half-screen: 3 columns → 2 */
 @media (max-width: 1000px) {
-    .art-gallery {
-        column-count: 2;
-        column-gap: 25px;
-    }
+    .art-gallery-desktop { display: none; }
 }
 
-/* phone: 2 columns → 1, and swap to the 1-column markup */
 @media (max-width: 600px) {
-    .art-gallery {
+    .art-gallery-mobile {
         column-count: 1;
-        margin: 0px;
+        margin-left: 0;
+        margin-right: 0;
     }
-
-    #art-gallery-3col { display: none; }
-    #art-gallery-1col { display: block; }
 }
 
 
