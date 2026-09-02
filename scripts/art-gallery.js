@@ -95,10 +95,14 @@ function showMedia(el, showButtons = false) {
   lightbox.innerHTML = '';
 
   // Check the media type
+  // Main gallery images sit borderless; process shots (from #hidden-images) keep a frame.
+  const isProcess = !!el.closest('#hidden-images');
+
   if (el.tagName.toLowerCase() === 'img') {
     const img = document.createElement('img');
     img.src = el.src;
     img.alt = el.alt || el.dataset.caption || '';
+    if (isProcess) img.classList.add('process');
     lightbox.appendChild(img);
   } else if (el.tagName.toLowerCase() === 'video') {
     const video = document.createElement('video');
@@ -107,6 +111,7 @@ function showMedia(el, showButtons = false) {
     video.loop = true;
     video.controls = true;
     video.muted = true;
+    if (isProcess) video.classList.add('process');
     lightbox.appendChild(video);
   }
 

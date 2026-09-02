@@ -6,6 +6,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("style.css");
   eleventyConfig.addPassthroughCopy("resume.pdf");
 
+  // Keep the (large) images tree out of the rebuild watcher. With input "."
+  // a _data/ edit otherwise races with the watch and rebuilds with an empty
+  // data dir. Images are still passthrough-copied and still live-reload.
+  eleventyConfig.watchIgnores.add("images/**");
+
   // Keep the current flat URLs: /blue.html, not /blue/.
   eleventyConfig.addGlobalData("permalink", () => (data) =>
     `${data.page.filePathStem}.html`

@@ -24,7 +24,7 @@
    show up when you click it. Unreferenced pieces are simply not shown.
    ============================================================ */
 
-module.exports = {
+export default {
   sections: [
     {
       heading: "2D ART",
@@ -33,8 +33,7 @@ module.exports = {
       desktop: [
         ["rat-knight", "glimmer", "entrapta"],
         ["bounty-hunter", "landscape", "trixie"],
-        [
-          "little-mermaid",
+        ["little-mermaid",
           "bot",
           // "wof-designs",   // set hidden:false on the piece to bring it back
           // "jade-winglet",
@@ -59,7 +58,6 @@ module.exports = {
       heading: "3D ART",
       tool: { name: "Blender", icon: "Blender.png" },
 
-      // WIP — 2 columns.
       desktop: [
         ["twilight-3d", "vzero-env"],
         ["fdef-models", "reya-walk"],
@@ -107,10 +105,10 @@ module.exports = {
       alt: "Bounty Hunter Character Art",
       label: "Character Design",
       caption:
-        "One of my characters from a role-playing game— a rat-turned-human-knight with a love of symphonic music",
+        "Character design assignment for a wild west setting with elements of tech and magic weapons.",
       css: { desktop: "margin-top: 50px" },
       process: [
-        { src: "/images/art/Bounty Hunter_lineArt.png", caption: "The line art design." },
+        { src: "/images/art/Bounty Hunter_lineArt.png", caption: "The clean line art pass. My goal was a design that read strongly as \"cowboy\" but was also fresh and unique." },
       ],
     },
 

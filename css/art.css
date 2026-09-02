@@ -20,7 +20,7 @@
     padding: 5px 10px;
     background-color: var(--panel);
     border: 2px solid var(--border);
-    border-radius: var(--radius);
+    border-radius: var(--border-radius);
 }
 
 .section-tag img {
@@ -70,7 +70,7 @@
     width: 100%;
     display: block;
     object-fit: cover;
-    border-radius: var(--radius);
+    border-radius: var(--border-radius);
 }
 
 .art-image img:hover, .art-image video:hover {
@@ -132,15 +132,19 @@
 #lightbox img {
     max-width: 80%;
     max-height: 85%;
-    border: 3px solid var(--line-soft);
-    border-radius: var(--radius);
 }
 
 #lightbox video {
     height: 85%;
     width: auto;
     max-width: 80%;
+}
+
+/* process shots keep a frame; main images sit borderless */
+#lightbox img.process,
+#lightbox video.process {
     border: 3px solid var(--line-soft);
+    border-radius: var(--border-radius);
 }
 
 #lightbox-caption {

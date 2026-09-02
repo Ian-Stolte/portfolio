@@ -29,8 +29,8 @@
     /* ---- Text ---- */
     --text:          rgb(240, 240, 240);
     --text-bright:   rgb(255, 255, 255); /* headings, borders, links, dividers       */
-    --text-muted:    #d0d0d0;            /* all secondary text: header bar, card /
-                                           hero headings + body copy, section tags   */
+    --text-muted:    rgb(208, 208, 208); /* all secondary text: header bar, card      /
+                                              hero headings + body copy, section tags  */
 
     /* ---- Lines & borders ---- */
     --line:          rgb(0, 0, 0);
@@ -52,7 +52,7 @@
     --font-display:  "Zain", Georgia, "Times New Roman", serif;
 
     /* ---- Shape ---- */
-    --radius:        10px;
+    --border-radius: 10px;
 
     /* ---- Rhythm ---- */
     --icon:          clamp(30px, 5vw, 50px); /* header icon size      */
