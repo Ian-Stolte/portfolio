@@ -22,6 +22,11 @@ function openPanel(panel, indicator) {
 
     indicator.textContent = "–";
 
+    // start any deferred (preload="none") videos now that the panel is visible
+    panel.querySelectorAll('video').forEach((v) => {
+        if (v.paused) v.play().catch(() => {});
+    });
+
     panel.addEventListener('transitionend', function handler() {
         panel.style.height = 'auto';
         panel.removeEventListener('transitionend', handler);

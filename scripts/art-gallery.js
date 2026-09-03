@@ -13,6 +13,24 @@ let currentGroup = []; // [{ src, caption, video?, isProcess? }]
 let currentIndex = 0;
 let lastFocused = null;
 
+// Warm the browser cache for every lightbox still image (process shots + each
+// tile's full-size version) during idle time, so the first open feels instant.
+function warmLightboxCache() {
+  const urls = new Set();
+  SHOTS.forEach((s) => { if (!s.video) urls.add(s.src); });
+  document.querySelectorAll('.art-image img[data-full]').forEach((i) => urls.add(i.dataset.full));
+  urls.forEach((u) => {
+    const img = new Image();
+    img.decoding = 'async';
+    img.src = u;
+  });
+}
+if ('requestIdleCallback' in window) {
+  requestIdleCallback(warmLightboxCache, { timeout: 3000 });
+} else {
+  window.addEventListener('load', () => setTimeout(warmLightboxCache, 1200));
+}
+
 lightbox.setAttribute('role', 'dialog');
 lightbox.setAttribute('aria-modal', 'true');
 lightbox.setAttribute('aria-label', 'Artwork viewer');
