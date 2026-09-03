@@ -1,7 +1,15 @@
-const images = document.querySelectorAll('.art-image img, .art-image video');
+const tiles = document.querySelectorAll('.art-image img, .art-image video');
 const lightbox = document.getElementById('lightbox');
 
-let currentGroup = [];
+// Lightbox-only process shots, built at compile time. [{ group, src, caption, video?, w?, h? }]
+let SHOTS = [];
+try {
+  SHOTS = JSON.parse(document.getElementById('lightbox-shots')?.textContent || '[]');
+} catch (e) {
+  SHOTS = [];
+}
+
+let currentGroup = []; // [{ src, caption, video?, isProcess? }]
 let currentIndex = 0;
 let lastFocused = null;
 
@@ -10,8 +18,34 @@ lightbox.setAttribute('aria-modal', 'true');
 lightbox.setAttribute('aria-label', 'Artwork viewer');
 lightbox.tabIndex = -1;
 
-// Make each tile operable by mouse and keyboard.
-images.forEach((el) => {
+// --- Lazy-load the gallery's autoplay <video>s only as they near the viewport ---
+const lazyVideos = document.querySelectorAll('video.lazy-video');
+
+function loadVideo(v) {
+  if (!v.dataset.src || v.src) return;
+  v.src = v.dataset.src;
+  v.load();
+  v.play().catch(() => {});
+}
+
+if (lazyVideos.length && 'IntersectionObserver' in window) {
+  const io = new IntersectionObserver(
+    (entries, obs) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        loadVideo(entry.target);
+        obs.unobserve(entry.target);
+      }
+    },
+    { rootMargin: '400px' }
+  );
+  lazyVideos.forEach((v) => io.observe(v));
+} else {
+  lazyVideos.forEach(loadVideo);
+}
+
+// --- Tiles: operable by mouse and keyboard ---
+tiles.forEach((el) => {
   el.tabIndex = 0;
   el.setAttribute('role', 'button');
   if (!el.getAttribute('aria-label')) {
@@ -26,16 +60,20 @@ images.forEach((el) => {
   });
 });
 
+function itemFromTile(el) {
+  if (el.tagName.toLowerCase() === 'video') {
+    return { src: el.dataset.src || el.currentSrc || el.src, caption: el.dataset.caption, video: true };
+  }
+  return { src: el.dataset.full || el.currentSrc || el.src, caption: el.dataset.caption };
+}
+
 function openLightbox(el) {
   lastFocused = el;
-  const groupName = el.dataset.group;
-  const hiddenImages = document.getElementById('hidden-images');
-  currentGroup = groupName
-    ? Array.from(hiddenImages.querySelectorAll(`[data-group="${groupName}"]`))
-    : [];
-  currentGroup.unshift(el);
+  const group = el.dataset.group;
+  const shots = SHOTS.filter((s) => s.group === group).map((s) => ({ ...s, isProcess: true }));
+  currentGroup = [itemFromTile(el), ...shots];
   currentIndex = 0;
-  showMedia(currentGroup[currentIndex], currentGroup.length > 1);
+  showMedia(currentGroup[0], currentGroup.length > 1);
   lightbox.focus();
 }
 
@@ -90,29 +128,26 @@ function trapFocus(e) {
   }
 }
 
-function showMedia(el, showButtons = false) {
+function showMedia(item, showButtons = false) {
   lightbox.classList.add('visible');
   lightbox.innerHTML = '';
 
-  // Check the media type
-  // Main gallery images sit borderless; process shots (from #hidden-images) keep a frame.
-  const isProcess = !!el.closest('#hidden-images');
-
-  if (el.tagName.toLowerCase() === 'img') {
-    const img = document.createElement('img');
-    img.src = el.src;
-    img.alt = el.alt || el.dataset.caption || '';
-    if (isProcess) img.classList.add('process');
-    lightbox.appendChild(img);
-  } else if (el.tagName.toLowerCase() === 'video') {
+  // Main gallery images sit borderless; process shots keep a frame.
+  if (item.video) {
     const video = document.createElement('video');
-    video.src = el.querySelector('source')?.src || el.src;
+    video.src = item.src;
     video.autoplay = true;
     video.loop = true;
     video.controls = true;
     video.muted = true;
-    if (isProcess) video.classList.add('process');
+    if (item.isProcess) video.classList.add('process');
     lightbox.appendChild(video);
+  } else {
+    const img = document.createElement('img');
+    img.src = item.src;
+    img.alt = item.caption || '';
+    if (item.isProcess) img.classList.add('process');
+    lightbox.appendChild(img);
   }
 
   // Add navigation buttons
@@ -143,11 +178,10 @@ function showMedia(el, showButtons = false) {
   }
 
   // Add caption
-  const captionText = el.dataset.caption;
-  if (captionText) {
+  if (item.caption) {
     const caption = document.createElement('p');
     caption.id = 'lightbox-caption';
-    caption.textContent = captionText;
+    caption.textContent = item.caption;
     lightbox.appendChild(caption);
   }
 }

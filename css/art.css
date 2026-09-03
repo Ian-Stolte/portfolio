@@ -68,6 +68,7 @@
 
 .art-image img, .art-image video {
     width: 100%;
+    height: auto;            /* honour the intrinsic ratio from width/height attrs (no CLS) */
     display: block;
     object-fit: cover;
     border-radius: var(--border-radius);

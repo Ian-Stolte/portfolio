@@ -1,10 +1,10 @@
-{%- macro tile(id, p, view) -%}
+{%- macro tile(id, p, im, view, eager=false) -%}
 {%- set style = p.css[view] if p.css else none -%}
             <div class="art-image"{% if style %} style="{{ style }}"{% endif %}>
                 {%- if p.video %}
-                <video autoplay loop muted playsinline{% if p.poster %} poster="{{ p.poster }}"{% endif %} src="{{ p.src }}" type="video/mp4" data-group="{{ id }}" data-caption="{{ p.caption }}"></video>
+                <video class="lazy-video" autoplay loop muted playsinline{% if p.poster %} poster="{{ p.poster }}"{% endif %} preload="none" data-src="{{ p.src }}" data-group="{{ id }}" data-caption="{{ p.caption }}"></video>
                 {%- else %}
-                <img src="{{ p.src }}" alt="{{ p.alt }}" data-group="{{ id }}" data-caption="{{ p.caption }}">
+                <img src="{{ im.src }}" srcset="{{ im.srcset }}" sizes="(min-width: 1001px) 640px, (min-width: 601px) 47vw, 94vw" width="{{ im.w }}" height="{{ im.h }}" alt="{{ p.alt }}" loading="{{ 'eager' if eager else 'lazy' }}" decoding="async" data-group="{{ id }}" data-caption="{{ p.caption }}" data-full="{{ im.full }}">
                 {%- endif %}
                 {%- if p.label %}
                 <div class="image-label">{{ p.label }}</div>

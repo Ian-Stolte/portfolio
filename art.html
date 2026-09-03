@@ -9,6 +9,7 @@ scripts: [dropdown, art-gallery]
 ogImage: /images/art/TLM_KeyArt.png
 ---
 {%- from "art-macros.njk" import tile %}
+{%- set imgs = artwork.pieces | galleryImages %}
     <div id="content">
         <div style="padding: 120px 0px 0px;"></div>
 {%- for section in artwork.sections %}
@@ -25,7 +26,7 @@ ogImage: /images/art/TLM_KeyArt.png
         {%- for column in section.desktop %}
             <div class="art-column">
             {%- for id in column %}
-{{ tile(id, artwork.pieces[id], "desktop") }}
+{{ tile(id, artwork.pieces[id], imgs[id], "desktop", loop.first) }}
             {%- endfor %}
             </div>
         {%- endfor %}
@@ -33,27 +34,15 @@ ogImage: /images/art/TLM_KeyArt.png
 
         <div class="art-gallery art-gallery-mobile">
         {%- for id in section.mobile %}
-{{ tile(id, artwork.pieces[id], "mobile") }}
+{{ tile(id, artwork.pieces[id], imgs[id], "mobile", loop.index <= 2) }}
         {%- endfor %}
         </div>
 {%- endfor %}
 
         <div id="lightbox"></div>
 
-        <!-- Lightbox-only process images, grouped by piece id -->
-        <div id="hidden-images" hidden>
-        {%- for id, p in artwork.pieces %}
-        {%- if not p.hidden and p.process %}
-        {%- for shot in p.process %}
-        {%- if shot.video %}
-            <video src="{{ shot.src }}" type="video/mp4" data-group="{{ id }}" data-caption="{{ shot.caption }}"></video>
-        {%- else %}
-            <img src="{{ shot.src }}" data-group="{{ id }}" data-caption="{{ shot.caption }}">
-        {%- endif %}
-        {%- endfor %}
-        {%- endif %}
-        {%- endfor %}
-        </div>
+        <!-- Lightbox-only process shots (grouped by piece id); built into media on open by art-gallery.js -->
+        <script id="lightbox-shots" type="application/json">{{ (artwork.pieces | lightboxShots | dump | replace("</", "<\\/")) | safe }}</script>
 
         <div style="margin-bottom: 30px"></div>
     </div>
