@@ -32,7 +32,7 @@ export default {
 
       desktop: [
         ["rat-knight", "glimmer", "entrapta"],
-        ["bounty-hunter", "olympus-mons", "landscape", "trixie"],
+        ["bounty-hunter", "landscape", "trixie"],
         ["little-mermaid",
           "bot",
           // "wof-designs",   // set hidden:false on the piece to bring it back
@@ -101,11 +101,11 @@ export default {
     },
 
     "olympus-mons": {
-      src: "/images/art/OlympusMons.png",
+      src: "/images/art/OlympusMons_noBorder.png",
       alt: "Olympus Mons Natl Park Poster",
       label: "Illustration",
       caption:
-        "A national park poster for Olympus Mons, a massive volcano on Mars.",
+        "A national park poster for Olympus Mons, a massive volcano on Mars",
     },
 
     "bounty-hunter": {
