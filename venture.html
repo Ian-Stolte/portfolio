@@ -1,46 +1,43 @@
 ---
-layout: base.njk
-title: Venture | Ian Stolte
+layout: project.njk
+tags: project
+order: 1
+
+name: Venture
+year: 2026
+featured: true
+homeLabel: Networking
+tagline: Open-world survival + co-op climbing.
+summary: >-
+  Two astronauts awaken on an alien planet. With only minutes of oxygen left,
+  they must work together to scale staggering cliffs, study strange lifeforms,
+  and search for a way home in this atmospheric co-op survival adventure.
+roles: [Lead Engineer]
+teamSize: "2"
+length: 3 months
+engine: Unity
+
+cover: /images/covers/Venture Cover.png
+heroVideo: /images/videos/Venture.mp4
+heroPoster: /images/videos/Venture_poster.jpg
+
+links:
+  - { label: View on Steam, href: "https://store.steampowered.com/app/4757060/Venture/", icon: Steam.png }
+# Homepage hero side widget (desktop only). Remove this block to hide it.
+steam:
+  url: "https://store.steampowered.com/app/4757060/Venture/"
+  stats:
+    - { value: "17,711", label: "library adds" }
+    - { value: "1,385", label: "players since launch" }
+
 description: >-
   Two astronauts, minutes of oxygen, and staggering alien cliffs — an
   atmospheric co-op survival adventure. Lead engineer on the climbing
   system, networked multiplayer, and UI.
-header: compact
-bodyClass: has-bg
-scripts: [dropdown, accordion]
-ogImage: /images/covers/Venture%20Cover.png
 ---
-    <div>
-        <div class="game-page">
-            <div style="clear: both;"></div>
-
-            <div class="game-page-top">
-                <video autoplay loop muted playsinline class="cover-gif" poster="/images/videos/Venture_poster.jpg" preload="none">
-                    <source src="/images/videos/Venture.mp4" type="video/mp4">
-                </video>
-                <div>
-                    <h1>Venture (2026)</h1>
-                    <p class="game-summary">Two astronauts awaken on an alien planet. With only minutes of oxygen left, they must work together to scale staggering cliffs,
-                        study strange lifeforms, and search for a way home in this atmospheric co-op survival adventure.</p>
-
-                    <div class="project-info">
-                        <h2>Project Info</h2>
-                        <p><b>Role</b>: Lead Engineer</p>
-                        <p><b>Team Size</b>: 2 </p>
-                        <p><b>Project Length</b>: 3 months</p>
-                        <p><b>Engine</b>: Unity</p>
-                    </div>
-                </div>
-            </div>
-
-            <div style="clear: both; padding: 10px 0px;"></div>
-
-            <div class="desc">
-
                 <!-- Key Contributions -->
                 <h2 style="margin-bottom: 10px;">Key Contributions:</h2>
 
-                <!--p style="margin: 20px 0px -5px 0px;"><i>Programming:</i></p>-->
                 <button class="accordion-header" aria-expanded="false">Climbing + Movement System<span>+</span></button>
                 <div class="accordion-panel">
                     <div>
@@ -71,10 +68,7 @@ ogImage: /images/covers/Venture%20Cover.png
                         <p>
                             The game is inherently co-op, so I had to build every feature in the game with multiplayer in mind. I used Unity's Netcode for GameObjects (NGO) for all of the multiplayer logic,
                             and implemented a Steamworks transport so players can connect across any online network, not just over LAN.
-                        </p><!--br>
-                        <p>
-                            Some of the features that were the most difficult/I'm proudest of:
-                        </p>-->
+                        </p>
                     </div>
                 </div>
 
@@ -97,8 +91,3 @@ ogImage: /images/covers/Venture%20Cover.png
                         <img src="images/Venture_ScannerObject2.png" alt="Journal Scriptable Objects" class="game-image-small" style="margin-left: 20px;">
                     </div>
                 </div>
-
-                <br><br>
-            </div>
-        </div>
-    </div>

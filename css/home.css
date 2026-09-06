@@ -5,13 +5,28 @@
 /* ---- Hero (featured project) ---- */
 
 .image-hero {
-    width: 60%;
+    width: 80%;
     padding-top: 150px;
     margin: auto;
     margin-bottom: -70px;
+    display: flex;
+    align-items: stretch;
+    gap: 2rem;
+}
+
+/* Cover + info-panel stack (3) beside the Steam widget (1) — keeps the stack
+   at roughly the ~60vw it was before the widget was added. */
+.image-hero-main {
+    flex: 3 1 0;
+    min-width: 0;
 }
 
 .image-hero img { width: 100%; }
+
+/* The featured project's single-column stand-in for the hero — the normal
+   project card, rendered above the grid from the same macro. Swapped with
+   .image-hero at the 1000px breakpoint. */
+.featured-card { display: none; }
 
 .image-hero-bg {
     margin-top: -5px;
@@ -29,6 +44,106 @@
     padding-top: 5px;
     font-size: 48px;
     color: var(--text-muted);
+}
+
+/* Engine icon (Unity / Unreal) on a grid card or the featured card: absolute,
+   pinned right of the centered title and vertically centered on it, so the
+   title text stays centered. Scoped past the `.image-* img` rules (width:100%).
+   The desktop hero shows its engine icon in the side widget instead. */
+.image-item h1 .engine-icon {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    display: inline;
+    width: auto;
+    height: 32px;
+}
+
+
+/* ---- Hero side widget: a slim card attached to the right of the hero in
+   hero-mode. Stretches to the hero's full height; a gameplay image at the
+   bottom grows to fill whatever space the text doesn't. Advertises the Steam
+   release. Hidden ≤1000px (see that block). ---- */
+.hero-aside {
+    flex: 1 1 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background: var(--panel);
+    border-top: 3px solid var(--text-bright);
+    padding: 22px 24px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Engine icon for hero mode: pinned to the top-right of the widget, level with
+   the heading. Scoped past `.image-hero img { width: 100% }`. Hidden <=1000px
+   (the widget is too, but keep it explicit — the title icon takes over there). */
+.hero-aside .hero-aside-engine {
+    position: absolute;
+    top: 38px;
+    right: 40px;
+    width: auto;
+    height: 36px;
+}
+
+/* Unused Steam stats display */
+/*.hero-aside-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    align-self: center;
+    margin: 0 0 16px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.hero-aside-eyebrow img {
+    width: 30px;
+    height: 30px;
+}
+
+.hero-aside-eyebrow:hover { opacity: 0.7; }
+
+.hero-stat {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
+}
+
+.hero-stat-num {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1.15;
+    color: var(--text-bright);
+}
+
+.hero-stat-label {
+    font-size: 14px;
+    color: var(--text-muted);
+}*/
+
+.hero-aside h2 {
+    text-align: left;
+    margin-left: 5px;
+}
+
+.hero-aside hr {
+    width: 100%;
+    margin: 15px 0 5px;
+    border: 0;
+    opacity: 0.7;
+}
+
+.hero-aside-text {
+    text-align: left;
+    margin: 0px 0px 0px 5px;
+    color: rgb(140, 140, 140) !important;
 }
 
 
@@ -87,6 +202,7 @@
     padding-top: 5px;
     font-size: 36px;
     color: var(--text-muted);
+    position: relative;
 }
 
 .image-item span { font-size: 24px; }
@@ -153,7 +269,9 @@
 }
 
 
-/* ---- Compact / half-screen: single column, stacked intro ---- */
+/* ---- Single-column mode: one column, stacked intro, and the hero collapses
+   to look like a grid card. Kicks in at the same width the grid snaps from
+   1 column to 2+. ---- */
 @media (max-width: 1000px) {
     .image-grid {
         grid-template-columns: 1fr;
@@ -180,5 +298,25 @@
     #intro-content p {
         margin-right: -20px;
         font-size: 21px;
+    }
+
+    /* Featured project: drop the desktop hero and show its normal card instead
+       (rendered just above the grid, from the same macro). */
+    .image-hero {
+        display: none;
+    }
+
+    .featured-card {
+        display: block;
+        width: 95%;
+        margin: 0 auto -70px;
+        padding-top: 150px;
+    }
+
+    /* Keep the (centered) title clear of the right-pinned engine icon; long
+       titles wrap. */
+    .image-item h1 {
+        padding-left: 48px;
+        padding-right: 48px;
     }
 }

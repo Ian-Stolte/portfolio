@@ -1,0 +1,43 @@
+---
+layout: base.njk
+header: compact
+bodyClass: has-bg
+scripts: [dropdown, accordion]
+eleventyComputed:
+  title: "{{ name }} | Ian Stolte"
+  ogImage: "{{ ogImage or (cover | replace(' ', '%20')) }}"
+---
+    <div>
+        <div class="game-page">
+            <div style="clear: both;"></div>
+
+            <div class="game-page-top">
+                <video autoplay loop muted playsinline class="cover-gif" poster="{{ heroPoster }}" preload="none">
+                    <source src="{{ heroVideo }}" type="video/mp4">
+                </video>
+                <div>
+                    <h1{% if headingStyle %} style="{{ headingStyle }}"{% endif %}>{{ name }} ({{ year }})</h1>
+                    <p class="game-summary">{{ summary }}</p>
+
+                    <div class="project-info">
+                        <h2>Project Info</h2>
+                        {%- for link in links %}
+                        <a href="{{ link.href }}"><p class="itch-button"><img src="/images/icons/{{ link.icon }}" style="width: 40px; margin-right: 7px;">{{ link.label }}</p></a>
+                        <p class="itch-button-small"> <a href="{{ link.href }}"><img src="/images/icons/{{ link.icon }}" alt="{{ link.label }}" style="width: 40px;"></a> </p>
+                        {%- endfor %}
+                        <p><b>{{ "Roles" if roles.length > 1 else "Role" }}</b>: {{ roles | join(", ") }}</p>
+                        <p><b>Team Size</b>: {{ teamSize }}</p>
+                        <p><b>Project Length</b>: {{ length }}</p>
+                        <p><b>Engine</b>: {{ engine }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="clear: both; padding: 10px 0px;"></div>
+
+            <div class="desc">
+{{ content | safe }}
+                <br><br>
+            </div>
+        </div>
+    </div>

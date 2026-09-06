@@ -29,10 +29,26 @@ module.exports = function (eleventyConfig) {
   // data dir. Images are still passthrough-copied and still live-reload.
   eleventyConfig.watchIgnores.add("images/**");
 
-  // Keep the current flat URLs: /blue.html, not /blue/.
+  // Keep the current flat URLs: /blue.html, not /blue/. (Served at /blue by
+  // vercel.json cleanUrls.)
   eleventyConfig.addGlobalData("permalink", () => (data) =>
     `${data.page.filePathStem}.html`
   );
+
+  // Project pages (tags: project), ordered by the `order` front-matter field.
+  // The homepage grid is built from this.
+  eleventyConfig.addCollection("projects", (c) =>
+    c.getFilteredByTag("project").sort((a, b) => (a.data.order || 99) - (b.data.order || 99))
+  );
+
+  // Map an `engine:` string ("Unity", "Unreal 5 (C++)", ...) to its icon for
+  // the homepage title. Unrecognized engines get no icon.
+  eleventyConfig.addFilter("engineIcon", (engine) => {
+    if (!engine) return null;
+    if (/unreal/i.test(engine)) return { name: "Unreal", src: "/images/icons/Unreal.png" };
+    if (/unity/i.test(engine)) return { name: "Unity", src: "/images/icons/Unity.png" };
+    return null;
+  });
 
   // Gallery tiles: { id -> { src, srcset, w, h, full } }. Computed once per
   // build and passed into the (sync) tile macro, since async filters don't

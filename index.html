@@ -9,82 +9,55 @@ header: full
 bodyClass: has-bg
 scripts: [dropdown]
 ---
+{%- from "project-card.njk" import projectCard %}
     <div id="content">
+{%- for p in collections.projects %}
+{%- if p.data.featured %}
+{%- set engine = p.data.engine | engineIcon %}
         <div class="image-hero">
-            <a href="./venture">
-                <img src="/images/covers/Venture Cover.png" alt="Version Zero Cover Image">
-                <div class="image-label">3D, Multiplayer</div>
-            </a>
-            <div class="image-hero-bg">
-                <div class="image-item-details">
-                    <h1>Venture</h1>
-                    <p style="margin-bottom: 20px;"><i>Open-world survival + co-op climbing.</i></p>
-                    <p><b>Team Size</b>: 2</p>
-                    <p><b>Role</b>: Lead Engineer</p>
+            <div class="image-hero-main">
+                <a href="/{{ p.fileSlug }}">
+                    <img src="{{ p.data.cover }}" alt="{{ p.data.name }} cover">
+                </a>
+                <div class="image-hero-bg">
+                    <div class="image-item-details">
+                        <h1>{{ p.data.name }}</h1>
+                        <p style="margin-bottom: 20px;"><i>{{ p.data.tagline }}</i></p>
+                        <p><b>Team Size</b>: {{ p.data.teamSize }}</p>
+                        <p><b>{{ "Roles" if p.data.roles.length > 1 else "Role" }}</b>: {{ p.data.roles | join(", ") }}</p>
+                    </div>
                 </div>
             </div>
+            <aside class="hero-aside">
+{%- if engine %}
+                <img class="hero-aside-engine" src="{{ engine.src }}" alt="Built in {{ engine.name }}">
+{%- endif %}
+                <!--a class="hero-aside-eyebrow" href="{{ p.data.steam.url }}"><img src="/images/icons/Steam.png" alt="">View on Steam</a>
+{%- for s in p.data.steam.stats %}
+                <div class="hero-stat">
+                    <span class="hero-stat-num">{{ s.value }}</span>
+                    <span class="hero-stat-label">{{ s.label }}</span>
+                </div>
+{%- endfor %}-->
+                <h2> Venture: Details</h2>
+                <p class="hero-aside-text">
+                    You open your eyes to the smoking wreckage of your spaceship. Your suits only have a couple minutes of oxygen left. All around you is an alien planet, dominated by steep cliffs, floating islands, and seemingly-bottomless chasms.
+                    To survive, place down ropes to scale the terrain around you, carefully choosing your own path across the planet. Refill your oxygen from glowing alien flowers and continue upward. Revive your crewmate when they fall.
+                </p>
+            </aside>
         </div>
+        <div class="featured-card">
+{{ projectCard(p) }}
+        </div>
+{%- endif %}
+{%- endfor %}
 
         <div class="image-grid">
-            <div class="image-item">
-                <a href="./blue">
-                    <img src="/images/covers/BLUE Cover.png" alt="BLUE Cover Image">
-                    <div class="image-label">Multiplayer, Unreal</div>
-                </a>
-                <div class="image-item-bg">
-                    <h1>BLUE</h1>
-                    <p><i>Spaceship building and physics-based 1v1 duels.</i></p>
-                    <div class="image-item-details" style="margin-top: 20px;">
-                        <p><b>Team Size</b>: 30+</p>
-                        <p><b>Roles</b>: Engineer, Designer</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="image-item">
-                <a href="./mantle">
-                    <img src="/images/covers/Mantle Cover.png" alt="Mantle Cover Image">
-                    <div class="image-label">Narrative, Unity</div>
-                </a>
-                <div class="image-item-bg">
-                    <h1>Mantle</h1>
-                    <p><i>Minigame combat and dynamic narrative sequences.</i></p>
-                    <div class="image-item-details" style="margin-top: 20px;">
-                        <p><b>Team Size</b>: 27</p>
-                        <p><b>Role</b>: Gameplay Programmer</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="image-item">
-                <a href="./flower-defense">
-                    <img src="/images/covers/FlowerDefense Cover.png" alt="Flower Defense Cover Image">
-                    <div class="image-label">Unreal</div>
-                </a>
-                <div class="image-item-bg">
-                    <h1>Flower Defense</h1>
-                    <p><i>3D tower defense meets gardening sim.</i></p>
-                    <div class="image-item-details" style="margin-top: 20px;">
-                        <p><b>Team Size</b>: 2</p>
-                        <p><b>Roles</b>: Lead Designer, Engineer</p>
-                    </div>
-                </div>
-            </div>
-
-            <!--div class="image-item">
-                <a href="./magician">
-                    <img src="/images/covers/Magician Cover.png" alt="The Magician Cover Image">
-                    <div class="image-label">Procedural Levels</div>
-                </a>
-                <div class="image-item-bg">
-                    <h1>The Magician</h1>
-                    <p><i>Roguelike with trick-shot bubble combat.</i></p>
-                    <div class="image-item-details" style="margin-top: 20px;">
-                        <p><b>Team Size</b>: 2</p>
-                        <p><b>Role</b>: Lead Engineer</p>
-                    </div>
-                </div>
-            </div>-->
+{%- for p in collections.projects %}
+{%- if not p.data.featured and not p.data.hiddenFromHome %}
+{{ projectCard(p) }}
+{%- endif %}
+{%- endfor %}
         </div>
 
 
@@ -99,11 +72,11 @@ scripts: [dropdown]
                             Hi, I'm Ian, a gameplay programmer at USC!
                         </p>
                         <p>
-                            I've worked across many different genres in my previous projects, but I'm most passionate about building anything under the character-action umbrella: things like player movement,
+                            I've worked across many different genres in my previous projects, but I'm most passionate about building features under the character-action umbrella: things like player movement,
                             3Cs, and combat mechanics. I'm specifically focused on bringing together engineering and design skills to create elegant, modular systems— focusing on how to combine intuitive UX with strong game feel and easy-to-read code.
                         </p>
                         <p>
-                            Though I'm an engineer at heart, I also have experience with game design, UI/UX, 2D art, and music composition/audio direction, which allows me to easily collaborate on multi-disciplinary teams.
+                            Though I'm an engineer at heart, I also have experience with game design, illustration, 3D modeling, and composition/audio direction, which allows me to easily collaborate on multi-disciplinary teams.
                         </p>
                     </div>
                 </div>

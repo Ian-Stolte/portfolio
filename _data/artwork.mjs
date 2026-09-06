@@ -33,17 +33,13 @@ export default {
       desktop: [
         ["rat-knight", "glimmer", "entrapta"],
         ["bounty-hunter", "landscape", "trixie"],
-        ["little-mermaid",
-          "bot",
-          // "wof-designs",   // set hidden:false on the piece to bring it back
-          // "jade-winglet",
-          "mara",
-        ],
+        ["little-mermaid", "bot", "mara"],
       ],
 
       mobile: [
         "little-mermaid",
         "jade-winglet",
+        "bounty-hunter",
         "rat-knight",
         "glimmer",
         "trixie",
@@ -63,7 +59,7 @@ export default {
         ["fdef-models", "reya-walk"],
       ],
 
-      mobile: ["reya-walk", "vzero-env", "fdef-models"],
+      mobile: ["twilight-3d", "reya-walk", "vzero-env", "fdef-models"],
     },
   ],
 
@@ -98,14 +94,6 @@ export default {
       label: "Character Practice",
       caption:
         "Fanart of the character Entrapta from the animated series She-Ra and the Princesses of Power",
-    },
-
-    "olympus-mons": {
-      src: "/images/art/OlympusMons_noBorder.png",
-      alt: "Olympus Mons Natl Park Poster",
-      label: "Illustration",
-      caption:
-        "A national park poster for Olympus Mons, a massive volcano on Mars",
     },
 
     "bounty-hunter": {
