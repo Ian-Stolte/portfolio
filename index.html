@@ -7,9 +7,10 @@ description: >-
   building elegant, modular systems across Unity and Unreal.
 header: full
 bodyClass: has-bg
-scripts: [dropdown]
+scripts: [dropdown, reveal]
 ---
 {%- from "project-card.njk" import projectCard %}
+    <script>document.documentElement.classList.add('reveal');</script>
     <div id="content">
 {%- for p in collections.projects %}
 {%- if p.data.featured %}
@@ -39,7 +40,7 @@ scripts: [dropdown]
                     <span class="hero-stat-label">{{ s.label }}</span>
                 </div>
 {%- endfor %}-->
-                <h2> Venture: Details</h2>
+                <h2> Project Details</h2>
                 <p class="hero-aside-text">
                     You open your eyes to the smoking wreckage of your spaceship. Your suits only have a couple minutes of oxygen left. All around you is an alien planet, dominated by steep cliffs, floating islands, and seemingly-bottomless chasms.
                     To survive, place down ropes to scale the terrain around you, carefully choosing your own path across the planet. Refill your oxygen from glowing alien flowers and continue upward. Revive your crewmate when they fall.

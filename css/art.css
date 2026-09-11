@@ -92,6 +92,77 @@
     text-align: left;
 }
 
+/* ---- Scroll reveal ----
+   scripts/reveal.js toggles `.is-visible`; both tiles and section headings
+   use its "dim" mode (scrolled-past dims to 0.15 instead of vanishing, via a
+   permanent `.was-visible` class, with hiding debounced so a quick scroll
+   up-and-back doesn't flicker it).
+
+   Tiles: always sit at 0.15 opacity — whether not yet scrolled to, or already
+   scrolled past, look identical — and just ease up to full opacity in view.
+   No slide (the "not yet seen" state doubles as the "was-visible" state, so
+   there's nothing to separately style there).
+
+   Section headings keep a slide-up entrance instead (each section's heading
+   block — heading + tool tag + rule — fades/rises in as one unit on the same
+   trigger; the 2D section's is normally already on screen at load, so the 3D
+   one's entrance is what actually reads as "a new section starts here").
+
+   The first couple of tiles in each column also get a small transition-delay,
+   so the on-load batch glows up asymmetrically instead of all at once; tiles
+   further down don't need it since scrolling already staggers them. */
+.reveal .art-image {
+    opacity: 0.15;
+    transition: opacity 0.9s ease;
+}
+
+.reveal .art-image.is-visible {
+    opacity: 1;
+    transition: opacity 1.5s ease;
+}
+
+.reveal .section-heading {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal .section-heading.was-visible {
+    opacity: 0.15;
+    transform: none;
+    transition: opacity 0.5s ease;
+}
+
+.reveal .section-heading.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.5s ease;
+}
+
+.art-column:nth-child(1) .art-image:nth-child(1) { transition-delay: 0s; }
+.art-column:nth-child(1) .art-image:nth-child(2) { transition-delay: 0.16s; }
+.art-column:nth-child(2) .art-image:nth-child(1) { transition-delay: 0.08s; }
+.art-column:nth-child(2) .art-image:nth-child(2) { transition-delay: 0.24s; }
+.art-column:nth-child(3) .art-image:nth-child(1) { transition-delay: 0.16s; }
+.art-column:nth-child(3) .art-image:nth-child(2) { transition-delay: 0.32s; }
+
+.art-gallery-mobile .art-image:nth-child(1) { transition-delay: 0s; }
+.art-gallery-mobile .art-image:nth-child(2) { transition-delay: 0.1s; }
+.art-gallery-mobile .art-image:nth-child(3) { transition-delay: 0.2s; }
+.art-gallery-mobile .art-image:nth-child(4) { transition-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal .art-image,
+    .reveal .art-image.is-visible,
+    .reveal .section-heading,
+    .reveal .section-heading.was-visible,
+    .reveal .section-heading.is-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
 @media (min-width: 1001px) {
     .art-gallery-mobile { display: none; }
 }

@@ -5,24 +5,28 @@ description: >-
   2D illustration and character design in Krita, plus 3D modeling and
   animation in Blender — work by Ian Stolte.
 header: compact
-scripts: [dropdown, art-gallery]
+scripts: [dropdown, art-gallery, reveal]
 ogImage: /images/art/TLM_KeyArt.png
 ---
 {%- from "art-macros.njk" import tile %}
 {%- set imgs = artwork.pieces | galleryImages %}
+    <script>document.documentElement.classList.add('reveal');</script>
     <div id="content">
         <div style="padding: 120px 0px 0px;"></div>
 {%- for section in artwork.sections %}
+{%- set toolClass = "tool-" ~ (section.tool.name | lower) %}
 
-        <div class="section-header"{% if not loop.first %} style="margin-top: 90px;"{% endif %}>
-            <p>{{ section.heading }}</p>
-            <div class="section-tag">
-                <img src="/images/icons/{{ section.tool.icon }}" alt="{{ section.tool.name }} Icon"> <span>{{ section.tool.name }}</span>
+        <div class="section-heading"{% if not loop.first %} style="margin-top: 90px;"{% endif %}>
+            <div class="section-header">
+                <p>{{ section.heading }}</p>
+                <div class="section-tag">
+                    <img src="/images/icons/{{ section.tool.icon }}" alt="{{ section.tool.name }} Icon"> <span>{{ section.tool.name }}</span>
+                </div>
             </div>
+            <hr class="section-line"{% if loop.first %} style="margin-bottom: 30px;"{% endif %}>
         </div>
-        <hr class="section-line"{% if loop.first %} style="margin-bottom: 30px;"{% endif %}>
 
-        <div class="art-gallery art-gallery-desktop">
+        <div class="art-gallery art-gallery-desktop {{ toolClass }}">
         {%- for column in section.desktop %}
             <div class="art-column">
             {%- for id in column %}
@@ -32,17 +36,22 @@ ogImage: /images/art/TLM_KeyArt.png
         {%- endfor %}
         </div>
 
-        <div class="art-gallery art-gallery-mobile">
+        <div class="art-gallery art-gallery-mobile {{ toolClass }}">
         {%- for id in section.mobile %}
 {{ tile(id, artwork.pieces[id], imgs[id], "mobile", loop.index <= 2) }}
         {%- endfor %}
         </div>
 {%- endfor %}
 
-        <div id="lightbox"></div>
-
-        <!-- Lightbox-only process shots (grouped by piece id); built into media on open by art-gallery.js -->
-        <script id="lightbox-shots" type="application/json">{{ (artwork.pieces | lightboxShots | dump | replace("</", "<\\/")) | safe }}</script>
-
         <div style="margin-bottom: 30px"></div>
     </div>
+
+    <!-- Outside #content: #content has the page load-in `animation` (which
+         touches `transform`), and any transform-animated ancestor becomes the
+         containing block for `position: fixed` descendants — trapping the
+         lightbox's 100%/100% box to #content's (page-length) size instead of
+         the viewport. Keeping it as a sibling avoids that entirely. -->
+    <div id="lightbox"></div>
+
+    <!-- Lightbox-only process shots (grouped by piece id); built into media on open by art-gallery.js -->
+    <script id="lightbox-shots" type="application/json">{{ (artwork.pieces | lightboxShots | dump | replace("</", "<\\/")) | safe }}</script>

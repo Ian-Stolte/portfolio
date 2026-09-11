@@ -12,6 +12,7 @@ video.game-image-small { display: block; }
     margin: -50px 0px 10px 0px;
     border-radius: 0px;
     border: none;
+    background-color: var(--bg);
 }
 
 .game-page {
@@ -21,6 +22,11 @@ video.game-image-small { display: block; }
     margin: auto;
     text-align: left;
     font-size: 20px;
+    animation: page-fade-in 0.7s ease forwards;
+}
+
+body:has(.game-page)::before {
+    animation: curtain-fade 1.5s ease both;
 }
 
 .game-page-top {

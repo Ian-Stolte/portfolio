@@ -113,7 +113,6 @@ export default {
       alt: "Landscape 2D Art",
       label: "Illustration",
       caption: "Digital painting based on a photo taken in Japan",
-      css: { desktop: "margin-top: 50px" },
       process: [
         { src: "/images/art/Landscape_thumbnails.png", caption: "Thumbnails for different landscape concepts, focusing on simplifying details and exaggerating the core focus of each" },
       ],
@@ -164,7 +163,7 @@ export default {
       alt: "Mara Character Art",
       label: "Illustration",
       caption: "Fanart of the character Mara from the animated series She-Ra",
-      css: { desktop: "margin-top: 30px" },
+      css: { desktop: "margin-top: 40px" },
     },
 
     "jade-winglet": {

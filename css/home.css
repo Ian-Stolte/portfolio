@@ -2,6 +2,12 @@
    HOME  —  hero, project grid, "About Me" aboutme
    ============================================================ */
 
+/* Page load-in (see the shared @keyframes in base.css). #content is also the
+   art page's top-level wrapper, so this covers both. */
+#content {
+    animation: page-fade-in 0.7s ease both;
+}
+
 /* ---- Hero (featured project) ---- */
 
 .hero-card {
@@ -58,7 +64,7 @@
     display: flex;
     flex-direction: column;
     background: var(--panel);
-    border-top: 3px solid var(--text-bright);
+    border-top: 2px solid var(--text-bright);
     padding: 22px 24px;
     overflow: hidden;
     position: relative;
@@ -206,13 +212,55 @@
     margin: 5px 30px 0 30px;
 }
 
+/* ---- Scroll reveal: elements start faded + nudged down and rise into place as
+   they enter the viewport (and fade back out as they leave). Gated on `.reveal`
+   (added by an inline <script> in index.html before paint) so everything stays
+   visible if JS is off. scripts/reveal.js toggles `.is-visible`. ---- */
+
+/* Project cards — a quick pop as they edge in. */
+.reveal .game-card {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal .game-card.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* About Me — its own beat: triggers later (see reveal.js) and settles in
+   slower, from further, with a slight scale. */
+.reveal #aboutme {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal #aboutme.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal .game-card,
+    .reveal .game-card.is-visible,
+    .reveal #aboutme,
+    .reveal #aboutme.is-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
 
 /* ---- "About Me" ---- */
 
 #aboutme {
-    margin-top: 60px;
+    margin-top: 50px;
+    padding-bottom: 5px;
     background: var(--panel);
-    border: 3px solid var(--line);
+    border: 2px solid var(--line);
     text-align: left;
 }
 

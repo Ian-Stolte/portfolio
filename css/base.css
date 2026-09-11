@@ -52,3 +52,36 @@ a:hover { opacity: 0.7; }
     body { width: 95%; }
     body.has-bg { background-size: auto; }
 }
+
+
+/* ---- Page load-in ----  */
+@keyframes curtain-fade {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    background-color: var(--bg);
+    pointer-events: none;
+    animation: curtain-fade 0.4s ease forwards;
+}
+
+@keyframes page-fade-in {
+    from { transform: translateY(16px); }
+    to   { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body::before {
+        display: none;
+    }
+
+    .game-page,
+    #content {
+        animation: none;
+    }
+}
