@@ -14,13 +14,13 @@ scripts: [dropdown]
 {%- for p in collections.projects %}
 {%- if p.data.featured %}
 {%- set engine = p.data.engine | engineIcon %}
-        <div class="image-hero">
-            <div class="image-hero-main">
+        <div class="hero-card">
+            <div class="hero-card-main">
                 <a href="/{{ p.fileSlug }}">
                     <img src="{{ p.data.cover }}" alt="{{ p.data.name }} cover">
                 </a>
-                <div class="image-hero-bg">
-                    <div class="image-item-details">
+                <div class="hero-card-bg">
+                    <div class="game-card-details">
                         <h1>{{ p.data.name }}</h1>
                         <p style="margin-bottom: 20px;"><i>{{ p.data.tagline }}</i></p>
                         <p><b>Team Size</b>: {{ p.data.teamSize }}</p>
@@ -52,7 +52,7 @@ scripts: [dropdown]
 {%- endif %}
 {%- endfor %}
 
-        <div class="image-grid">
+        <div class="card-grid">
 {%- for p in collections.projects %}
 {%- if not p.data.featured and not p.data.hiddenFromHome %}
 {{ projectCard(p) }}
@@ -61,11 +61,11 @@ scripts: [dropdown]
         </div>
 
 
-        <div id="intro">
-            <div id="intro-inner">
+        <div id="aboutme">
+            <div id="aboutme-inner">
                 <h1>About Me</h1>
                 <hr>
-                <div id="intro-content">
+                <div id="aboutme-content">
                     <img src="/images/Ian Stolte.jpg" alt="Photo of Ian">
                     <div>
                         <p>
@@ -73,7 +73,7 @@ scripts: [dropdown]
                         </p>
                         <p>
                             I've worked across many different genres in my previous projects, but I'm most passionate about building features under the character-action umbrella: things like player movement,
-                            3Cs, and combat mechanics. I'm specifically focused on bringing together engineering and design skills to create elegant, modular systems— focusing on how to combine intuitive UX with strong game feel and easy-to-read code.
+                            3Cs, and combat mechanics. I'm specifically focused on bringing together engineering and design skills to create elegant, modular systems— focusing on how to combine intuitive player experience with easy-to-understand code.
                         </p>
                         <p>
                             Though I'm an engineer at heart, I also have experience with game design, illustration, 3D modeling, and composition/audio direction, which allows me to easily collaborate on multi-disciplinary teams.

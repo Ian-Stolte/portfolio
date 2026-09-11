@@ -1,43 +1,39 @@
 /* ============================================================
-   HOME  —  hero, project grid, "About Me" intro
+   HOME  —  hero, project grid, "About Me" aboutme
    ============================================================ */
 
 /* ---- Hero (featured project) ---- */
 
-.image-hero {
+.hero-card {
     width: 80%;
-    padding-top: 150px;
+    padding-top: 145px;
     margin: auto;
-    margin-bottom: -70px;
+    margin-bottom: -80px;
     display: flex;
     align-items: stretch;
     gap: 2rem;
 }
 
-/* Cover + info-panel stack (3) beside the Steam widget (1) — keeps the stack
-   at roughly the ~60vw it was before the widget was added. */
-.image-hero-main {
+.hero-card-main {
     flex: 3 1 0;
     min-width: 0;
+    border: 3px solid var(--line);
 }
 
-.image-hero img { width: 100%; }
+.hero-card img { width: 100%; }
 
-/* The featured project's single-column stand-in for the hero — the normal
-   project card, rendered above the grid from the same macro. Swapped with
-   .image-hero at the 1000px breakpoint. */
 .featured-card { display: none; }
 
-.image-hero-bg {
-    margin-top: -5px;
+.hero-card-bg {
+    margin-top: -7px;
     border-top: 3px solid var(--text-bright);
     background-color: var(--panel);
     padding-bottom: 20px;
 }
 
-.image-hero p { color: var(--text-muted); }
+.hero-card p { color: var(--text-muted); }
 
-.image-hero h1 {
+.hero-card h1 {
     font-weight: bold;
     text-align: left;
     margin: 5px 30px -10px 30px;
@@ -46,11 +42,7 @@
     color: var(--text-muted);
 }
 
-/* Engine icon (Unity / Unreal) on a grid card or the featured card: absolute,
-   pinned right of the centered title and vertically centered on it, so the
-   title text stays centered. Scoped past the `.image-* img` rules (width:100%).
-   The desktop hero shows its engine icon in the side widget instead. */
-.image-item h1 .engine-icon {
+.game-card h1 .engine-icon {
     position: absolute;
     top: 50%;
     right: 14px;
@@ -60,11 +52,6 @@
     height: 32px;
 }
 
-
-/* ---- Hero side widget: a slim card attached to the right of the hero in
-   hero-mode. Stretches to the hero's full height; a gameplay image at the
-   bottom grows to fill whatever space the text doesn't. Advertises the Steam
-   release. Hidden ≤1000px (see that block). ---- */
 .hero-aside {
     flex: 1 1 0;
     box-sizing: border-box;
@@ -77,9 +64,6 @@
     position: relative;
 }
 
-/* Engine icon for hero mode: pinned to the top-right of the widget, level with
-   the heading. Scoped past `.image-hero img { width: 100% }`. Hidden <=1000px
-   (the widget is too, but keep it explicit — the title icon takes over there). */
 .hero-aside .hero-aside-engine {
     position: absolute;
     top: 38px;
@@ -149,7 +133,7 @@
 
 /* ---- Project grid ---- */
 
-.image-grid {
+.card-grid {
     width: 87%;
     margin: auto;
     display: grid;
@@ -158,26 +142,26 @@
     padding: 150px 30px 40px;
 }
 
-.image-item {
-    box-shadow: 5px 5px 16px var(--glow);
-    border: 3px solid var(--line);
+.game-card {
+    /*box-shadow: 5px 5px 16px var(--glow);*/
+    border: 2px solid var(--line);
 }
 
-.image-item-bg {
+.game-card-bg {
     margin-top: -5px;
     border-top: 3px solid var(--text-bright);
     background-color: var(--panel);
     padding-bottom: 20px;
 }
 
-.image-item img {
+.game-card img {
     width: 100%;
     height: auto;
     display: block;
     object-fit: cover;
 }
 
-.image-item a {
+.game-card a {
     position: relative;
     display: inline-block;
 }
@@ -195,7 +179,7 @@
     border: 1px solid var(--text-bright);
 }
 
-.image-item h1 {
+.game-card h1 {
     text-align: center;
     font-weight: bold;
     margin-bottom: -5px;
@@ -205,9 +189,9 @@
     position: relative;
 }
 
-.image-item span { font-size: 24px; }
+.game-card span { font-size: 24px; }
 
-.image-item p {
+.game-card p {
     text-align: center;
     margin: 5px 0 0;
     font-size: 16px;
@@ -216,7 +200,7 @@
     padding: 0px 10px;
 }
 
-.image-item-details p {
+.game-card-details p {
     text-align: left;
     font-size: 17px;
     margin: 5px 30px 0 30px;
@@ -225,43 +209,49 @@
 
 /* ---- "About Me" ---- */
 
-#intro {
-    background-image: url("../images/About Me BG.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-top: 40px;
-    border: 4px solid var(--panel);
+#aboutme {
+    margin-top: 60px;
+    background: var(--panel);
+    border: 3px solid var(--line);
     text-align: left;
 }
 
-#intro-inner {
+#aboutme-inner {
     width: 75%;
     margin: auto;
 }
 
-#intro-content {
-    padding: 0px 0px 50px 0px;
-    font-size: clamp(17px, 1.8vw, 20px);
+#aboutme-content {
+    padding: 0 0 50px;
+    font-size: clamp(16px, 1.6vw, 18px);
     display: flex;
     align-items: center;
-    gap: 100px;
+    gap: 60px;
 }
 
-#intro-content p {
-    margin-top: 20px;
-    margin-bottom: 20px;
+#aboutme-content p {
+    margin: 20px 0;
+    color: var(--text-muted);
 }
 
-#intro h1 {
+#aboutme h1 {
     text-align: center;
-    font-size: 42px;
+    font-size: 36px;
+    color: var(--text-muted);
     margin-top: 25px;
+    margin-bottom: -5px;
 }
 
-#intro hr { margin: 10px 0px; }
+#aboutme hr {
+    height: 0px;
+    width: 95%;
+    background-color: var(--border);
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 
-#intro img {
+#aboutme img {
     margin: auto;
     border-radius: 100px;
     width: 200px;
@@ -269,40 +259,14 @@
 }
 
 
-/* ---- Single-column mode: one column, stacked intro, and the hero collapses
+/* ---- Single-column mode: one column, stacked aboutme, and the hero collapses
    to look like a grid card. Kicks in at the same width the grid snaps from
    1 column to 2+. ---- */
 @media (max-width: 1000px) {
-    .image-grid {
-        grid-template-columns: 1fr;
-        gap: 60px 0px;
-        padding: 135px 0px 30px;
-        margin: auto;
-        width: 95%;
-    }
-
-    #intro { margin-top: 35px; }
-
-    #intro-content {
-        flex-direction: column;
-        width: 95%;
-        margin-bottom: -20px;
-        gap: 60px;
-    }
-
-    #intro img {
-        margin-top: 15px;
-        margin-bottom: -40px;
-    }
-
-    #intro-content p {
-        margin-right: -20px;
-        font-size: 21px;
-    }
-
+    
     /* Featured project: drop the desktop hero and show its normal card instead
        (rendered just above the grid, from the same macro). */
-    .image-hero {
+    .hero-card {
         display: none;
     }
 
@@ -315,8 +279,35 @@
 
     /* Keep the (centered) title clear of the right-pinned engine icon; long
        titles wrap. */
-    .image-item h1 {
+    .game-card h1 {
         padding-left: 48px;
         padding-right: 48px;
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr;
+        gap: 60px 0px;
+        padding: 135px 0px 30px;
+        margin: auto;
+        width: 95%;
+    }
+
+    #aboutme { margin-top: 35px; }
+
+    #aboutme-content {
+        flex-direction: column;
+        width: 95%;
+        margin-bottom: -20px;
+        gap: 60px;
+    }
+
+    #aboutme img {
+        margin-top: 15px;
+        margin-bottom: -40px;
+    }
+
+    #aboutme-content p {
+        margin-right: -20px;
+        font-size: 21px;
     }
 }

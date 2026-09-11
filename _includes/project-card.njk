@@ -3,15 +3,15 @@
     featured project's hero. Driven entirely by the project's front matter. -#}
 {%- macro projectCard(p) -%}
 {%- set engine = p.data.engine | engineIcon -%}
-            <div class="image-item">
+            <div class="game-card">
                 <a href="/{{ p.fileSlug }}">
                     <img src="{{ p.data.cover }}" alt="{{ p.data.name }} cover">
                     <div class="image-label">{{ p.data.homeLabel }}</div>
                 </a>
-                <div class="image-item-bg">
+                <div class="game-card-bg">
                     <h1>{{ p.data.name }}{% if engine %}<img class="engine-icon" src="{{ engine.src }}" alt="Built in {{ engine.name }}">{% endif %}</h1>
                     <p><i>{{ p.data.tagline }}</i></p>
-                    <div class="image-item-details" style="margin-top: 20px;">
+                    <div class="game-card-details" style="margin-top: 20px;">
                         <p><b>Team Size</b>: {{ p.data.teamSize }}</p>
                         <p><b>{{ "Roles" if p.data.roles.length > 1 else "Role" }}</b>: {{ p.data.roles | join(", ") }}</p>
                     </div>
