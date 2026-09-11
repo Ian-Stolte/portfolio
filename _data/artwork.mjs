@@ -199,7 +199,7 @@ export default {
       alt: "Twilight Sparkle 3D Model",
       label: "Modeling",
       caption:
-        "3D model + render of Twilight Sparkle (My Little Pony), using a toon shader + black outline to evoke the style of the show.",
+        "3D model + render of Twilight Sparkle (My Little Pony), using a toon shader and black outline to evoke the 2D style of the show.",
       process: [
         { src: "/images/art/Twilight_base.png", caption: "The model before textures, materials, and lighting were added." },
       ],

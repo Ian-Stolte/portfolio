@@ -34,12 +34,15 @@ video.game-image-small { display: block; }
     font-size: clamp(40px, 5vw, 60px);
     white-space: nowrap;
     overflow: visible;
+    margin-top: 0px;
 }
 
 .game-summary {
     flex: 1;
-    font-size: clamp(16px, 4.5vw, 20px);
+    font-size: clamp(15px, 4.5vw, 19px);
     margin-bottom: 30px;
+    color: var(--text-muted);
+    margin-left: 5px;
 }
 
 .project-info {
@@ -140,7 +143,7 @@ video.game-image-small { display: block; }
     text-align: left;
     border: 2px solid var(--border);
     border-radius: 3px;
-    box-shadow: 5px 3px 16px var(--glow);
+    /*box-shadow: 5px 3px 16px var(--glow);*/
     padding: 7px 15px;
     margin-top: 15px;
     width: 100%;
