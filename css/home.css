@@ -12,7 +12,7 @@
 
 .hero-card {
     width: 80%;
-    padding-top: 145px;
+    padding-top: 150px;
     margin: auto;
     margin-bottom: -80px;
     display: flex;
@@ -35,17 +35,30 @@
     border-top: 3px solid var(--text-bright);
     background-color: var(--panel);
     padding-bottom: 20px;
+    position: relative;
 }
 
-.hero-card p { color: var(--text-muted); }
+/* "View on Steam" reuses .itch-button / .itch-button-small (css/project.css)
+   verbatim, so it's pixel-identical to the project page's link. Those rules
+   are `position: absolute`, anchored to the nearest positioned ancestor —
+   .project-info there, .hero-card-bg here (hence `position: relative` above). */
+
+.hero-card p {
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
 
 .hero-card h1 {
     font-weight: bold;
     text-align: left;
-    margin: 5px 30px -10px 30px;
+    margin: 10px 30px -15px 30px;
     padding-top: 5px;
-    font-size: 48px;
-    color: var(--text-muted);
+    font-size: 44px;
+    color: var(--text-bright);
+}
+
+.hero-card .game-card-details {
+    margin-bottom: 10px;
 }
 
 .game-card h1 .engine-icon {
@@ -68,6 +81,7 @@
     padding: 22px 24px;
     overflow: hidden;
     position: relative;
+    text-align: left;
 }
 
 .hero-aside .hero-aside-engine {
@@ -78,49 +92,15 @@
     height: 36px;
 }
 
-/* Unused Steam stats display */
-/*.hero-aside-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    align-self: center;
-    margin: 0 0 16px;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    text-decoration: none;
-}
-
-.hero-aside-eyebrow img {
-    width: 30px;
-    height: 30px;
-}
-
-.hero-aside-eyebrow:hover { opacity: 0.7; }
-
-.hero-stat {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 14px;
-}
-
-.hero-stat-num {
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 1.15;
-    color: var(--text-bright);
-}
-
-.hero-stat-label {
-    font-size: 14px;
-    color: var(--text-muted);
-}*/
-
 .hero-aside h2 {
-    text-align: left;
+   margin-left: 5px;
+   margin-bottom: 15px;
+}
+
+.hero-aside h3 {
+    font-size: 18px;
     margin-left: 5px;
+    margin-bottom: 5px;
 }
 
 .hero-aside hr {
@@ -131,7 +111,6 @@
 }
 
 .hero-aside-text {
-    text-align: left;
     margin: 0px 0px 0px 5px;
     color: rgb(140, 140, 140) !important;
 }
@@ -191,7 +170,7 @@
     margin-bottom: -5px;
     padding-top: 5px;
     font-size: 36px;
-    color: var(--text-muted);
+    color: var(--text-bright);
     position: relative;
 }
 

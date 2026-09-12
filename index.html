@@ -33,17 +33,21 @@ scripts: [dropdown, reveal]
 {%- if engine %}
                 <img class="hero-aside-engine" src="{{ engine.src }}" alt="Built in {{ engine.name }}">
 {%- endif %}
-                <!--a class="hero-aside-eyebrow" href="{{ p.data.steam.url }}"><img src="/images/icons/Steam.png" alt="">View on Steam</a>
-{%- for s in p.data.steam.stats %}
-                <div class="hero-stat">
-                    <span class="hero-stat-num">{{ s.value }}</span>
-                    <span class="hero-stat-label">{{ s.label }}</span>
-                </div>
-{%- endfor %}-->
-                <h2> Project Details</h2>
+                <h2> Project Details:</h2>
+                <h3>Networking</h3>
                 <p class="hero-aside-text">
-                    You open your eyes to the smoking wreckage of your spaceship. Your suits only have a couple minutes of oxygen left. All around you is an alien planet, dominated by steep cliffs, floating islands, and seemingly-bottomless chasms.
-                    To survive, place down ropes to scale the terrain around you, carefully choosing your own path across the planet. Refill your oxygen from glowing alien flowers and continue upward. Revive your crewmate when they fall.
+                    Natively co-op, using Netcode for GameObjects and Steamworks Lobbies.
+                    All gameplay logic written with server-authority checks and synchronization in mind.
+                </p>
+                <h3>Physics-Based Climbing</h3>
+                <p class="hero-aside-text">
+                    Snappy and responsive rope climbing core mechanic. Built to be easy to learn but with enough skill to challenge
+                    repeat players. Works on any surface in the game.
+                </p>
+                <h3>Open World</h3>
+                <p class="hero-aside-text">
+                    Multiple hours of content across three distinct biomes. Used LODs and optimization tricks to keep the game running at
+                    60+ FPS throughout wide environment shots.
                 </p>
             </aside>
         </div>
