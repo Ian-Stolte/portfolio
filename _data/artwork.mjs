@@ -31,22 +31,23 @@ export default {
       tool: { name: "Krita", icon: "Krita.png" },
 
       desktop: [
-        ["rat-knight", "glimmer", "entrapta"],
-        ["bounty-hunter", "landscape", "trixie"],
-        ["little-mermaid", "bot", "mara"],
+        ["expressions", "landscape", "glimmer"],
+        ["bounty-hunter", "rat-knight", "trixie"],
+        ["little-mermaid", "three-chars", "bot", "entrapta"],
       ],
 
       mobile: [
+        "expressions",
         "little-mermaid",
-        "jade-winglet",
         "bounty-hunter",
+        "jade-winglet",
         "rat-knight",
         "glimmer",
         "trixie",
         "landscape",
+        "three-chars",
         "entrapta",
         "bot",
-        "mara",
       ],
     },
 
@@ -65,6 +66,16 @@ export default {
 
   pieces: {
     /* ---------- 2D ---------- */
+
+    "expressions": {
+      src: "/images/art/ExpressionSheet.png",
+      alt: "Character Expression Sheet",
+      label: "Character Design",
+      caption:
+        "An expression sheet from a character design class, trying to capture both a range of emotions and head angles",
+        css: { desktop: "margin-top: 50px" },
+    },
+
 
     "rat-knight": {
       src: "/images/art/RatKnight_final.png",
@@ -106,6 +117,14 @@ export default {
       process: [
         { src: "/images/art/Bounty Hunter_lineArt.png", caption: "The clean line art pass. My goal was a design that read strongly as \"cowboy\" but was also fresh and unique." },
       ],
+    },
+
+    "three-chars": {
+      src: "/images/art/ThreeCharacters.png",
+      alt: "Three-Character Lineup",
+      label: "Character Design",
+      caption:
+        "Three character designs from the same old-growth fantasy world, using motifs like antlers to tie them together.",
     },
 
     "landscape": {
