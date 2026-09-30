@@ -6,7 +6,7 @@ order: 2
 name: BLUE
 year: 2026
 homeLabel: Gameplay Systems
-tagline: Spaceship building and physics-based 1v1 duels
+tagline: Spaceship building and physics-based combat
 summary: >-
   A multiplayer space engineering & combat game where you build complex ships,
   bring them into an interactive, physics-based space arena, and adapt your
@@ -30,42 +30,55 @@ description: >-
                 <!-- Key Contributions -->
                 <h2>Key Contributions:</h2>
 
-                <button class="accordion-header" aria-expanded="false">Materials and energy systems<span>+</span></button>
+                <button class="accordion-header" aria-expanded="false">Weapons System<span>+</span></button>
+                <div class="accordion-panel">
+                    <div>
+                        <p>
+                            I helped design the core weapon system for the game, created detailed specs for each weapon type, and implemented the first two weapon variants in-engine,
+                            providing a stable framework for other engineers and designers to build off of.
+                        </p>
+                        <br>
+                        <p>
+                            One of the core skills I learned through this process was how to
+                            connect Unreal's Gameplay Ability System with a C++ backend and networking framework. Because each ship is custom-built by players, I had to develop
+                            creative solutions, not just copying basic GAS patterns but finding strategic ways to get a reference from each weapon to the central Ability System
+                            Component or dynamically bind new weapons to the input system as they were created.
+                        </p>
+                        <br>
+                        <p>
+                            In the end, I was able to successfully set up a backend framework that allowed other engineers to quickly create new weapons and have them smoothly
+                            work with both the GAS system and multiplayer replication.
+                        </p>
+                    </div>
+                </div>
+
+                <button class="accordion-header" aria-expanded="false">Materials and Energy Systems<span>+</span></button>
                 <div class="accordion-panel">
                     <div>
                         <p>The game involves a robust ship-building system, where each part you place is affected by every other part of the ship. To support this, I built a backend framework
                             to track materials for the building system and energy for part usage, including multiplayer synchronization and propagation across the ship graph.
                         </p><br>
                         <p>
-                            A core feature of the energy system was making it fully modular, so that every part communicates with a central EnergyManager using a standardized EnergyUser component. This
-                            allows designers to quickly add new parts or change which parts use energy, and guarantee that their changes will fit with the established system!
+                            A core feature of the energy system was making it fully modular, so that every part is standardized and automatically works with the central EnergyManager. To accomplish
+                            this, I built a reusable component that supports multiple types of energy users while remaining easily editable by designers, allowing the team to quickly change values
+                            and add new parts within a single interface.
                         </p>
                     </div>
                 </div>
 
-                <button class="accordion-header" aria-expanded="false">Weapons design + implementation<span>+</span></button>
-                <div class="accordion-panel">
-                    <div>
-                        <p>I designed the core weapon system for the game, created detailed specs for each weapon type, and implemented the phase cannon
-                        and basic laser weapon types in-engine.</p>
-                    </div>
-                </div>
-
-                <button class="accordion-header" aria-expanded="false">Improving team communication<span>+</span></button>
+                <button class="accordion-header" aria-expanded="false">Communication and Documentation<span>+</span></button>
                 <div class="accordion-panel">
                     <div>
                         <p>
-                            I was initially brought on as a designer, but shifted toward the engineering team as the project went on. This meant that I had a strong
-                            understanding of both the design goals and the engineering framework, which let me bridge communication between the two teams!
+                            I was initially brought on as a designer, but shifted toward a more technical role as the project went on. This meant that I had a strong
+                            understanding of both the design goals and engineering framework, which put me in a unique position to bridge communication between the two teams.
                         </p><br>
                         <p>
-                            This project unfortunately suffered from a lot of gaps in communication, but I was able to spearhead efforts to improve this. Specifically, I
-                            attended both the Design and Engineering team meetings, and briefed each team on what the other was focusing on that week. I also worked with
-                            designers to create documentation for the weapons system that was easily readable by engineers, and talked to engineering to help compile a list
-                            of technical constraints on possible weapons. This allowed us to enter production with a clear sense of what kinds of weapons we wanted to build,
-                            and ultimately prevented any major pivots or confusion between teams.
+                            One way I did this was with documentation, such as the detailed spec I put together for each weapon in the game, built to be easily 
+                            by engineers but quickly editable by designers. Building in technical information like fire rate and trigger method allowed engineers to
+                            quickly implement new weapons and understand how they fit into the existing cast, while listing values as stars instead of static numbers gave
+                            them the freedom to tweak these values in response to real-time game feel.
                         </p><br>
-                        <i>A sample of my weapon documentation:</i>
                         <img src="images/BLUE_WeaponSpecs.png" alt="Weapon Documentation" class="game-image-large">
                     </div>
                 </div>

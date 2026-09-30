@@ -49,15 +49,15 @@ description: >-
                             <source src="/images/videos/Venture_climbing.mp4" type="video/mp4">
                         </video>
                         <p>
-                            I did this by focusing on a clean, simple UX first, then modifying the game feel to support the fantasy we wanted. All a player has to think about is clicking to throw two anchors,
-                            pressing E to attach to the created rope, and then moving forward to climb. Behind the scenes, though, there's a bunch of situational movement code to make this feel great. For example:
+                            I did this by focusing on the player experience first, then modifying the game feel to support the fantasy we wanted. All a player has to think about is clicking to throw two anchors,
+                            pressing a key to attach to the rope, and moving forward to climb. Behind the scenes, though, there's a bunch of situational movement code to make this work.
                         </p>
                         <ul>
                             <li>When a player attaches, I snap their position to the rope, using a quadratic ease to prevent it from feeling jarring.</li>
                             <li>Jumping off a rope propels you in the direction you're looking, while also pushing you away from walls so you don't slam into them.</li>
-                            <li>There are actually 2 kinds of ropes— horizontal ziplines, with physics-based acceleration, and vertical ropes with slower, constant speed movement. I calculate both movement deltas and then
-                                lerp between them based on angle and direction of movement so players experience a seamless transition.</li>
-                            <li>You can both throw anchors and place them directly, depending on how close you are to a wall. A situational indicator appears to show you which one will happen, and where it will place.</li>
+                            <li>Horizontal ziplines need to feel fast, while vertical ropes should convey the weight of climbing upward. The system computes two different movement deltas—horizontal
+                                acceleration and constant-speed climbing—and seamlessly lerps between them based on the angle and direction of movement.</li>
+                            <li>You can both throw anchors and place them directly, depending on how close you are to a wall. A situational indicator appears to show you which mode is available, and where the anchor will appear.</li>
                         </ul>
                     </div>
                 </div>
@@ -67,24 +67,30 @@ description: >-
                     <div>
                         <p>
                             The game is inherently co-op, so I had to build every feature in the game with multiplayer in mind. I used Unity's Netcode for GameObjects (NGO) for all of the multiplayer logic,
-                            and implemented a Steamworks transport so players can connect across any online network, not just over LAN.
+                            and implemented Steamworks Lobbies so players could easily invite their Steam friends. I based the system on a server-authoritative peer-to-peer model, making one
+                            player the host and the other the client, and using RPCs to route all replicated behavior through the host.
+                        </p>
+                        <br>
+                        <p>
+                            This was especially relevant with the save system, where data needed to match exactly across both the host and client's save files. To solve this challenge, I built a central
+                            GameManager that tracks shared data, fetches player-specific data across the network on save, and verifies the same values are passed to both players.
                         </p>
                     </div>
                 </div>
 
-                <button class="accordion-header" aria-expanded="false">UI Programming and Scanner/Journal<span>+</span></button>
+                <button class="accordion-header" aria-expanded="false">UI Engineering (Scanner/Journal)<span>+</span></button>
                 <div class="accordion-panel">
                     <div>
                         <p>
-                            I did both the UI design and programming, with a focus on minimal, situational UI; the goal was to let the 3D world shine and have relevant keybinds appear only when you need them.
+                            I did both the UI design and implementation, with a focus on minimal, situational UI; the goal was to let the 3D world shine and have relevant keybinds appear only when you need them.
                             One of my favorite UI-adjacent tasks was the scanner + journal system, which is how players learn more about the lifeforms they encounter:
                         </p>
                         <video autoplay loop muted playsinline class="game-image-large" poster="/images/videos/Venture_scanner_poster.jpg" preload="none">
                             <source src="/images/videos/Venture_scanner.mp4" type="video/mp4">
                         </video>
                         <br><p>
-                            This system is super modular, using a Scriptable Object for each lifeform and constructing the journal and scan results with whatever the current state of those objects is. This makes
-                            it easy to add new lifeforms or edit their journal entries, since all you have to do is make a new Scriptable Object or edit some text!
+                            This system was built to be fully modular, using a Scriptable Object for each lifeform and constructing the journal and scan results on runtime. This made
+                            it easy to add new lifeforms or edit their journal entries, allowing us to quickly iterate and create new lifeforms as we built additional areas.
 
                         </p>
                         <img src="images/Venture_ScannerObject1.png" alt="Journal Scriptable Objects" class="game-image-small">
